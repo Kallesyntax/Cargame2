@@ -273,7 +273,7 @@ radius = 2.31735
 
 [node name="Fire car" type="VehicleBody3D"]
 collision_mask = 31
-mass = 1500.0
+mass = 1000.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.52, 1)
 inertia = Vector3(0, 0, 2000)
@@ -352,6 +352,9 @@ transform = Transform3D(0.214935, 0, 0, 0, -1.12984e-08, 0.214935, 0, -0.258477,
 material_overlay = SubResource("StandardMaterial3D_bvq7n")
 mesh = SubResource("CylinderMesh_kirm0")
 
+[node name="FireNode" parent="Exhaust" instance=ExtResource("8_288nx")]
+transform = Transform3D(0.465257, 0, 0, 0, -1.69112e-08, -0.386882, 0, 0.465257, -2.0337e-08, -0.0162659, 1.11521, -0.0100474)
+
 [node name="Smoke" type="GPUParticles3D" parent="Exhaust"]
 transform = Transform3D(1, 0, 0, 0, 1.26287, 0, 0, -1.42109e-14, 1, 0, 1.11521, 1.19209e-07)
 material_override = SubResource("ShaderMaterial_5c8aw")
@@ -359,9 +362,6 @@ amount = 50
 lifetime = 1.2
 process_material = SubResource("ParticleProcessMaterial_ubhql")
 draw_pass_1 = SubResource("QuadMesh_le5i7")
-
-[node name="FireNode" parent="Exhaust" instance=ExtResource("8_288nx")]
-transform = Transform3D(0.465257, 0, 0, 0, -1.69112e-08, -0.386882, 0, 0.465257, -2.0337e-08, -4.5074, -11.3664, 1.41375)
 
 [node name="EngineSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mm8vr")

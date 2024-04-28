@@ -7,7 +7,7 @@ extends Control
 @onready var start_level = preload("res://Assets/Menu/stage_select.tscn") as PackedScene
 @onready var sub_viewport_container = $SubViewportContainer
 @onready var car_prieview = $SubViewportContainer/SubViewport/CarPrieview
-
+@onready var playercount = Global.selected_player_count
 
 
 var viewport_scene = preload("res://Scenes/car_prieview.tscn")
@@ -16,6 +16,7 @@ var brown_car_scene = preload("res://Scenes/Cars/brown_pickup.tscn")
 var viewport_instance
 
 func _ready():
+	print(playercount)
 	Black_car.button_down.connect(BlackCarButton_pressed)
 	Black_car.focus_entered.connect(BlackCarFocus)
 	Brown_pickup.focus_entered.connect(BrownPickupFocus)

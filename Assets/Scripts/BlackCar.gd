@@ -41,7 +41,7 @@ func _ready():
 func _physics_process(delta):	
 	driving = 0			
 	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta *2.5)
-	if ((RBW.get_rpm() < 250 && (RBW.get_rpm() > - 100)) || (boostSpeed > 1)):
+	if ((RBW.get_rpm() < 450 && (RBW.get_rpm() > - 100)) || (boostSpeed > 1)):
 		engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER + boostSpeed + slidepower
 	else:
 		engine_force = 0
