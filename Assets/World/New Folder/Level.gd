@@ -1,9 +1,11 @@
 # Level.gd
 extends Node3D
+@onready var playercount = Global.selected_player_count
 
 func _ready():
+
 	# Load the selected car scene
-	var car_scene = load(Global.selected_car_scene)
+	var car_scene = load(Global.selected_car1_scene)
 	# Ensure car_scene is not null and is indeed a PackedScene
 	if car_scene and car_scene is PackedScene:
 		var car_instance = car_scene.instantiate()
@@ -16,5 +18,6 @@ func _ready():
 		car_instance.transform = Transform3D(rotated_basis, spawn_position)
 		# Add the car instance to the level
 		add_child(car_instance)
+		
 	else:
 		print("Error: Unable to load the car scene.")
