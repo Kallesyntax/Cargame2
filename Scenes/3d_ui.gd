@@ -1,4 +1,4 @@
-extends SubViewportContainer
+extends Node
 
 #var powerUpNum 
 @onready var turbo = $SubViewportContainer/SubViewport/TurboIcon

@@ -13,12 +13,12 @@ offset_right = 995.0
 offset_bottom = 388.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_n0lxe")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
-script = ExtResource("1_n0lxe")
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
@@ -26,12 +26,18 @@ handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="TurboIcon" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 15.45, 1.31871, -24.113)
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 15.45, -18.5806, -24.113)
+layers = 524288
 mesh = ExtResource("4_ygggr")
 skeleton = NodePath("../../..")
 
 [node name="GhostIcon" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0, 8.74228e-06, 100, 100, 0, 0, 0, 100, -8.74228e-06, 0.440086, 1.31871, -24.113)
+transform = Transform3D(0, 8.74228e-06, 100, 100, 0, 0, 0, 100, -8.74228e-06, 0.440086, -18.5806, -24.113)
 visible = false
+layers = 524288
 mesh = ExtResource("3_ilsov")
 skeleton = NodePath("../../..")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.8993, 0)
+cull_mask = 524288
