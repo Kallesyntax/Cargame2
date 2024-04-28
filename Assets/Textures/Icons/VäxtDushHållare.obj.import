@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cisvqh0enhue8"
+path="res://.godot/imported/VäxtDushHållare.obj-ce8b942e630af71d6ed24bb34c163790.mesh"
+
+[deps]
+
+files=["res://.godot/imported/VäxtDushHållare.obj-ce8b942e630af71d6ed24bb34c163790.mesh"]
+
+source_file="res://Assets/Textures/Icons/VäxtDushHållare.obj"
+dest_files=["res://.godot/imported/VäxtDushHållare.obj-ce8b942e630af71d6ed24bb34c163790.mesh", "res://.godot/imported/VäxtDushHållare.obj-ce8b942e630af71d6ed24bb34c163790.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

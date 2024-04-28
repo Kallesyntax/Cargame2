@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfm1cjl6l8a8b"]
+
+[ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="1_psinr"]
+
+[node name="SmallWheel" instance=ExtResource("1_psinr")]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bugxuyy7f3x87"
+path="res://.godot/imported/Turbo.obj-752ddd6fe105464a297d17e73694f969.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Turbo.obj-752ddd6fe105464a297d17e73694f969.mesh"]
+
+source_file="res://Assets/Textures/Icons/Turbo.obj"
+dest_files=["res://.godot/imported/Turbo.obj-752ddd6fe105464a297d17e73694f969.mesh", "res://.godot/imported/Turbo.obj-752ddd6fe105464a297d17e73694f969.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

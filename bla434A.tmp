@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2om4dloldg1e"]
+
+[ext_resource type="PackedScene" uid="uid://b47gfnkoxhb58" path="res://Assets/Cars/BlackCar.glb" id="1_32m4c"]
+[ext_resource type="Script" path="res://SportBlack1.gd" id="2_5n02o"]
+[ext_resource type="PackedScene" uid="uid://14ulvkacgcv" path="res://Assets/Wheels/SmallWheel.glb" id="3_pdd2i"]
+
+[sub_resource type="GDScript" id="GDScript_jlq1x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5dat"]
+size = Vector3(1, 2.57997, 1.15756)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y522k"]
+
+[node name="BlackCar" instance=ExtResource("1_32m4c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116088, 0.276158, -0.372351)
+script = SubResource("GDScript_jlq1x")
+
+[node name="SportBlack1" parent="." index="0"]
+transform = Transform3D(1.8785, 0, 0, 0, 1, 0, 0, 0, 4.15771, 0, 0, 0.309769)
+script = ExtResource("2_5n02o")
+
+[node name="FrontLeftWheel" parent="SportBlack1" index="0" instance=ExtResource("3_pdd2i")]
+transform = Transform3D(0.532339, 0, 0, 0, 1, 0, 0, 0, 0.240517, 1.11194, -0.246652, 0.594111)
+
+[node name="FrontRightWheel" parent="SportBlack1" index="1" instance=ExtResource("3_pdd2i")]
+transform = Transform3D(-0.532339, 0, -4.65386e-08, 0, 1, 0, 2.10267e-08, 0, -0.240517, -1.11206, -0.247, 0.594132)
+
+[node name="BackRightWheel" parent="SportBlack1" index="2" instance=ExtResource("3_pdd2i")]
+transform = Transform3D(-0.532339, 0, -4.65386e-08, 0, 1, 0, 2.10267e-08, 0, -0.240517, -1.11206, -0.247, -0.721039)
+
+[node name="BackRightWheel2" parent="SportBlack1" index="3" instance=ExtResource("3_pdd2i")]
+transform = Transform3D(0.532339, 0, 0, 0, 1, 0, 0, 0, 0.240517, 1.11206, -0.247, -0.721014)
+
+[node name="BodyCollition" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(3.88982, 0, 0, 0, 0.938266, 0, 0, 0, 7.22396, 0, 0.747904, 0.523432)
+shape = SubResource("BoxShape3D_o5dat")
+
+[node name="FronWheelCollition" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(-5.40911e-08, -1.97678, 0, 1.23746, -8.64076e-08, 0, 0, 0, 1.295, 0, -0.249406, 2.78142)
+shape = SubResource("CylinderShape3D_y522k")
+
+[node name="BackWheelCollition" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(-5.40911e-08, -2.13485, 0, 1.23746, -9.33171e-08, 0, 0, 0, 1.295, 0, -0.249406, -2.69086)
+shape = SubResource("CylinderShape3D_y522k")
+
+[node name="Node3D" type="Node3D" parent="." index="4"]

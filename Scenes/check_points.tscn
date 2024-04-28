@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://crrnpxlyrkqhi"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Checkpoint.gd" id="1_ue8hd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8jcia"]
+size = Vector3(60, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymm6j"]
+blend_mode = 1
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_86b5b"]
+size = Vector2(60, 2)
+subdivide_width = 1
+
+[node name="CheckPoint" type="Area3D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_ue8hd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_8jcia")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ymm6j")
+mesh = SubResource("QuadMesh_86b5b")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

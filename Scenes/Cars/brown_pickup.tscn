@@ -1,0 +1,217 @@
+[gd_scene load_steps=22 format=3 uid="uid://co7ws04crmvp"]
+
+[ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="1_4wfx5"]
+[ext_resource type="Script" path="res://Assets/Scripts/BlackCar.gd" id="1_11mac"]
+[ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="2_jjo6w"]
+[ext_resource type="Shader" uid="uid://50icn11ggqc3" path="res://Assets/Shaders/aura_shader.tres" id="3_yejf2"]
+[ext_resource type="Texture2D" uid="uid://cuoiw06a84y4g" path="res://Assets/Textures/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg" id="4_ukxrf"]
+[ext_resource type="PackedScene" uid="uid://crj1e3j1dxcvl" path="res://Scenes/state.tscn" id="6_8op2s"]
+[ext_resource type="AudioStream" uid="uid://de2qogpkpgc0a" path="res://Assets/Textures/rally-car-idle-loop-17-84405.mp3" id="6_crl5q"]
+[ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="7_ox3xf"]
+[ext_resource type="PackedScene" uid="uid://c6xhw0qh8eg21" path="res://Scenes/3d_ui.tscn" id="8_eu4jt"]
+[ext_resource type="Script" path="res://Scenes/Cars/Checkerpointer.gd" id="10_tgo3v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4jbgr"]
+radius = 1.4
+height = 9.216
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g87td"]
+albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_adi3t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lll4g"]
+transparency = 1
+blend_mode = 3
+shading_mode = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uxlj7"]
+render_priority = 0
+shader = ExtResource("3_yejf2")
+shader_parameter/AuraColor = Color(0, 0, 0, 1)
+shader_parameter/ColorIntensity = 2.0
+shader_parameter/TextureScrolling = null
+shader_parameter/GradiantPower = 1.0
+shader_parameter/Texture2DParameter = ExtResource("4_ukxrf")
+
+[sub_resource type="Curve" id="Curve_sra1a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504931, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.491222), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8t8ox"]
+curve = SubResource("Curve_sra1a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3h2ap"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 2, 0)
+linear_accel_max = 1.0
+radial_accel_max = 0.5
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_8t8ox")
+turbulence_enabled = true
+turbulence_noise_strength = 0.5
+turbulence_noise_scale = 1.0
+
+[sub_resource type="Curve" id="Curve_kebgv"]
+_data = [Vector2(0, 0.204716), 0.0, 6.65205, 0, 0, Vector2(0.337662, 1), 0.129446, 0.129446, 0, 0, Vector2(0.602969, 1), 0.0, 0.0, 0, 0, Vector2(0.998145, 0.280246), -4.78949, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_2cp8u"]
+curve = SubResource("Curve_kebgv")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wj5gm"]
+height = 7.79918
+radius = 2.31735
+
+[node name="Brown_pickup" type="VehicleBody3D"]
+collision_mask = 31
+mass = 800.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.52, 0.98)
+script = ExtResource("1_11mac")
+
+[node name="camera_pivot" type="Node3D" parent="."]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="camera_pivot"]
+transform = Transform3D(-1, 1.25718e-08, -8.65141e-08, 0, 0.989606, 0.143804, 8.74228e-08, 0.143804, -0.989606, -9.29849e-07, 4.03158, -10.6363)
+size = 23.944
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.81077e-16, 0.815785, 0.547596)
+shape = SubResource("CapsuleShape3D_4jbgr")
+
+[node name="CarMesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_4wfx5")
+skeleton = NodePath("../..")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46437, -0.391629, 3.29216)
+brake = 50.0
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.015
+wheel_radius = 0.7
+wheel_rest_length = 0.1
+wheel_friction_slip = 1.0
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+damping_compression = 1.0
+
+[node name="SmallWheel" parent="VehicleWheel3D" instance=ExtResource("2_jjo6w")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RFW" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.464, -0.392, 3.292)
+brake = 50.0
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.015
+wheel_radius = 0.7
+wheel_rest_length = 0.1
+wheel_friction_slip = 1.0
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+damping_compression = 1.0
+
+[node name="SmallWheel" parent="RFW" instance=ExtResource("2_jjo6w")]
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46437, -0.391629, -2.0832)
+brake = 50.0
+use_as_traction = true
+wheel_roll_influence = 0.015
+wheel_radius = 0.7
+wheel_rest_length = 0.1
+wheel_friction_slip = 1.0
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+damping_compression = 1.0
+
+[node name="SmallWheel" parent="VehicleWheel3D2" instance=ExtResource("2_jjo6w")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RBW" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.464, -0.392, -2.083)
+brake = 50.0
+use_as_traction = true
+wheel_roll_influence = 0.015
+wheel_radius = 0.7
+wheel_rest_length = 0.1
+wheel_friction_slip = 1.0
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+damping_compression = 1.0
+
+[node name="SmallWheel" parent="RBW" instance=ExtResource("2_jjo6w")]
+
+[node name="Exhaust" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.214935, 0, 0, 0, -1.12984e-08, 0.214935, 0, -0.258477, -9.39513e-09, 1.09997, 0.165849, -3.96246)
+material_overlay = SubResource("StandardMaterial3D_g87td")
+mesh = SubResource("CylinderMesh_adi3t")
+
+[node name="Smoke" type="GPUParticles3D" parent="Exhaust"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -3.55271e-15, 1, 0, 1.30913, 0)
+material_override = SubResource("StandardMaterial3D_lll4g")
+material_overlay = SubResource("ShaderMaterial_uxlj7")
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_3h2ap")
+draw_pass_1 = SubResource("RibbonTrailMesh_2cp8u")
+
+[node name="EngineSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_crl5q")
+volume_db = -12.0
+autoplay = true
+
+[node name="Area3Du" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14276)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3Du"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 0.885158)
+shape = SubResource("CylinderShape3D_wj5gm")
+
+[node name="CheckpointChecker" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14276)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckpointChecker"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 0.885158)
+shape = SubResource("CylinderShape3D_wj5gm")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="state" parent="." node_paths=PackedStringArray("fire", "car") instance=ExtResource("6_8op2s")]
+fire = NodePath("../FireNode2")
+car = NodePath("..")
+
+[node name="FireNode2" parent="." instance=ExtResource("7_ox3xf")]
+transform = Transform3D(-3.3763e-08, 0, -1.78536, 0, 1.40781, 0, 0.772408, 0, -7.80406e-08, 1.11405, 0.167325, -4.22943)
+
+[node name="3dUi" parent="." instance=ExtResource("8_eu4jt")]
+offset_left = 577.0
+offset_top = -68.0
+offset_right = -511.0
+offset_bottom = -356.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="centerOfMass" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.976106)
+visible = false
+
+[node name="Checkerpointer" type="Node" parent="."]
+script = ExtResource("10_tgo3v")
+
+[connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
+[connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]
+[connection signal="timeout" from="Timer" to="state" method="_on_timer_timeout"]

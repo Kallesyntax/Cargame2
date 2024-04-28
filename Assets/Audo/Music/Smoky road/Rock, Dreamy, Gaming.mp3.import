@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bik3tp7mdjg4e"
+path="res://.godot/imported/Rock, Dreamy, Gaming.mp3-80fbdac3cad1d4f5db9d9064e7eb8d2d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audo/Music/Smoky road/Rock, Dreamy, Gaming.mp3"
+dest_files=["res://.godot/imported/Rock, Dreamy, Gaming.mp3-80fbdac3cad1d4f5db9d9064e7eb8d2d.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=14.0
+bpm=100.0
+beat_count=90
+bar_beats=2

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://crj1e3j1dxcvl"]
+
+[ext_resource type="Script" path="res://Scenes/state.gd" id="1_mqwum"]
+
+[node name="statemachine_player" type="Node"]
+script = ExtResource("1_mqwum")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

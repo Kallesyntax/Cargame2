@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://8gifv3b13ict"]
+
+[ext_resource type="Script" path="res://Scenes/car_prieview.gd" id="1_bukb8"]
+[ext_resource type="ArrayMesh" uid="uid://bovnbleak7old" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_gn3kb"]
+[ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="3_j5cex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b33qh"]
+albedo_color = Color(1, 0.788235, 0.419608, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yiif8"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wusra"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="CarPrieview" type="Node3D"]
+script = ExtResource("1_bukb8")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.948301, 0.317371, 0, -0.317371, 0.948301, 0, 1.06408, 3.12709)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.934069, -0.216205, 0.284202, 0.0464276, 0.86265, 0.503666, -0.354062, -0.457264, 0.815813, 3.63937, 6.27621, 10.1285)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer"]
+transform = Transform3D(10.4712, 0, 0, 0, 1, 0, 0, 0, 12.3045, 0, -1.19416, 0)
+material_override = SubResource("StandardMaterial3D_b33qh")
+mesh = SubResource("PlaneMesh_yiif8")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -7.63244, 0, 1, -3.33625e-07, 0, 7.13221, -1.02423)
+material_override = SubResource("StandardMaterial3D_b33qh")
+mesh = SubResource("PlaneMesh_yiif8")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewportContainer/MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 3.55271e-14, -7.63244, -1, -4.37114e-08, -3.33625e-07, -1.07216, 7.13221, -0.109309)
+material_override = SubResource("StandardMaterial3D_b33qh")
+mesh = SubResource("PlaneMesh_yiif8")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SubViewportContainer/MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 3.55271e-14, -7.63244, 1, -4.37114e-08, -3.33625e-07, 1.02072, 7.13221, -0.109309)
+material_override = SubResource("StandardMaterial3D_b33qh")
+mesh = SubResource("PlaneMesh_yiif8")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wusra")
+
+[node name="BlackCar1Mesh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("2_gn3kb")
+
+[node name="BrownPickup" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("3_j5cex")
