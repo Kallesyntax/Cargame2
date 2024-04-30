@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://crj1e3j1dxcvl" path="res://Scenes/state.tscn" id="6_8op2s"]
 [ext_resource type="AudioStream" uid="uid://de2qogpkpgc0a" path="res://Assets/Textures/rally-car-idle-loop-17-84405.mp3" id="6_crl5q"]
 [ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="7_ox3xf"]
-[ext_resource type="PackedScene" uid="uid://c6xhw0qh8eg21" path="res://Scenes/3d_ui.tscn" id="8_eu4jt"]
+[ext_resource type="PackedScene" uid="uid://cj2qykdmmdchp" path="res://Scenes/3d_ui.tscn" id="8_eu4jt"]
 [ext_resource type="Script" path="res://Scenes/Cars/Checkerpointer.gd" id="10_tgo3v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4jbgr"]
@@ -202,8 +202,6 @@ offset_left = 577.0
 offset_top = -68.0
 offset_right = -511.0
 offset_bottom = -356.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="centerOfMass" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.976106)

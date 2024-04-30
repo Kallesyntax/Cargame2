@@ -12,9 +12,8 @@
 [ext_resource type="Script" path="res://Scenes/Cars/Checkerpointer.gd" id="10_ig15x"]
 [ext_resource type="Script" path="res://Assets/Scripts/Speedometer.gd" id="11_35b08"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ohoa6"]
-radius = 1.4
-height = 9.216
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pqt3v"]
+points = PackedVector3Array(2.26417, 1.09366, 2.18731, 2.26417, 0.974288, 2.18731, 2.26417, 1.09366, 2.06819, 1.66044, 1.8828, 0.446611, 1.58686, 1.97387, 0.257673, 1.63606, 0.999767, 4.22784, 1.72028, 0.746393, 4.28534, 1.81913, 0.124989, 4.18923, 1.87808, -0.436257, 1.31326, 2.26417, 0.974288, 2.06819, 1.81913, -0.165896, 4.18923, 1.87853, 0.124989, -2.9132, 1.87808, 1.12952, -2.43018, 1.71319, 1.4867, -2.93127, 1.66044, 1.8828, -1.81161, -1.58737, 1.97387, 0.257673, 0.817791, 0.999767, 4.74701, 1.58686, 1.97387, -1.61199, -3.45707e-05, 0.600597, 5.267, -3.45707e-05, 0.124989, 5.34093, 1.7256, 0.124989, 4.28781, 1.63606, -0.436257, 4.22784, 1.87808, -0.436257, -2.43018, 1.87853, -0.165896, -2.9132, 1.7256, -0.165896, 4.28781, 1.80849, 0.746393, -3.05121, -1.7137, 1.4867, -2.93127, -1.66095, 1.8828, 0.446611, -2.26424, 1.09366, 2.18731, -1.63657, 0.999767, 4.22784, -0.818304, 0.999767, 4.74701, -1.58737, 1.97387, -1.61199, -1.72079, 0.746393, 4.28534, -3.45707e-05, -0.165896, 5.34093, -1.72611, 0.124989, 4.28781, -3.45707e-05, -0.436257, 5.267, 1.78012, -0.436257, -2.95756, 1.785, -0.165896, -3.01178, 1.80849, 0.562378, -3.05121, -1.809, 0.746393, -3.05121, -1.8786, 1.12952, -2.43018, -2.26424, 1.09366, 2.06819, -1.66095, 1.8828, -1.81161, -1.81964, 0.124989, 4.18923, -2.26424, 0.974288, 2.18731, -1.72611, -0.165896, 4.28781, -1.63657, -0.436257, 4.22784, -1.78063, -0.436257, -2.95756, -3.45707e-05, -0.165896, -3.03396, 1.6959, -0.165896, -3.02492, -1.809, 0.562378, -3.05121, -1.87904, 0.124989, -2.9132, -2.26424, 0.974288, 2.06819, -1.81964, -0.165896, 4.18923, -1.8786, -0.436257, 1.31326, -1.87904, -0.165896, -2.9132, -1.78551, -0.165896, -3.01178, -1.69641, -0.165896, -3.02492, -1.8786, -0.436257, -2.43018)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvq7n"]
 albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
@@ -273,10 +272,11 @@ radius = 2.31735
 
 [node name="Fire car" type="VehicleBody3D"]
 collision_mask = 31
-mass = 1000.0
+mass = 600.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.52, 1)
 inertia = Vector3(0, 0, 2000)
+brake = 10.0
 script = ExtResource("1_k2s8t")
 powerUpNum = 1
 
@@ -287,65 +287,72 @@ top_level = true
 transform = Transform3D(-1, 1.25718e-08, -8.65141e-08, 0, 0.989606, 0.143804, 8.74228e-08, 0.143804, -0.989606, -9.29849e-07, 4.03158, -10.6363)
 size = 23.944
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.81077e-16, 0.815785, 0.547596)
-shape = SubResource("CapsuleShape3D_ohoa6")
-
 [node name="CarMesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_qfufb")
 skeleton = NodePath("../..")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_pqt3v")
+
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46437, -0.391629, 3.29216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.0750705, 3.29216)
+brake = 10.0
 use_as_traction = true
 use_as_steering = true
+wheel_roll_influence = 0.0
 wheel_radius = 0.7
-wheel_rest_length = 0.2
-wheel_friction_slip = 1.0
-suspension_stiffness = 30.0
+wheel_rest_length = 0.5
+wheel_friction_slip = 1.4
+suspension_stiffness = 120.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
 
 [node name="SmallWheel" parent="VehicleWheel3D" instance=ExtResource("3_8prwf")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RFW" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.464, -0.392, 3.292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.0754415, 3.292)
+brake = 10.0
 use_as_traction = true
 use_as_steering = true
+wheel_roll_influence = 0.0
 wheel_radius = 0.7
-wheel_rest_length = 0.2
-wheel_friction_slip = 1.0
-suspension_stiffness = 30.0
+wheel_rest_length = 0.5
+wheel_friction_slip = 1.4
+suspension_stiffness = 120.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
 
 [node name="SmallWheel" parent="RFW" instance=ExtResource("3_8prwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46437, -0.391629, -2.0832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.0750705, -2.0832)
+brake = 10.0
 use_as_traction = true
 wheel_roll_influence = 0.0
 wheel_radius = 0.7
-wheel_rest_length = 0.1
+wheel_rest_length = 0.5
 wheel_friction_slip = 1.0
-suspension_stiffness = 30.0
+suspension_stiffness = 80.0
 suspension_max_force = 8000.0
 
 [node name="SmallWheel" parent="VehicleWheel3D2" instance=ExtResource("3_8prwf")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RBW" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.464, -0.392, -2.083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.0754415, -2.083)
+brake = 10.0
 use_as_traction = true
 wheel_roll_influence = 0.0
 wheel_radius = 0.7
-wheel_rest_length = 0.1
+wheel_rest_length = 0.5
 wheel_friction_slip = 1.0
-suspension_stiffness = 30.0
+suspension_stiffness = 80.0
 suspension_max_force = 8000.0
 
 [node name="SmallWheel" parent="RBW" instance=ExtResource("3_8prwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
 
 [node name="Exhaust" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.214935, 0, 0, 0, -1.12984e-08, 0.214935, 0, -0.258477, -9.39513e-09, 0.952532, -0.303864, -2.94799)
