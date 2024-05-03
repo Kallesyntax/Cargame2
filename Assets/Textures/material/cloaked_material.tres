@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cynyy74og83t8"]
+
+[ext_resource type="Shader" uid="uid://bwr8dr7vrvvv6" path="res://Assets/Textures/material/cloaked_shader.tres" id="1_0308i"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0308i")
+shader_parameter/sharpness = 4.0
+shader_parameter/ColorParameter = Color(0.00392157, 0.196078, 1, 1)
+shader_parameter/amount = 2.9
