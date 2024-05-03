@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://c5xj5tqpbk2t8"]
+[gd_scene load_steps=41 format=3 uid="uid://c5xj5tqpbk2t8"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/BlackCar.gd" id="1_k2s8t"]
 [ext_resource type="ArrayMesh" uid="uid://bovnbleak7old" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_qfufb"]
 [ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="3_8prwf"]
+[ext_resource type="Material" uid="uid://cynyy74og83t8" path="res://Assets/Textures/material/cloaked_material.tres" id="3_puwsp"]
 [ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="4_netj6"]
 [ext_resource type="Texture2D" uid="uid://ccop6o7lvbjhp" path="res://Assets/Textures/BallGradient.png" id="5_35jcy"]
 [ext_resource type="AudioStream" uid="uid://de2qogpkpgc0a" path="res://Assets/Textures/rally-car-idle-loop-17-84405.mp3" id="6_mm8vr"]
@@ -287,6 +288,11 @@ top_level = true
 transform = Transform3D(-1, 1.25718e-08, -8.65141e-08, 0, 0.989606, 0.143804, 8.74228e-08, 0.143804, -0.989606, -9.29849e-07, 4.03158, -10.6363)
 size = 23.944
 
+[node name="GhostMesh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("2_qfufb")
+surface_material_override/0 = ExtResource("3_puwsp")
+
 [node name="CarMesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_qfufb")
 skeleton = NodePath("../..")
@@ -299,11 +305,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.0750705, 3.29216)
 brake = 10.0
 use_as_traction = true
 use_as_steering = true
-wheel_roll_influence = 0.0
+wheel_roll_influence = 1.0
 wheel_radius = 0.7
 wheel_rest_length = 0.5
 wheel_friction_slip = 1.4
-suspension_stiffness = 120.0
+suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
 
@@ -315,11 +321,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.0754415, 3.292)
 brake = 10.0
 use_as_traction = true
 use_as_steering = true
-wheel_roll_influence = 0.0
+wheel_roll_influence = 1.0
 wheel_radius = 0.7
 wheel_rest_length = 0.5
 wheel_friction_slip = 1.4
-suspension_stiffness = 120.0
+suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
 
@@ -330,11 +336,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.0750705, -2.0832)
 brake = 10.0
 use_as_traction = true
-wheel_roll_influence = 0.0
+wheel_roll_influence = 0.15
 wheel_radius = 0.7
 wheel_rest_length = 0.5
 wheel_friction_slip = 1.0
-suspension_stiffness = 80.0
+suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 
 [node name="SmallWheel" parent="VehicleWheel3D2" instance=ExtResource("3_8prwf")]
@@ -344,11 +350,11 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.0754415, -2.083)
 brake = 10.0
 use_as_traction = true
-wheel_roll_influence = 0.0
+wheel_roll_influence = 0.15
 wheel_radius = 0.7
 wheel_rest_length = 0.5
 wheel_friction_slip = 1.0
-suspension_stiffness = 80.0
+suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 
 [node name="SmallWheel" parent="RBW" instance=ExtResource("3_8prwf")]
@@ -410,21 +416,32 @@ script = ExtResource("10_ig15x")
 [node name="SpeedoMeter" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 22.0
+offset_top = 7.0
+offset_right = 62.0
+offset_bottom = 47.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="SpeedoMeter" node_paths=PackedStringArray("speedWheel")]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 761.0
-offset_right = 517.0
-offset_bottom = 1273.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 598.0
+offset_top = 21.0
+offset_right = 1110.0
+offset_bottom = 533.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("11_35b08")
 speedWheel = NodePath("../../RBW")
 
 [node name="SubViewport" type="SubViewport" parent="SpeedoMeter/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Label" type="Label" parent="SpeedoMeter/SubViewportContainer/SubViewport"]
