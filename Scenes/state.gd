@@ -54,8 +54,7 @@ func powerUp():
 		if (powerUpID.powerUpNum == 2):
 			timer.start(5)
 			print("Ghost")	
-			car.set_collision_mask_value(4,0)
-			car.set_collision_mask_value(5,0)
+			car.set_collision_layer_value(4,0)
 			print(car.collision_mask)			
 			carmesh.visible = 0
 			ghost_mesh.visible = 1
@@ -64,8 +63,7 @@ func powerUp():
 	
 	
 func _on_timer_timeout():
-	car.set_collision_mask_value(4,1)
-	car.set_collision_mask_value(5,1)
+	car.set_collision_layer_value(4,1)	
 	carmesh.visible = 1
 	ghost_mesh.visible = 0		
 	timer.stop()

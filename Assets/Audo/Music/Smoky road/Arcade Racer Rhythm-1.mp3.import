@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Arcade Racer Rhythm-1.mp3-94ff1dd8ae75a397ab7
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
-beat_count=0
+loop=true
+loop_offset=0.0
+bpm=120.0
+beat_count=160
 bar_beats=4

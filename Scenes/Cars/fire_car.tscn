@@ -21,78 +21,78 @@ albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kirm0"]
 
-[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_t70q6"]
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_cm21w"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
 op_type = 5
 
-[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_ql3ee"]
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_72x3f"]
 parameter_name = "DisolveAmmount"
 hint = 1
 
-[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_8c4vp"]
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_p700y"]
 
-[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_k42t7"]
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_0nyum"]
 parameter_name = "DisolveSpeed"
 
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qfd0s"]
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_au4rv"]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_631a6"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_7d5tc"]
 default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
 op_type = 0
 operator = 2
 
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_a52hu"]
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_r1hai"]
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_or4c0"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_aj235"]
 default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
 op_type = 0
 operator = 2
 
-[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_k43s5"]
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_2r6n7"]
 parameter_name = "Disolve_tile"
 default_value_enabled = true
 default_value = Vector2(1, 1)
 
-[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_jos15"]
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_m2fgk"]
 parameter_name = "ColorRemove"
 
-[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_pi22h"]
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_1try5"]
 parameter_name = "MainTexture"
 texture_type = 1
 color_default = 1
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_kag1r"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ebm1d"]
 source = 5
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_5anue"]
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_s38vr"]
 default_input_values = [0, Quaternion(0, 0, 0, 0)]
 op_type = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_gd1f2"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_3uacb"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 operator = 2
 
-[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_7s3k6"]
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_ptch2"]
 parameter_name = "Disolve"
 texture_type = 1
 color_default = 1
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_wwb60"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_stle1"]
 source = 5
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_14dgq"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_d2xuf"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 operator = 2
 
-[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_sh7gg"]
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_t7588"]
 billboard_type = 3
 keep_scale = true
 
-[sub_resource type="VisualShader" id="VisualShader_1jrnf"]
+[sub_resource type="VisualShader" id="VisualShader_5xlo8"]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
 
@@ -199,49 +199,49 @@ void fragment() {
 graph_offset = Vector2(-357.203, -454.974)
 flags/unshaded = true
 nodes/vertex/0/position = Vector2(1300, 20)
-nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_sh7gg")
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_t7588")
 nodes/vertex/2/position = Vector2(761.863, 64.6223)
 nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
 nodes/fragment/0/position = Vector2(1340, -40)
-nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_pi22h")
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_1try5")
 nodes/fragment/2/position = Vector2(80, -220)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_kag1r")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_ebm1d")
 nodes/fragment/3/position = Vector2(520, 40)
-nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_5anue")
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_s38vr")
 nodes/fragment/4/position = Vector2(1140, 40)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_gd1f2")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_3uacb")
 nodes/fragment/6/position = Vector2(1060, -220)
-nodes/fragment/7/node = SubResource("VisualShaderNodeTexture2DParameter_7s3k6")
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture2DParameter_ptch2")
 nodes/fragment/7/position = Vector2(-80, 740)
-nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_wwb60")
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_stle1")
 nodes/fragment/8/position = Vector2(620, 580)
-nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_14dgq")
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_d2xuf")
 nodes/fragment/9/position = Vector2(760, 240)
-nodes/fragment/10/node = SubResource("VisualShaderNodeMix_t70q6")
+nodes/fragment/10/node = SubResource("VisualShaderNodeMix_cm21w")
 nodes/fragment/10/position = Vector2(900, -60)
-nodes/fragment/11/node = SubResource("VisualShaderNodeFloatParameter_ql3ee")
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatParameter_72x3f")
 nodes/fragment/11/position = Vector2(520, -220)
-nodes/fragment/12/node = SubResource("VisualShaderNodeUVFunc_8c4vp")
+nodes/fragment/12/node = SubResource("VisualShaderNodeUVFunc_p700y")
 nodes/fragment/12/position = Vector2(360, 500)
-nodes/fragment/13/node = SubResource("VisualShaderNodeVec2Parameter_k42t7")
+nodes/fragment/13/node = SubResource("VisualShaderNodeVec2Parameter_0nyum")
 nodes/fragment/13/position = Vector2(-280, 460)
-nodes/fragment/14/node = SubResource("VisualShaderNodeInput_qfd0s")
+nodes/fragment/14/node = SubResource("VisualShaderNodeInput_au4rv")
 nodes/fragment/14/position = Vector2(-280, 380)
-nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_631a6")
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_7d5tc")
 nodes/fragment/15/position = Vector2(80, 380)
-nodes/fragment/16/node = SubResource("VisualShaderNodeInput_a52hu")
+nodes/fragment/16/node = SubResource("VisualShaderNodeInput_r1hai")
 nodes/fragment/16/position = Vector2(-300, 60)
-nodes/fragment/17/node = SubResource("VisualShaderNodeVectorOp_or4c0")
+nodes/fragment/17/node = SubResource("VisualShaderNodeVectorOp_aj235")
 nodes/fragment/17/position = Vector2(160, 100)
-nodes/fragment/18/node = SubResource("VisualShaderNodeVec2Parameter_k43s5")
+nodes/fragment/18/node = SubResource("VisualShaderNodeVec2Parameter_2r6n7")
 nodes/fragment/18/position = Vector2(-260, 140)
-nodes/fragment/19/node = SubResource("VisualShaderNodeColorParameter_jos15")
+nodes/fragment/19/node = SubResource("VisualShaderNodeColorParameter_m2fgk")
 nodes/fragment/19/position = Vector2(760, -440)
 nodes/fragment/connections = PackedInt32Array(7, 0, 8, 2, 8, 0, 9, 1, 3, 0, 10, 0, 9, 0, 10, 1, 10, 0, 6, 1, 11, 0, 10, 2, 12, 0, 8, 0, 13, 0, 15, 1, 15, 0, 12, 2, 18, 0, 17, 1, 17, 0, 12, 0, 16, 0, 17, 0, 14, 0, 15, 0, 2, 0, 3, 2, 6, 0, 4, 0, 3, 0, 9, 0, 6, 0, 0, 0, 19, 0, 6, 0, 4, 2, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5c8aw"]
 render_priority = -1
-shader = SubResource("VisualShader_1jrnf")
+shader = SubResource("VisualShader_5xlo8")
 shader_parameter/ColorRemove = Color(1, 1, 1, 1)
 shader_parameter/Disolve_tile = Vector2(0.1, 0.1)
 shader_parameter/DisolveSpeed = Vector2(0.01, 0.03)
@@ -253,7 +253,7 @@ shader_parameter/Disolve = ExtResource("4_netj6")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.956608, 0.97147), 0.0, 0.0, 0, 0, Vector2(0.994083, 0.98098), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_3u2ck"]
+[sub_resource type="CurveTexture" id="CurveTexture_slgko"]
 curve = SubResource("Curve_rqttp")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ubhql"]
@@ -262,7 +262,7 @@ angle_max = 180.0
 gravity = Vector3(0, 2, 0)
 scale_min = 0.3
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_3u2ck")
+scale_curve = SubResource("CurveTexture_slgko")
 color = Color(0, 0, 0, 0.643137)
 
 [sub_resource type="QuadMesh" id="QuadMesh_le5i7"]
@@ -272,14 +272,14 @@ height = 7.79918
 radius = 2.31735
 
 [node name="Fire car" type="VehicleBody3D"]
-collision_mask = 31
+collision_layer = 9
+collision_mask = 23
 mass = 600.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.52, 1)
 inertia = Vector3(0, 0, 2000)
 brake = 10.0
 script = ExtResource("1_k2s8t")
-powerUpNum = 1
 
 [node name="camera_pivot" type="Node3D" parent="."]
 top_level = true
@@ -367,12 +367,12 @@ mesh = SubResource("CylinderMesh_kirm0")
 
 [node name="FireNode" parent="Exhaust" instance=ExtResource("8_288nx")]
 transform = Transform3D(0.465257, 0, 0, 0, -1.69112e-08, -0.386882, 0, 0.465257, -2.0337e-08, -0.0162659, 1.11521, -0.0100474)
+visible = false
 
 [node name="Smoke" type="GPUParticles3D" parent="Exhaust"]
 transform = Transform3D(1, 0, 0, 0, 1.26287, 0, 0, -1.42109e-14, 1, 0, 1.11521, 1.19209e-07)
 material_override = SubResource("ShaderMaterial_5c8aw")
-amount = 50
-lifetime = 1.2
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_ubhql")
 draw_pass_1 = SubResource("QuadMesh_le5i7")
 

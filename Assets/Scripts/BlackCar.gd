@@ -1,7 +1,7 @@
 extends VehicleBody3D
 
 const MAX_STEER = 0.8
-const ENGINE_POWER = 3500
+const ENGINE_POWER = 1500
 
 @onready var start_level = preload("res://Assets/Menu/car_select.tscn") as PackedScene
 
@@ -55,7 +55,7 @@ func _physics_process(delta):
 		get_tree().change_scene_to_packed(start_level)
 		
 	if (Input.is_action_pressed("Throttle")):		
-		smoke_emitt.lifetime = 0.5				
+		smoke_emitt.lifetime = 1				
 		driving =1		
 		if engine_sound.pitch_scale < 2:
 			engine_sound.pitch_scale = engine_sound.pitch_scale +1*delta
