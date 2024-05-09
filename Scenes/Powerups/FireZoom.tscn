@@ -23,6 +23,7 @@ shader_parameter/MainTexture = ExtResource("4_dmwrw")
 shader_parameter/Disolve = ExtResource("3_kqv5j")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sxrxp"]
+resource_local_to_scene = true
 gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.2
@@ -51,7 +52,7 @@ emission_shape = 1
 emission_sphere_radius = 0.2
 angle_min = -180.0
 angle_max = 180.0
-gravity = Vector3(0, 3, 0)
+gravity = Vector3(0, 1, 0)
 scale_min = 0.75
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_3u2ck")
@@ -353,7 +354,8 @@ draw_pass_1 = SubResource("QuadMesh_blihm")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="FIreEffekt"]
 material_override = SubResource("ShaderMaterial_ykf7k")
 amount = 50
-lifetime = 1.2
+lifetime = 0.5
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_wys3f")
 draw_pass_1 = SubResource("QuadMesh_cywu2")
 

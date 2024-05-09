@@ -4,7 +4,7 @@ extends Control
 
 @onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/Start_Button as Button
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button as Button
-@onready var start_level = preload("res://Assets/Menu/car_select.tscn") as PackedScene
+@onready var start_level = preload("res://Assets/Menu/player_select.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_pressed)

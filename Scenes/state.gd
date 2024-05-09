@@ -11,7 +11,7 @@ var state = States.IDLE
 
 @export var fire : Node
 @export var car : VehicleBody3D
-
+@onready var ghost_mesh = $"../GhostMesh"
 @onready var icon = $"../3d_ui"
 @onready var powerUpID = $".."
 @onready var carmesh = $"../CarMesh"
@@ -54,18 +54,18 @@ func powerUp():
 		if (powerUpID.powerUpNum == 2):
 			timer.start(5)
 			print("Ghost")	
-			car.set_collision_mask_value(4,0)
-			car.set_collision_mask_value(5,0)
+			car.set_collision_layer_value(4,0)
 			print(car.collision_mask)			
-			carmesh.transparency = 0.1
+			carmesh.visible = 0
+			ghost_mesh.visible = 1
 			change_state(States.IDLE)
 		powerUpID.powerUpNum = 0
 	
 	
 func _on_timer_timeout():
-	car.set_collision_mask_value(4,1)
-	car.set_collision_mask_value(5,1)
-	carmesh.transparency = 0	
+	car.set_collision_layer_value(4,1)	
+	carmesh.visible = 1
+	ghost_mesh.visible = 0		
 	timer.stop()
 	fire.stop_fire()
 	car.set_boost_speed(000) 

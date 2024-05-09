@@ -74,6 +74,26 @@ theme_override_fonts/font = SubResource("SystemFont_md1w6")
 theme_override_font_sizes/font_size = 24
 text = "Smoky Roads"
 
+[node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Blocky _rock" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_md1w6")
+theme_override_font_sizes/font_size = 24
+text = "Blocky Rock"
+
+[node name="Seperator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Map_select" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_md1w6")
+theme_override_font_sizes/font_size = 24
+text = "Select map"
+
 [node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
