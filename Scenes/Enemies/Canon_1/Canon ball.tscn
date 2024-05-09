@@ -1,9 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://hswyr4kii677"]
+[gd_scene load_steps=6 format=3 uid="uid://hswyr4kii677"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/Canon_1/Canon ball.gd" id="1_avd4h"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Canon_1/CanonBall_RigidBody3D.gd" id="2_aqe15"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bx5rw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81fvy"]
+albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7cpec"]
+
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_avd4h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.55543, 0)
 mesh = SubResource("SphereMesh_bx5rw")
+surface_material_override/0 = SubResource("StandardMaterial3D_81fvy")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="MeshInstance3D"]
+collision_layer = 9
+collision_mask = 9
+mass = 1000.0
+script = ExtResource("2_aqe15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_7cpec")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.560809, 0)
+
+[connection signal="body_entered" from="MeshInstance3D/RigidBody3D" to="MeshInstance3D/RigidBody3D" method="_on_Cannonball_body_entered"]

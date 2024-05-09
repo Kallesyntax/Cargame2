@@ -3,7 +3,7 @@ extends VehicleBody3D
 const MAX_STEER = 0.8
 const ENGINE_POWER = 1500
 
-@onready var start_level = preload("res://Assets/Menu/car_select.tscn") as PackedScene
+@onready var start_level = preload("res://Assets/Menu/player_select.tscn") as PackedScene
 
 @onready var checkerpointer = $Checkerpointer
 @onready var camera_pivot = $camera_pivot
