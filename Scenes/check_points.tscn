@@ -15,13 +15,14 @@ subdivide_width = 1
 
 [node name="CheckPoint" type="Area3D"]
 collision_layer = 16
-collision_mask = 16
+collision_mask = 0
 script = ExtResource("1_ue8hd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_8jcia")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 16
 material_override = SubResource("StandardMaterial3D_ymm6j")
 mesh = SubResource("QuadMesh_86b5b")
 

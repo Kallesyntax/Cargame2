@@ -59,7 +59,7 @@ steer_left={
 ]
 }
 steer_right={
-"deadzone": 0.5,
+"deadzone": 0.49,
 "events": []
 }
 slide={

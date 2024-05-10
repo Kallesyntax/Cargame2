@@ -3,8 +3,8 @@ extends Node3D
 @onready var playercount = Global.selected_player_count
 @onready var sub_viewport = $GridContainer_2player/SubViewportContainer/SubViewport
 @onready var sub_viewport_2 = $GridContainer_2player/SubViewportContainer2/SubViewport2
-
 @onready var grid_container_2_player = $GridContainer_2player
+
 
 
 func _ready():
@@ -23,6 +23,7 @@ func _ready():
 		var rotated_basis = Basis().rotated(Vector3.UP, rotation_radians.y)
 		car_instance.transform = Transform3D(rotated_basis, spawn_position)
 		# Add the car instance to the level
+		#car_instance.player_index = 0
 		if playercount ==1:
 			add_child(car_instance)
 		if playercount != 1:
@@ -37,7 +38,8 @@ func _ready():
 				var rotation_radians2 = rotation_degrees * PI / 180.0 # Convert degrees to radians
 				var rotated_basis2 = Basis().rotated(Vector3.UP, rotation_radians2.y)
 				car_instance2.transform = Transform3D(rotated_basis2, spawn_position2)
-				# Add the car instance to the level				
+				# Add the car instance to the level	
+				car_instance2.player_index = 1			
 				sub_viewport.add_child(car_instance)
 				sub_viewport_2.add_child(car_instance2)
 		

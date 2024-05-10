@@ -2,6 +2,7 @@ extends VehicleBody3D
 
 const MAX_STEER = 0.8
 const ENGINE_POWER = 1500
+const DEADZONE = 0.1
 
 @onready var start_level = preload("res://Assets/Menu/player_select.tscn") as PackedScene
 
@@ -19,11 +20,13 @@ const ENGINE_POWER = 1500
 @onready var icon = $"3d_ui"
 
 
+@export var player_index = 0
 @export var powerUpNum = 0
 @export var boostSpeed = 0
+@export var checkpoint = 0
 
 var powerUps = null
-var checkpoints = 0
+
 var driving = 0
 var look_at
 var slidepower =0
@@ -33,16 +36,20 @@ func _ready():
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	look_at = global_position
 	powerUps = get_node("/root/PowerUps")
-	#checkpoints = get_node("/root/Checkpoints")
-	#icon.speedWheel.text = "Tjenare"
+	checkpoint = get_node("/root/check_points")
+	steering = 0
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):	
+	var steering_input = Input.get_joy_axis(player_index, 0)
+	if abs(steering_input) < DEADZONE:
+		steering_input = 0
 	driving = 0			
-	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta *2.5)
+	steering = move_toward(steering, steering_input *-1 * MAX_STEER, delta *2.5)
 	if ((RBW.get_rpm() < 550 && (RBW.get_rpm() > - 100)) || (boostSpeed > 1)):
-		engine_force = Input.get_axis("ui_down", "Throttle") * ENGINE_POWER + boostSpeed + slidepower		
+		engine_force = Input.get_joy_axis(player_index,  5) * ENGINE_POWER + boostSpeed + slidepower
+
 	else:
 		engine_force = 0
 		
@@ -97,14 +104,18 @@ func _physics_process(delta):
 		LFW.wheel_friction_slip = 1.5
 		LBW.wheel_friction_slip = 1.0
 
-func on_checkpoint_enter():
-	checkerpointer.update_checkpointer()
+func on_checkpoint_enter(area):
+	print("asgfg")
+	checkpoint.update_checkpointer
+	#print(checkpoint_test)
+	print("After Test")
 	
 
 func on_powerup_pickup(area):
 	powerUpNum = powerUps.get_powerup()
 	icon.set_icon_visible(powerUpNum)
-	
+
+
 	
 func set_boost_speed(speed):
 	boostSpeed = speed

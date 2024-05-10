@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbew0e3mbl5ao"]
+[gd_scene load_steps=14 format=3 uid="uid://bbew0e3mbl5ao"]
 
 [ext_resource type="ArrayMesh" uid="uid://chq5rdqm0qg6x" path="res://Assets/World/Maps/IslandHub/Water.res" id="1_1sv6b"]
 [ext_resource type="Script" path="res://Assets/World/LevelScripts/Level.gd" id="1_nwuvt"]
@@ -7,6 +7,8 @@
 [ext_resource type="ArrayMesh" uid="uid://5afg4yfufhg5" path="res://Assets/World/Maps/IslandHub/Main island garage.res" id="4_qwqyj"]
 [ext_resource type="PackedScene" uid="uid://c5xj5tqpbk2t8" path="res://Scenes/Cars/fire_car.tscn" id="6_8cpm0"]
 [ext_resource type="PackedScene" uid="uid://dg1ptv7df457p" path="res://Scenes/Enemies/Canon_1/canon.tscn" id="7_4kqyu"]
+[ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Scenes/check_points.tscn" id="8_cnxxm"]
+[ext_resource type="PackedScene" uid="uid://b1qgcxejio08u" path="res://Scenes/PowerUpBlock.tscn" id="9_cdar3"]
 
 [sub_resource type="Environment" id="Environment_n3plt"]
 
@@ -70,7 +72,17 @@ layers = 4
 mesh = ExtResource("4_qwqyj")
 
 [node name="Fire car" parent="." instance=ExtResource("6_8cpm0")]
-transform = Transform3D(-0.0372541, 0, -0.999306, 0, 1, 0, 0.999306, 0, -0.0372541, 10.4523, 43.2486, -124.174)
+transform = Transform3D(-0.0372541, 0, -0.999306, 0, 1, 0, 0.999306, 0, -0.0372541, -95.0199, 39.0682, -70.1279)
 
 [node name="Canon" parent="." instance=ExtResource("7_4kqyu")]
 transform = Transform3D(-0.102615, 0, 1.99737, 0, 2, 0, -1.99737, 0, -0.102615, -144.832, 35.0964, -98.5238)
+
+[node name="GridContainer_2player" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Node3D" parent="." instance=ExtResource("9_cdar3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.941, 34.7817, -68.4305)
+
+[node name="CheckPoint" parent="." instance=ExtResource("8_cnxxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.496, 35.2218, -81.6926)

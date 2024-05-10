@@ -13,14 +13,6 @@ albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_7cpec"]
 
 [node name="Node3D" type="RigidBody3D"]
-collision_layer = 2
-collision_mask = 2
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
 mass = 300.0
 gravity_scale = 0.0
 script = ExtResource("1_avd4h")
@@ -28,7 +20,7 @@ script = ExtResource("1_avd4h")
 [node name="RigidBody3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55543, 0)
 collision_layer = 8
-collision_mask = 8
+collision_mask = 0
 script = ExtResource("2_aqe15")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
@@ -52,4 +44,3 @@ wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_Cannonball_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

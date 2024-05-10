@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c5xj5tqpbk2t8"]
+[gd_scene load_steps=41 format=3 uid="uid://c5xj5tqpbk2t8"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/BlackCar.gd" id="1_k2s8t"]
 [ext_resource type="ArrayMesh" uid="uid://bovnbleak7old" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_qfufb"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crj1e3j1dxcvl" path="res://Scenes/state.tscn" id="7_0xdua"]
 [ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="8_288nx"]
 [ext_resource type="PackedScene" uid="uid://cj2qykdmmdchp" path="res://Scenes/3d_ui.tscn" id="9_m6nhl"]
+[ext_resource type="Script" path="res://Scenes/Cars/Checkerpointer.gd" id="10_ig15x"]
 [ext_resource type="Script" path="res://Assets/Scripts/Speedometer.gd" id="11_35b08"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pqt3v"]
@@ -271,7 +272,7 @@ height = 7.79918
 radius = 2.31735
 
 [node name="Fire car" type="VehicleBody3D"]
-collision_layer = 25
+collision_layer = 9
 collision_mask = 23
 mass = 600.0
 center_of_mass_mode = 1
@@ -390,10 +391,11 @@ shape = SubResource("CylinderShape3D_6lcvl")
 
 [node name="CheckpointChecker" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14276)
-collision_mask = 16
+collision_layer = 17
+collision_mask = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckpointChecker"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 3.63127)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 0.885158)
 shape = SubResource("CylinderShape3D_6lcvl")
 
 [node name="Timer" type="Timer" parent="."]
@@ -405,6 +407,9 @@ car = NodePath("..")
 [node name="centerOfMass" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.976106)
 visible = false
+
+[node name="Checkerpointer" type="Node" parent="."]
+script = ExtResource("10_ig15x")
 
 [node name="3d_ui" parent="." instance=ExtResource("9_m6nhl")]
 

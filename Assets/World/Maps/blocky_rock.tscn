@@ -897,3 +897,32 @@ transform = Transform3D(1.73515, 0, -0.994614, 0, 2, 0, 0.994614, 0, 1.73515, -1
 
 [node name="Canon7" parent="." instance=ExtResource("6_g4sq0")]
 transform = Transform3D(1.73515, 0, -0.994614, 0, 2, 0, 0.994614, 0, 1.73515, -123.921, -12.0628, -165.423)
+
+[node name="GridContainer_2player" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer_2player"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer_2player/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1600, 398)
+render_target_update_mode = 4
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer_2player"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport2" type="SubViewport" parent="GridContainer_2player/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1600, 398)
+render_target_update_mode = 4

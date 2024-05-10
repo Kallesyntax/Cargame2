@@ -5,11 +5,9 @@ extends Node3D
 	
 func used_fire():	
 	noise.play()
-	print("pp")
 	visible = 1	
 
 func stop_fire():
-	print("uu")
 	noise.stop()
 	visible = 0
 

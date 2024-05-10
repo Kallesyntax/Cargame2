@@ -6,7 +6,7 @@ var selected_car1_scene = ""
 var selected_car2_scene = ""
 var selected_car3_scene = ""
 var selected_car4_scene = ""
-var selected_player_count = ""
+var selected_player_count = 1
 
 func _ready():
 	# Initialize with the default car selection if needed

@@ -1,8 +1,8 @@
 extends Node
 
 #var powerUpNum 
-@onready var turbo = $CanvasLayer/SubViewportContainer/SubViewport/TurboIcon
-@onready var ghost = $CanvasLayer/SubViewportContainer/SubViewport/GhostIcon
+@onready var turbo = $SubViewportContainer/SubViewport/TurboIcon
+@onready var ghost = $SubViewportContainer/SubViewport/GhostIcon
 
 	
 func set_icon_visible(powerUpNum):
