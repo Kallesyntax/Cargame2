@@ -1,4 +1,4 @@
-extends VehicleBody3D
+extends CarScript
 
 const MAX_STEER = 0.8
 const ENGINE_POWER = 2500
@@ -23,7 +23,7 @@ const DEADZONE = 0.1
 @export var player_index = 0
 @export var powerUpNum = 0
 @export var boostSpeed = 0
-@export var activeCheckpoint = 0
+
 
 var powerUps = null
 var checkpoint = ""
@@ -106,11 +106,11 @@ func _physics_process(delta):
 
 func on_checkpoint_enter(area):
 	var ChkInt = int(String(area.name))
-	print(activeCheckpoint)
+	print(active_checkpoint)
 	print(ChkInt)
-	if ChkInt == activeCheckpoint:
-		activeCheckpoint +=1
-		print(activeCheckpoint)
+	if ChkInt == active_checkpoint:
+		active_checkpoint +=1
+		print(active_checkpoint)
 	else:
 		print("Already been here")
 	

@@ -4,10 +4,13 @@ extends Node3D
 @onready var sub_viewport = $GridContainer_2player/SubViewportContainer/SubViewport
 @onready var sub_viewport_2 = $GridContainer_2player/SubViewportContainer2/SubViewport2
 @onready var grid_container_2_player = $GridContainer_2player
+@onready var p_1_spawn = $P1_spawn
+@onready var p_2_spawn = $P2_spawn
 
 
 
 func _ready():
+		
 	grid_container_2_player.visible = false
 	# Load the selected car scene
 	var car_scene = load(Global.selected_car1_scene)
@@ -16,7 +19,7 @@ func _ready():
 	if car_scene and car_scene is PackedScene:
 		var car_instance = car_scene.instantiate()
 		# Set the spawn position of the car
-		var spawn_position = Vector3(0, -0.5, 0) # Replace with desired position
+		var spawn_position = p_1_spawn.global_transform.origin# Replace with desired position
 		# Set the rotation of the car (example: 90 degrees around the Y axis)
 		var rotation_degrees = Vector3(0, -90, 0) # Replace with desired rotation in degrees
 		var rotation_radians = rotation_degrees * PI / 180.0 # Convert degrees to radians
@@ -32,7 +35,7 @@ func _ready():
 			if car_scene2 and car_scene2 is PackedScene:
 				var car_instance2 = car_scene2.instantiate()
 				# Set the spawn position of the car
-				var spawn_position2 = Vector3(10, -0.5, 0) # Replace with desired position
+				var spawn_position2 = p_2_spawn.global_transform.origin # Replace with desired position
 				# Set the rotation of the car (example: 90 degrees around the Y axis)
 				var rotation_degrees2 = Vector3(0, -90, 0) # Replace with desired rotation in degrees
 				var rotation_radians2 = rotation_degrees * PI / 180.0 # Convert degrees to radians

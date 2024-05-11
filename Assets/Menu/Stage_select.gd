@@ -4,11 +4,14 @@ extends Control
 
 @onready var smoky_roads = $MarginContainer/HBoxContainer/VBoxContainer/Smoky_roads as Button
 @onready var blocky_rock = $"MarginContainer/HBoxContainer/VBoxContainer/Blocky _rock" as Button
+@onready var island_hub = $MarginContainer/HBoxContainer/VBoxContainer/IslandHub as Button
 @onready var map_select = $MarginContainer/HBoxContainer/VBoxContainer/Map_select as Button
-
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button as Button
+
 @onready var smokyroads = preload("res://Assets/World/Maps/smoky_roads.tscn") as PackedScene
 @onready var blockyrock = preload("res://Assets/World/Maps/blocky_rock.tscn") as PackedScene
+@onready var ISLAND_HUB = preload("res://Assets/World/Maps/IslandHub/island_hub.tscn") as PackedScene
+
 @onready var map_preview = $SubViewportContainer/MapPreview
 @onready var map_selection = ""
 
@@ -16,6 +19,7 @@ func _ready():
 	smoky_roads.button_down.connect(on_start_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 	blocky_rock.button_down.connect(on_blocky_pressed)
+	island_hub.button_down.connect(on_islandHub_pressed)
 	map_select.button_down.connect(mapSelected)
 	smoky_roads.focus_entered.connect(smokyFocus)
 	blocky_rock.focus_entered.connect(blockyFocus)
@@ -31,6 +35,9 @@ func on_start_pressed() -> void:
 	
 func on_blocky_pressed() -> void:
 	map_selection = blockyrock
+	
+func on_islandHub_pressed() -> void:
+	map_selection = ISLAND_HUB
 	
 func mapSelected() ->void:
 	get_tree().change_scene_to_packed(map_selection)

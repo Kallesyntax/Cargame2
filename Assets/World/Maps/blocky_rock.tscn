@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqkh7onj4hhaq"]
+[gd_scene load_steps=12 format=3 uid="uid://bqkh7onj4hhaq"]
 
 [ext_resource type="ArrayMesh" uid="uid://btohirqfikguf" path="res://Assets/World/BlockyRock.res" id="1_5cydt"]
-[ext_resource type="Script" path="res://Assets/World/LevelScripts/BlockyRock.gd" id="2_pbojs"]
+[ext_resource type="Script" path="res://Assets/World/LevelScripts/Level.gd" id="1_bvw73"]
 [ext_resource type="PackedScene" uid="uid://b1qgcxejio08u" path="res://Scenes/PowerUpBlock.tscn" id="3_vorli"]
 [ext_resource type="ArrayMesh" uid="uid://cshiwj6nkmyju" path="res://Assets/World/Environment/Stones/MediumStone1.res" id="4_pftj6"]
 [ext_resource type="AudioStream" uid="uid://cvpnyla0s7r5t" path="res://Assets/Audo/Music/Smoky road/Arcade Racer Rhythm-1.mp3" id="5_4ux0m"]
@@ -18,8 +18,10 @@ points = PackedVector3Array(0.797753, -0.965707, 1.01174, -1.22835, -0.521363, -
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1j5l3"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="BoxMesh" id="BoxMesh_8bp0t"]
+
 [node name="Blocky_Rock" type="Node3D"]
-script = ExtResource("2_pbojs")
+script = ExtResource("1_bvw73")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.264715, 0.964327, 0, -0.964327, -0.264715, 0, 84.4022, 0)
@@ -926,3 +928,15 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(1600, 398)
 render_target_update_mode = 4
+
+[node name="P1_spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6857, 4.22861, -2.65359)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="P1_spawn"]
+mesh = SubResource("BoxMesh_8bp0t")
+
+[node name="P2_spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6317, 2.04294, -2.65359)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="P2_spawn"]
+mesh = SubResource("BoxMesh_8bp0t")
