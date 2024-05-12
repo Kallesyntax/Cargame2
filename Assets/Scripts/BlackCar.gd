@@ -1,8 +1,4 @@
-extends VehicleBody3D
-
-const MAX_STEER = 0.8
-const ENGINE_POWER = 2500
-const DEADZONE = 0.1
+extends CarScript
 
 @onready var start_level = preload("res://Assets/Menu/player_select.tscn") as PackedScene
 
@@ -19,11 +15,9 @@ const DEADZONE = 0.1
 @onready var timer = $Timer
 @onready var icon = $"3d_ui"
 
-
-@export var player_index = 0
-@export var powerUpNum = 0
+@export var Acceleration = 1500
+@export var Top_Speed = 550
 @export var boostSpeed = 0
-@export var activeCheckpoint = 0
 
 var powerUps = null
 var checkpoint = ""
@@ -33,6 +27,7 @@ var slidepower =0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	look_at = global_position
 	powerUps = get_node("/root/PowerUps")
@@ -42,12 +37,13 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):	
+	ENGINE_POWER = Acceleration
 	var steering_input = Input.get_joy_axis(player_index, 0)
 	if abs(steering_input) < DEADZONE:
 		steering_input = 0
 	driving = 0			
 	steering = move_toward(steering, steering_input *-1 * MAX_STEER, delta *2.5)
-	if ((RBW.get_rpm() < 550 && (RBW.get_rpm() > - 100)) || (boostSpeed > 1)):
+	if ((RBW.get_rpm() < Top_Speed && (RBW.get_rpm() > -Top_Speed)) || (boostSpeed > 1)):
 		engine_force = Input.get_joy_axis(player_index,  5) * ENGINE_POWER + boostSpeed + slidepower
 
 	else:
@@ -105,15 +101,18 @@ func _physics_process(delta):
 		LBW.wheel_friction_slip = 1.0
 
 func on_checkpoint_enter(area):
+	var checknum = area.get_parent()
+	var checkchild = checknum.get_child_count()
 	var ChkInt = int(String(area.name))
-	print(activeCheckpoint)
-	print(ChkInt)
-	if ChkInt == activeCheckpoint:
-		activeCheckpoint +=1
-		print(activeCheckpoint)
-	else:
-		print("Already been here")
-	
+	if ChkInt !=checkchild:
+		if ChkInt == active_checkpoint:
+			active_checkpoint +=1
+			#print(active_checkpoint)
+		else:
+			print("Already been here")
+	if ChkInt == checkchild && active_checkpoint == checkchild:
+		active_checkpoint = 1
+		print("Woho new lap!")
 
 func on_powerup_pickup(area):
 	powerUpNum = powerUps.get_powerup()

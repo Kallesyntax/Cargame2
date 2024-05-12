@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbew0e3mbl5ao"]
+[gd_scene load_steps=13 format=3 uid="uid://bbew0e3mbl5ao"]
 
 [ext_resource type="ArrayMesh" uid="uid://chq5rdqm0qg6x" path="res://Assets/World/Maps/IslandHub/Water.res" id="1_1sv6b"]
 [ext_resource type="Script" path="res://Assets/World/LevelScripts/Level.gd" id="1_nwuvt"]
@@ -6,9 +6,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dwqs22ehukihc" path="res://Assets/World/Maps/IslandHub/main island road.res" id="3_d5ot4"]
 [ext_resource type="ArrayMesh" uid="uid://5afg4yfufhg5" path="res://Assets/World/Maps/IslandHub/Main island garage.res" id="4_qwqyj"]
 [ext_resource type="PackedScene" uid="uid://dg1ptv7df457p" path="res://Scenes/Enemies/Canon_1/canon.tscn" id="7_4kqyu"]
-[ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Scenes/check_points.tscn" id="8_cnxxm"]
+[ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Assets/World/Environment/New Folder/check_points.tscn" id="8_cnxxm"]
 [ext_resource type="PackedScene" uid="uid://b1qgcxejio08u" path="res://Scenes/PowerUpBlock.tscn" id="9_cdar3"]
-[ext_resource type="PackedScene" uid="uid://c5xj5tqpbk2t8" path="res://Scenes/Cars/fire_car.tscn" id="9_fce1j"]
 
 [sub_resource type="Environment" id="Environment_n3plt"]
 
@@ -77,17 +76,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.18
 [node name="1" parent="Checkpoint" instance=ExtResource("8_cnxxm")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -61.6386, -15.0905, 190.014)
 
-[node name="Fire car" parent="." instance=ExtResource("9_fce1j")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.8916, 5.05628, 238.31)
-
 [node name="P1_spawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 228.382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6322, -11.5529, 241.196)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P1_spawn"]
 mesh = SubResource("BoxMesh_7yhei")
 
 [node name="P2_spawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 228.382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6322, -11.5529, 236.121)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P2_spawn"]
 mesh = SubResource("BoxMesh_7yhei")
@@ -107,7 +103,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer_2player/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1600, 398)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer_2player"]
@@ -118,5 +114,5 @@ stretch = true
 
 [node name="SubViewport2" type="SubViewport" parent="GridContainer_2player/SubViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(1600, 398)
+size = Vector2i(2, 2)
 render_target_update_mode = 4

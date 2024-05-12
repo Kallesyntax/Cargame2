@@ -10,7 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cshiwj6nkmyju" path="res://Assets/World/Environment/Stones/MediumStone1.res" id="8_0fedg"]
 [ext_resource type="AudioStream" uid="uid://bik3tp7mdjg4e" path="res://Assets/Audo/Music/Smoky road/Rock, Dreamy, Gaming.mp3" id="9_vkfl7"]
 [ext_resource type="ArrayMesh" uid="uid://84ovuixmavh0" path="res://Assets/World/Environment/New Folder/Åsna.res" id="10_g1ijy"]
-[ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Scenes/check_points.tscn" id="11_0b1yl"]
+[ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Assets/World/Environment/New Folder/check_points.tscn" id="11_2ck4q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbq0a"]
 
@@ -797,8 +797,41 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/Tree24/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v2g0a")
 
-[node name="CheckPoint" parent="." instance=ExtResource("11_0b1yl")]
+[node name="Checkpoints" type="Node3D" parent="."]
 transform = Transform3D(0.202275, 0, 0.979329, 0, 1, 0, -0.979329, 0, 0.202275, 174.16, 1.67343, 32.4411)
+
+[node name="11" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(-0.999999, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -0.999999, -13.6013, 0, -175.352)
+
+[node name="1" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(0.655135, 0, 0.755509, 0, 1, 0, -0.755509, 0, 0.655135, 70.4482, 0, -323.297)
+
+[node name="2" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(-0.665828, -3.04513e-11, 0.746102, -1.31245e-10, 1, -7.63119e-11, -0.746102, -1.48733e-10, -0.665828, -74.707, 0, -400.966)
+
+[node name="3" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(0.99799, 1.35815e-10, 0.0633304, -1.31245e-10, 1, -7.63119e-11, -0.0633304, 6.78461e-11, 0.99799, -256.176, -7.62939e-06, -284.25)
+
+[node name="4" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(0.0633304, -6.78461e-11, -0.99799, -1.31245e-10, 1, -7.63119e-11, 0.99799, 1.35815e-10, 0.0633304, -209.713, -7.62939e-06, -406.987)
+
+[node name="5" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(0.660904, 1.4401e-10, 0.750467, -1.31245e-10, 1, -7.63119e-11, -0.750467, -4.80616e-11, 0.660904, -310.714, -7.62939e-06, -574.436)
+
+[node name="6" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(0.0191103, 4.1166e-11, -0.999814, -7.09412e-10, 1, 2.76128e-11, 0.999814, 7.08757e-10, 0.0191103, -365.07, -7.62939e-06, -139.01)
+
+[node name="7" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(0.0915711, 8.46431e-10, -0.995794, -3.84683e-09, 1, 4.96251e-10, 0.995794, 3.78523e-09, 0.0915711, -67.6472, 32.8645, -150.724)
+
+[node name="8" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(-0.999814, -7.08756e-10, -0.0191104, -7.09412e-10, 1, 2.76128e-11, 0.0191104, 4.1166e-11, -0.999814, 285.534, -7.62939e-06, -146.906)
+
+[node name="9" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(-0.410399, -3.16325e-10, 0.911902, -7.09412e-10, 1, 2.76128e-11, -0.911902, -6.35585e-10, -0.410399, 253.124, -7.62939e-06, -0.138092)
+
+[node name="10" parent="Checkpoints" instance=ExtResource("11_2ck4q")]
+transform = Transform3D(0.998677, 7.0706e-10, 0.0513426, -7.09412e-10, 1, 2.76128e-11, -0.0513426, -6.40005e-11, 0.998677, 1.57284, -7.62939e-06, 54.6891)
 
 [node name="GridContainer_2player" type="GridContainer" parent="."]
 anchors_preset = 15

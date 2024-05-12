@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1rh658m2guvd"
-path="res://.godot/imported/BlackCar.glb-3cff9a68a7fda139a2188c94f4e33806.scn"
+uid="uid://nf14qjlekyje"
+path="res://.godot/imported/Checkpoint.glb-131bd594b5a23268e8a3b9a5381966bd.scn"
 
 [deps]
 
-source_file="res://Assets/Cars/BlackCar.glb"
-dest_files=["res://.godot/imported/BlackCar.glb-3cff9a68a7fda139a2188c94f4e33806.scn"]
+source_file="res://Assets/dump/Models/Clutter/Checkpoint.glb"
+dest_files=["res://.godot/imported/Checkpoint.glb-131bd594b5a23268e8a3b9a5381966bd.scn"]
 
 [params]
 
@@ -31,15 +31,15 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
-"BlackCar_Cube_004": {
+"Checkpoint_Cube_017": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/make_streamable": true,
-"save_to_file/path": "res://Assets/Cars/BlackCar1Mesh.res"
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/World/Environment/New Folder/Checkpoint.res"
 }
 }
 }
