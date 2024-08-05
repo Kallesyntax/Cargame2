@@ -105,3 +105,4 @@ Throttle={
 3d_physics/layer_3="Environment"
 3d_physics/layer_4="Obstacles"
 3d_physics/layer_5="Checkpoints"
+3d_navigation/layer_8="NavigationMesh"

@@ -11,8 +11,8 @@ extends Control
 
 
 var viewport_scene = preload("res://Scenes/car_prieview.tscn")
-var black_car_scene = preload("res://Scenes/Cars/fire_car.tscn")
-var brown_car_scene = preload("res://Scenes/Cars/brown_car.tscn")
+var black_car_scene = load("res://Scenes/Cars/fire_car.tscn")
+var brown_car_scene = load("res://Scenes/Cars/brown_car.tscn")
 var viewport_instance
 
 func _ready():

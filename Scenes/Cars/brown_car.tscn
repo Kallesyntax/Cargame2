@@ -1,8 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://chsprec5ajka0"]
+[gd_scene load_steps=40 format=3 uid="uid://chsprec5ajka0"] 
 
 [ext_resource type="Script" path="res://Assets/Scripts/BlackCar.gd" id="1_nwtrb"]
 [ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="2_e3sh0"]
-[ext_resource type="Material" uid="uid://cynyy74og83t8" path="res://Assets/Textures/material/cloaked_material.tres" id="3_sh6x0"]
+[ext_resource type="Material" uid="uid://cynyy74og83t8" path="res://Scenes/Powerups/cloaked_material.tres" id="3_acit7"]
 [ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="4_8nep5"]
 [ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="5_37jb1"]
 [ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="6_wx5nr"]
@@ -300,10 +300,10 @@ shape = SubResource("ConvexPolygonShape3D_nosli")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.261195, 0.336962)
 visible = false
 mesh = ExtResource("2_e3sh0")
-surface_material_override/0 = ExtResource("3_sh6x0")
+surface_material_override/0 = ExtResource("3_acit7")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.211925, 3.29216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.420667, 3.29216)
 brake = 10.0
 use_as_traction = true
 use_as_steering = true
@@ -319,7 +319,7 @@ damping_compression = 0.3
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RFW" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.211554, 3.292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.420296, 3.292)
 brake = 10.0
 use_as_traction = true
 use_as_steering = true
@@ -335,7 +335,7 @@ damping_compression = 0.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.211925, -2.6675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.420667, -2.6675)
 brake = 10.0
 use_as_traction = true
 wheel_roll_influence = 0.15
@@ -349,7 +349,7 @@ suspension_max_force = 8000.0
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RBW" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.211554, -2.6673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.420296, -2.6673)
 brake = 10.0
 use_as_traction = true
 wheel_roll_influence = 0.15

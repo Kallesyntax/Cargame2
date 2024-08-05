@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cynyy74og83t8"]
 
-[ext_resource type="Shader" uid="uid://bwr8dr7vrvvv6" path="res://Assets/Textures/material/cloaked_shader.tres" id="1_0308i"]
+[ext_resource type="Shader" uid="uid://bwr8dr7vrvvv6" path="res://Scenes/Powerups/cloaked_shader.tres" id="1_0308i"]
 
 [resource]
 render_priority = 0
