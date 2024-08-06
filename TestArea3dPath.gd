@@ -8,10 +8,10 @@ func _ready():
 
 func _process(delta):
 	# Move the PathFollow3D along the path
-	path_follower.offset += delta * speed # 'speed' is the rate at which the Area3D moves along the path
+	#path_follower.offset += delta * speed # 'speed' is the rate at which the Area3D moves along the path
 
 	# Check for the car within the Area3D
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body.name == "Car": # Replace "Car" with the actual name of your car node
-			# Adjust car behavior to follow the Area3D
+			pass# Adjust car behavior to follow the Area3D
