@@ -409,12 +409,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.976106)
 visible = false
 
 [node name="3d_ui" parent="." instance=ExtResource("9_m6nhl")]
+light_mask = 524288
+visibility_layer = 524288
+offset_left = 0.0
+offset_right = 0.0
 
 [node name="SpeedoMeter" type="Control" parent="."]
+light_mask = 524289
+visibility_layer = 524289
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 664.0
+offset_top = 23.0
+offset_right = 664.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -423,6 +433,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_35b08")

@@ -864,12 +864,14 @@ render_target_update_mode = 4
 
 [node name="P1_spawn" type="Node3D" parent="."]
 transform = Transform3D(0.994493, 0, -0.104806, 0, 1, 0, 0.104806, 0, 0.994493, 54.0853, 10.2998, 19.7539)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P1_spawn"]
 mesh = SubResource("BoxMesh_ymfox")
 
 [node name="P2_spawn" type="Node3D" parent="."]
 transform = Transform3D(0.994493, 0, -0.104806, 0, 1, 0, 0.104806, 0, 0.994493, 11.0065, 8.11409, 15.214)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P2_spawn"]
 mesh = SubResource("BoxMesh_ymfox")
