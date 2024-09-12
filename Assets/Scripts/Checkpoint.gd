@@ -1,9 +1,8 @@
 extends Area3D
 
 @onready var timer = $Timer
-
-var active_checkpoint = 0
 @export var checkpointID = 0
+var active_checkpoint = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

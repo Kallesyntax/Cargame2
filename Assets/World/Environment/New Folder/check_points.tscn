@@ -23,6 +23,8 @@ layers = 8
 mesh = ExtResource("2_aqxbi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Checkpoint"]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ktb6w")

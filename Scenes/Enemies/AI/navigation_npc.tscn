@@ -17,5 +17,13 @@ mesh = SubResource("CapsuleMesh_n34qd")
 shape = SubResource("ConvexPolygonShape3D_6bvn3")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 5.0
+path_max_distance = 10.01
+avoidance_enabled = true
 debug_enabled = true
 debug_path_custom_color = Color(0.898039, 0.454902, 0.764706, 1)
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="waypoint_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_waypoint_reached"]
