@@ -6,6 +6,5 @@ extends SubViewportContainer
 var output =""
 
 func _process(delta):
-	print("%3.0f" % speedWheel.get_rpm())
 	output = "Speed: " + str("%3.0f" % speedWheel.get_rpm())
 	speed.text = output

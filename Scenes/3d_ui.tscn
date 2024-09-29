@@ -1,33 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj2qykdmmdchp"]
+[gd_scene load_steps=7 format=3 uid="uid://cj2qykdmmdchp"]
 
 [ext_resource type="Script" path="res://Scenes/3d_ui.gd" id="1_n0lxe"]
 [ext_resource type="ArrayMesh" uid="uid://b7wpo2s4h5d0e" path="res://Assets/Icons/Ghost/GhostIcon.res" id="3_ilsov"]
+[ext_resource type="ArrayMesh" uid="uid://dnjp65m2p668r" path="res://Scenes/UI/PowerFrame.res" id="3_srf6l"]
 [ext_resource type="ArrayMesh" uid="uid://qwewfca7ve7o" path="res://Assets/Icons/Turbo/Meshes/Turbo_icon.res" id="4_ygggr"]
+[ext_resource type="ArrayMesh" uid="uid://cb2xv768wvjof" path="res://Scenes/UI/SpeedoMeter.res" id="5_3h2bh"]
+[ext_resource type="ArrayMesh" uid="uid://piaxm3y50dk4" path="res://Scenes/UI/TimeKeeper.res" id="6_lw3ch"]
 
 [node name="3d_ui" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 483.0
-offset_top = -124.0
-offset_right = 995.0
-offset_bottom = 388.0
-size_flags_horizontal = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("1_n0lxe")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.981083, 0.167652, -0.0967933, -0.0296429, 0.624202, 0.7807, 0.191305, -0.763063, 0.617364, 0, -53.0405, 93.3044)
+shadow_enabled = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -800.0
-offset_top = -288.0
-offset_right = 800.0
-offset_bottom = 512.0
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 8.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 transparent_bg = true
@@ -37,27 +48,41 @@ size = Vector2i(1600, 800)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="TurboIcon" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 15.45, -34.1776, -44.5831)
-visible = false
-layers = 524288
-mesh = ExtResource("4_ygggr")
-skeleton = NodePath("../../../..")
-
 [node name="GhostIcon" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(0, 8.74228e-06, 100, 100, 0, 0, 0, 100, -8.74228e-06, 0.440086, -34.1776, -44.5831)
+transform = Transform3D(0, 8.74228e-06, 100, 100, 0, 0, 0, 100, -8.74228e-06, -59.0814, -34.178, -44.583)
 visible = false
 layers = 524288
 mesh = ExtResource("3_ilsov")
 skeleton = NodePath("../../../..")
 
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.3623, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26538, -58.9154, 26.6065)
+top_level = true
 cull_mask = 524288
+projection = 1
+size = 70.8776
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.8046, 69.6043)
-light_energy = 0.1
-light_indirect_energy = 3.18
-light_volumetric_fog_energy = 2.833
-light_angular_distance = 2.35
+[node name="PowerFrame" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(4.19629e-06, -7.2478e-06, -96, 96, -4.19629e-06, 4.19629e-06, -4.19629e-06, -96, 7.2478e-06, -59.1387, -34.178, -44.583)
+layers = 524289
+mesh = ExtResource("3_srf6l")
+skeleton = NodePath("../../../..")
+
+[node name="TurboIcon" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -44.0914, -34.178, -44.583)
+visible = false
+layers = 524288
+mesh = ExtResource("4_ygggr")
+skeleton = NodePath("../../../..")
+
+[node name="SpeedoMeter" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 67.3734, -93.5984, -44.0594)
+layers = 524288
+mesh = ExtResource("5_3h2bh")
+skeleton = NodePath("../../../..")
+
+[node name="TimeKeeper" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, -0.00514221, -29.3239, -34.5664)
+layers = 524288
+mesh = ExtResource("6_lw3ch")
+skeleton = NodePath("../../../..")

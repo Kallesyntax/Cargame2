@@ -1,7 +1,7 @@
 extends Node
 
 #var powerUpNum 
-@onready var turbo = $CanvasLayer/SubViewportContainer/SubViewport/TurboIcon
+@onready var turbo = $CanvasLayer/SubViewportContainer/SubViewport/TurboIcon 
 @onready var ghost = $CanvasLayer/SubViewportContainer/SubViewport/GhostIcon
 
 	

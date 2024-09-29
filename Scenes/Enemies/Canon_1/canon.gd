@@ -2,7 +2,7 @@ extends Node3D
 
 # Preload the cannonball scene
 var cannonball_scene = load("res://Scenes/Enemies/Canon_1/Canon ball.tscn")
-var fire_interval = 2.0
+var fire_interval = 8.0
 var instance
 
 @onready var timer = $Timer

@@ -39,7 +39,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": true,
-"save_to_file/path": "res://Assets/Cars/bilmesh.res"
+"save_to_file/path": "res://Assets/Cars/BlackCar1Mesh.res"
 }
 }
 }
