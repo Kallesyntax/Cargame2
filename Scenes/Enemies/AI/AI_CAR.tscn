@@ -135,6 +135,7 @@ collision_mask = 8
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 1.27984e-08, 8.84862e-08, 8.71827e-08, 0.358971, 0.933349, -1.98186e-08, 0.933349, -0.358971, 0, 19.781, -6.1217)
+visible = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 navigation_layers = 128

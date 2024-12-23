@@ -1,6 +1,6 @@
 extends Area3D
 
-@onready var timer = $Timer
+#@onready var timer = $Timer
 @export var checkpointID = 0
 var active_checkpoint = 0
 
@@ -18,10 +18,10 @@ func _on_area_entered(area):
 	update_checkpointer()
 	disable_mode =1
 	visible = 0
-	timer.start()
+	#timer.start()
 	pass # Replace with function body.
 
 func _on_timer_timeout():
-	timer.stop()
+	#timer.stop()
 	visible =1
 	disable_mode = 0

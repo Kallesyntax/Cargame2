@@ -2,6 +2,7 @@ extends VehicleBody3D
 class_name CarScript
 
 var active_checkpoint = 1
+var active_lap = 1
 
 var MAX_STEER = 0.8
 var ENGINE_POWER = 2500

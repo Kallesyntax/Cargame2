@@ -112,7 +112,11 @@ func on_checkpoint_enter(area):
 			print("Already been here")
 	if ChkInt == checkchild && active_checkpoint == checkchild:
 		active_checkpoint = 1
-		print("Woho new lap!")
+		active_lap +=1
+		if active_lap== 4:
+			print ("Woho you finished the race!")
+		else:
+			print("Woho new lap!")
 
 func on_powerup_pickup(area):
 	powerUpNum = powerUps.get_powerup()
