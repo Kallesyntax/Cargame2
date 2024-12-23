@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cwy26s3ylss7f"]
+[gd_scene load_steps=25 format=3 uid="uid://cwy26s3ylss7f"]
 
 [ext_resource type="Script" path="res://Assets/World/LevelScripts/Level.gd" id="1_l2a1q"]
 [ext_resource type="ArrayMesh" uid="uid://ccv1xv155nk0a" path="res://Assets/World/Environment/Trees/Tree1.res" id="2_0tp32"]
 [ext_resource type="PackedScene" uid="uid://b1qgcxejio08u" path="res://Scenes/PowerUpBlock.tscn" id="3_7n3qp"]
 [ext_resource type="ArrayMesh" uid="uid://b257c6xxba77" path="res://Assets/World/SmokyRoads.res" id="4_ki8fw"]
+[ext_resource type="Script" path="res://Assets/Scripts/CountDown.gd" id="4_upss6"]
 [ext_resource type="ArrayMesh" uid="uid://btdhy6e2vxiqm" path="res://Assets/World/SmokyRoads_ground.res" id="5_r8fxf"]
 [ext_resource type="ArrayMesh" uid="uid://cshiwj6nkmyju" path="res://Assets/World/Environment/Stones/MediumStone1.res" id="8_0fedg"]
 [ext_resource type="AudioStream" uid="uid://bik3tp7mdjg4e" path="res://Assets/Audo/Music/Smoky road/Rock, Dreamy, Gaming.mp3" id="9_vkfl7"]
@@ -11,7 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dwr8m3n7ebvau" path="res://Assets/World/Environment/New Folder/Fountain.res" id="11_1jehh"]
 [ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Assets/World/Environment/New Folder/check_points.tscn" id="11_2ck4q"]
 [ext_resource type="ArrayMesh" uid="uid://dluojdc52irin" path="res://Assets/World/Environment/New Folder/StreetLight.res" id="12_0o1oy"]
-[ext_resource type="PackedScene" uid="uid://db71nwsbrc21p" path="res://Scenes/Enemies/AI/NavigationCAR.tscn" id="13_cr4f7"]
+[ext_resource type="PackedScene" uid="uid://bnepcxktiq55o" path="res://Assets/Menu/paus_menu.tscn" id="13_tojhx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbq0a"]
 
@@ -56,6 +57,7 @@ data = PackedVector3Array(-0.01, -0.0653, -0.0874, -0.0085, 0.076, -0.0864, -0.0
 points = PackedVector3Array(0.797753, -0.965707, 1.01174, -1.22835, -0.521363, -2.66125, -0.843668, -0.519699, -2.64671, -1.21367, 1.16669, -0.200797, 0.768183, 0.192864, -1.88154, -0.838183, -1.57758, -0.700346, 0.21792, -1.75308, -1.56506, 1.84277, -0.642912, -0.263551, -2.08001, -0.0205884, -2.44057, -0.40494, -0.773375, 1.06755, -0.649936, 1.16038, -1.694, -0.0304284, 0.341928, 0.951329, -2.167, -0.39448, -2.27307, 1.10472, -1.33778, 0.809331, -1.34399, -1.02146, -2.51839, -0.454502, 1.11847, -1.36462, 0.0321143, -1.50363, 0.410385, -0.0909896, -0.578762, -2.43397, -0.463632, -0.0828696, -2.50359, 1.21478, -1.45022, 0.10814, 1.00458, -0.634935, -1.43095, -0.464987, -1.76847, -1.44894, 1.64802, -0.390379, -0.460984, 0.595053, -0.331327, 1.04516, -1.80185, -0.775771, -2.53876, -2.09153, -0.390954, -2.03331, -0.585378, -1.01129, -2.49318, -0.0272707, -0.770693, 1.18327, -0.335868, -1.12411, 0.825635, 1.83, -0.579147, -0.452267, -0.881769, -0.148532, 0.332415, -0.0913871, 0.284009, 1.02265)
 
 [node name="SmokyRoads" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_l2a1q")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -171,14 +173,14 @@ size = Vector2i(1600, 398)
 render_target_update_mode = 4
 
 [node name="P1_spawn" type="Node3D" parent="."]
-transform = Transform3D(0.994493, 0, -0.104806, 0, 1, 0, 0.104806, 0, 0.994493, 54.0853, 10.2998, 19.7539)
+transform = Transform3D(0.994493, 0, -0.104806, 0, 1, 0, 0.104806, 0, 0.994493, 54.0853, 0.9684, 19.7539)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P1_spawn"]
 mesh = SubResource("BoxMesh_ymfox")
 
 [node name="P2_spawn" type="Node3D" parent="."]
-transform = Transform3D(0.994493, 0, -0.104806, 0, 1, 0, 0.104806, 0, 0.994493, 11.0065, 8.11409, 15.214)
+transform = Transform3D(0.994493, 0, -0.104806, 0, 1, 0, 0.104806, 0, 0.994493, 11.0065, 0.9684, 15.214)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P2_spawn"]
@@ -198,9 +200,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/SmokyRoads/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jwpfb")
-
-[node name="AI_car" parent="NavigationRegion3D" instance=ExtResource("13_cr4f7")]
-transform = Transform3D(-0.872931, 0, -0.487844, 0, 1, 0, 0.487844, 0, -0.872931, -73.3886, 8.46913, -87.8459)
 
 [node name="NavigationLink3D" type="NavigationLink3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -226.183, 0.4684, -37.9126)
@@ -945,3 +944,35 @@ skeleton = NodePath("../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="clutter/stones/RigidBody3D4"]
 shape = SubResource("ConvexPolygonShape3D_yhw7j")
+
+[node name="CountDown" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_upss6")
+
+[node name="Timer" type="Timer" parent="CountDown"]
+process_mode = 3
+process_priority = 1
+process_physics_priority = 1
+one_shot = true
+
+[node name="Label" type="Label" parent="CountDown"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.271
+anchor_bottom = 0.152
+offset_left = -14.0
+offset_top = -8.0
+offset_right = 15.16
+offset_bottom = 8.92
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PausMenu" parent="CanvasLayer" instance=ExtResource("13_tojhx")]
+visible = false
+
+[connection signal="timeout" from="CountDown/Timer" to="CountDown" method="_on_timeout"]

@@ -4,11 +4,13 @@ var countdown = 3
 var game_started = false
 
 func _ready():
+	get_tree().paused = true  # Pausa spelet
+	print("timer")
 	$Timer.start()
 	$Label.text = str(countdown)
-	get_tree().paused = true  # Pausa spelet
 
-func _on_Timer_timeout():
+func _on_timeout():
+	print(countdown)
 	countdown -= 1
 	if countdown > 0:
 		$Label.text = str(countdown)
