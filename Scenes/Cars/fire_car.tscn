@@ -301,6 +301,8 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_bfts1")
 
+[node name="Wheel_Front_Left" type="Node" parent="."]
+
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.549639, 3.29216)
 brake = 10.0
