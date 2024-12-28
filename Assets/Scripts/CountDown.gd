@@ -20,5 +20,5 @@ func _on_timeout():
 		start_race()
 
 func start_race():
-	get_tree().paused = false  # Återuppta spelet
-	$Label.queue_free()  # Ta bort nedräkningsetiketten
+	get_tree().paused = false
+	$Label.queue_free()  

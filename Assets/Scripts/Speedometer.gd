@@ -1,10 +1,12 @@
 extends SubViewportContainer
 
-
-@onready var speed = $SubViewport/Label
+@onready var lap = $SubViewport/HBoxContainer/Lap
+@onready var speed = $SubViewport/HBoxContainer/Speed
 @export var speedWheel = speed
-var output =""
+var speedOutput =""
+var this_lap =""
 
 func _process(delta):
-	output = "Speed: " + str("%3.0f" % speedWheel.get_rpm())
-	speed.text = output
+	speedOutput = "Speed: " + str("%3.0f" % speedWheel.get_rpm())
+	speed.text = speedOutput
+

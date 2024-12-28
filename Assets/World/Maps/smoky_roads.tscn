@@ -4,7 +4,6 @@
 [ext_resource type="ArrayMesh" uid="uid://ccv1xv155nk0a" path="res://Assets/World/Environment/Trees/Tree1.res" id="2_0tp32"]
 [ext_resource type="PackedScene" uid="uid://b1qgcxejio08u" path="res://Scenes/PowerUpBlock.tscn" id="3_7n3qp"]
 [ext_resource type="ArrayMesh" uid="uid://b257c6xxba77" path="res://Assets/World/SmokyRoads.res" id="4_ki8fw"]
-[ext_resource type="Script" path="res://Assets/Scripts/CountDown.gd" id="4_upss6"]
 [ext_resource type="ArrayMesh" uid="uid://btdhy6e2vxiqm" path="res://Assets/World/SmokyRoads_ground.res" id="5_r8fxf"]
 [ext_resource type="ArrayMesh" uid="uid://cshiwj6nkmyju" path="res://Assets/World/Environment/Stones/MediumStone1.res" id="8_0fedg"]
 [ext_resource type="AudioStream" uid="uid://bik3tp7mdjg4e" path="res://Assets/Audo/Music/Smoky road/Rock, Dreamy, Gaming.mp3" id="9_vkfl7"]
@@ -12,6 +11,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dwr8m3n7ebvau" path="res://Assets/World/Environment/New Folder/Fountain.res" id="11_1jehh"]
 [ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Assets/World/Environment/New Folder/check_points.tscn" id="11_2ck4q"]
 [ext_resource type="ArrayMesh" uid="uid://dluojdc52irin" path="res://Assets/World/Environment/New Folder/StreetLight.res" id="12_0o1oy"]
+[ext_resource type="PackedScene" uid="uid://bcs3b0fgs7tm7" path="res://Scenes/count_down.tscn" id="12_24yhr"]
 [ext_resource type="PackedScene" uid="uid://bnepcxktiq55o" path="res://Assets/Menu/paus_menu.tscn" id="13_tojhx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbq0a"]
@@ -945,34 +945,9 @@ skeleton = NodePath("../../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="clutter/stones/RigidBody3D4"]
 shape = SubResource("ConvexPolygonShape3D_yhw7j")
 
-[node name="CountDown" type="Control" parent="."]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_upss6")
-
-[node name="Timer" type="Timer" parent="CountDown"]
-process_mode = 3
-process_priority = 1
-process_physics_priority = 1
-one_shot = true
-
-[node name="Label" type="Label" parent="CountDown"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.271
-anchor_bottom = 0.152
-offset_left = -14.0
-offset_top = -8.0
-offset_right = 15.16
-offset_bottom = 8.92
+[node name="CountDown" parent="." instance=ExtResource("12_24yhr")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PausMenu" parent="CanvasLayer" instance=ExtResource("13_tojhx")]
 visible = false
-
-[connection signal="timeout" from="CountDown/Timer" to="CountDown" method="_on_timeout"]
