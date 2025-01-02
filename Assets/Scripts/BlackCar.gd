@@ -14,6 +14,7 @@ extends CarScript
 @onready var fire_car = $"."
 @onready var timer = $Timer
 @onready var icon = $"3d_ui"
+@onready var canon_ray = $RayCast3D
 
 @export var Acceleration = 1500
 @export var Top_Speed = 550
@@ -61,8 +62,7 @@ func _physics_process(delta):
 		smoke_emitt.lifetime = 1				
 		driving =1		
 		if engine_sound.pitch_scale < 2:
-			engine_sound.pitch_scale = engine_sound.pitch_scale +1*delta
-		
+			engine_sound.pitch_scale = engine_sound.pitch_scale +1*delta		
 	else:
 		smoke_emitt.lifetime = 1	
 		driving = 0	
@@ -82,6 +82,9 @@ func _physics_process(delta):
 		engine_force = -5000
 		if engine_sound.pitch_scale < 2:
 			engine_sound.pitch_scale = engine_sound.pitch_scale +1*delta	
+	
+	if(Input.is_action_just_pressed("Fire_rocket")):
+		fire_cannonball(canon_ray)
 		
 	if(Input.is_action_pressed("slide")):
 		slidepower = 3000
@@ -91,8 +94,7 @@ func _physics_process(delta):
 		LBW.wheel_friction_slip = 0.4		
 		# powerUps.used_powerup()
 		timer.start()	
-		
-				
+						
 	else:
 		slidepower = 0
 		RFW.wheel_friction_slip = 1.5
@@ -101,28 +103,11 @@ func _physics_process(delta):
 		LBW.wheel_friction_slip = 1.0
 
 func on_checkpoint_enter(area):
-	var checknum = area.get_parent()
-	var checkchild = checknum.get_child_count()
-	var ChkInt = int(String(area.name))
-	if ChkInt !=checkchild:
-		if ChkInt == active_checkpoint:
-			active_checkpoint +=1
-			#print(active_checkpoint)
-		else:
-			print("Already been here")
-	if ChkInt == checkchild && active_checkpoint == checkchild:
-		active_checkpoint = 1
-		active_lap +=1
-		if active_lap== 4:
-			print ("Woho you finished the race!")
-		else:
-			print("Woho new lap!")
+	checkpoint_check(area)
 
 func on_powerup_pickup(area):
 	powerUpNum = powerUps.get_powerup()
 	icon.set_icon_visible(powerUpNum)
-
-
 	
 func set_boost_speed(speed):
 	boostSpeed = speed

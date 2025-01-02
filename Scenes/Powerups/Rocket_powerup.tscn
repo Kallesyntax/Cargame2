@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbnxa3n8ul2l7"]
+
+[ext_resource type="ArrayMesh" path="res://Assets/Textures/Powerups/Rocket_body.res" id="1_c56js"]
+[ext_resource type="Script" path="res://Assets/Scripts/Rocket_powerup.gd" id="1_gn34v"]
+[ext_resource type="Shader" uid="uid://usct1seifyjb" path="res://Assets/Shaders/Rocket_powerup_exhaust.tres" id="2_54fef"]
+[ext_resource type="ArrayMesh" path="res://Assets/Textures/Powerups/Rocket_exhaust.res" id="3_epn3h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4vgr"]
+size = Vector3(1, 1.52588, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glim4"]
+render_priority = 0
+shader = ExtResource("2_54fef")
+shader_parameter/Rocket_ExhaustColor = Color(2, 1.3, 0.6, 1)
+shader_parameter/Speed = Vector2(0.1, 0.1)
+
+[node name="RocketPowerup" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_gn34v")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+axis_lock_linear_x = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262939, 0)
+shape = SubResource("BoxShape3D_p4vgr")
+
+[node name="RocketExhaust" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-6.45507e-08, -0.855, -1.29101e-07, -0.855, 6.45507e-08, 7.47465e-08, -7.47465e-08, 1.29101e-07, -0.855, 0.776007, -1.49225, -5.37348e-08)
+material_override = SubResource("ShaderMaterial_glim4")
+cast_shadow = 0
+mesh = ExtResource("3_epn3h")
+skeleton = NodePath("../..")
+
+[node name="RocketBody" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.5, -1.2469e-15, -7.10543e-15, -3.30011e-15, -0.5, 7.54979e-08, -1.44252e-22, -7.54979e-08, -0.5, 0, -0.262939, 0)
+mesh = ExtResource("1_c56js")
+skeleton = NodePath("../..")
+
+[node name="Timer" type="Timer" parent="RigidBody3D"]
+wait_time = 5.0
+one_shot = true
+
+[node name="RayCast3D" type="RayCast3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.47779e-08, -0.566853)

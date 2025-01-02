@@ -301,8 +301,6 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_bfts1")
 
-[node name="Wheel_Front_Left" type="Node" parent="."]
-
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.549639, 3.29216)
 brake = 10.0
@@ -397,7 +395,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866013, -0.14276)
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckpointChecker"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 3.63127)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 0.63127)
 shape = SubResource("CylinderShape3D_6lcvl")
 
 [node name="Timer" type="Timer" parent="."]
@@ -462,6 +460,9 @@ text = "Tja"
 [node name="Lap" type="Label" parent="SpeedoMeter/SubViewportContainer/SubViewport/HBoxContainer"]
 layout_mode = 2
 text = "Lap"
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0348732, 1.56948, 2.547)
 
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
 [connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]

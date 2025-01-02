@@ -158,7 +158,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer_2player/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1600, 398)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer_2player"]
@@ -169,7 +169,7 @@ stretch = true
 
 [node name="SubViewport2" type="SubViewport" parent="GridContainer_2player/SubViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(1600, 398)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="P1_spawn" type="Node3D" parent="."]
@@ -201,15 +201,10 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/SmokyRoads/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jwpfb")
 
-[node name="NavigationLink3D" type="NavigationLink3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -226.183, 0.4684, -37.9126)
-navigation_layers = 128
-start_position = Vector3(-12.8013, 0.616527, 54.6019)
-
 [node name="NavigationLink3D2" type="NavigationLink3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2729, 27.4288, 83.145)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2729, 36.4878, 68.6457)
 navigation_layers = 128
-start_position = Vector3(9.49975, -1.31895, -143.186)
+start_position = Vector3(10.4847, -1.23048, -112.771)
 
 [node name="clutter" type="Node" parent="."]
 
