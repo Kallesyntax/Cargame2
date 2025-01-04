@@ -10,7 +10,7 @@ var selected_player_count = 1
 
 func _ready():
 	# Initialize with the default car selection if needed
-	selected_car1_scene = "res://Scenes/Cars/brown_car.tscn"
-	selected_car2_scene = "res://Scenes/Cars/brown_car.tscn"
-	selected_car3_scene = "res://Scenes/Cars/brown_car.tscn"
-	selected_car4_scene = "res://Scenes/Cars/brown_car.tscn"
+	selected_car1_scene = "res://Scenes/Cars/fire_car.tscn"
+	selected_car2_scene = "res://Scenes/Cars/fire_car.tscn"
+	selected_car3_scene = "res://Scenes/Cars/fire_car.tscn"
+	selected_car4_scene = "res://Scenes/Cars/fire_car.tscn"

@@ -1,4 +1,3 @@
-# CarSelection.gd
 extends Control
 
 @onready var Brown_pickup = $MarginContainer/HBoxContainer/VBoxContainer/Brown_pickup as Button
@@ -9,20 +8,17 @@ extends Control
 @onready var car_prieview = $SubViewportContainer/SubViewport/CarPrieview
 @onready var playercount = Global.selected_player_count
 
-
 var viewport_scene = preload("res://Scenes/car_prieview.tscn")
 var black_car_scene = load("res://Scenes/Cars/fire_car.tscn")
 var brown_car_scene = load("res://Scenes/Cars/brown_car.tscn")
 var viewport_instance
 
 func _ready():
-	
 	Black_car.button_down.connect(BlackCarButton_pressed)
 	Black_car.focus_entered.connect(BlackCarFocus)
 	Brown_pickup.focus_entered.connect(BrownPickupFocus)
 	Brown_pickup.button_down.connect(BrownPickupButton_pressed)
 	Level_select.button_down.connect(StartGameButton_pressed)
-# Button signals to change the selected car
 
 # Button signals to change the selected car
 func BlackCarFocus():
@@ -30,14 +26,15 @@ func BlackCarFocus():
 
 func BrownPickupFocus():
 	car_prieview.brown_pickup_visible()
-	
-func BlackCarButton_pressed()-> void:
+
+func BlackCarButton_pressed() -> void:
 	Global.selected_car1_scene = "res://Scenes/Cars/fire_car.tscn"
-# You can add code here to update the UI or preview the selected car
-func BrownPickupButton_pressed()-> void:
+	# You can add code here to update the UI or preview the selected car
+
+func BrownPickupButton_pressed() -> void:
 	Global.selected_car1_scene = "res://Scenes/Cars/brown_car.tscn"
+	# You can add code here to update the UI or preview the selected car
+
 # Signal to start the game with the selected car
-func StartGameButton_pressed()-> void:
+func StartGameButton_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
-	
-	

@@ -16,25 +16,26 @@ extends CarScript
 @onready var icon = $"3d_ui"
 @onready var car_rocketRay = $car_rocketRay
 
+@export var CarMesh : Mesh
+@export var GhostMesh : Mesh
 @export var Acceleration = 1500
 @export var Top_Speed = 550
 @export var boostSpeed = 0
 
-var powerUps = null
-var checkpoint = ""
+
 var driving = 0
 var look_at
 var slidepower =0
+var powerUps = null
+var checkpoint = ""
 
 # Called when the node enters the scene tree for the first time.
-func _ready():	
-	
+func _ready():		
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	look_at = global_position
 	powerUps = get_node("/root/PowerUps")
 	checkpoint = get_node("/root/check_points")
-	steering = 0
-	
+	look_at = global_position
+	steering = 0	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):	
@@ -85,20 +86,7 @@ func _physics_process(delta):
 	
 	if(Input.is_action_just_pressed("Fire_rocket")):
 		fire_Rocket(car_rocketRay)
-		
-	if(Input.is_action_pressed("slide")):
-		slidepower = 3000
-		RFW.wheel_friction_slip = 0.8
-		RBW.wheel_friction_slip = 0.4
-		LFW.wheel_friction_slip = 0.8
-		LBW.wheel_friction_slip = 0.4		
-	else:
-		slidepower = 0
-		RFW.wheel_friction_slip = 1.5
-		RBW.wheel_friction_slip = 1.0
-		LFW.wheel_friction_slip = 1.5
-		LBW.wheel_friction_slip = 1.0
-
+	
 func on_checkpoint_enter(area):
 	checkpoint_check(area)
 

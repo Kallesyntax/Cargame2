@@ -4,7 +4,7 @@ extends Node
 
 @export var UI = SubViewportContainer
 
-var powerup_list =  [1,2]
+var powerup_list =  [1,2,3]
 
 func get_powerup():
 	return powerup_list.pick_random()

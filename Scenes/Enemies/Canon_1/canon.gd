@@ -12,7 +12,7 @@ var instance
 func _ready():
 	pass # Set up any necessary initialization here
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func fire_cannonball():
