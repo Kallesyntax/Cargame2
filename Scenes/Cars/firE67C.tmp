@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c5xj5tqpbk2t8"]
+[gd_scene load_steps=40 format=3 uid="uid://c5xj5tqpbk2t8"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/BlackCar.gd" id="1_k2s8t"]
 [ext_resource type="Material" uid="uid://cynyy74og83t8" path="res://Scenes/Powerups/cloaked_material.tres" id="2_2m6ed"]
@@ -270,23 +270,7 @@ color = Color(0, 0, 0, 0.643137)
 height = 7.79918
 radius = 2.31735
 
-[sub_resource type="Animation" id="Animation_3w55f"]
-resource_name = "Damaged"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CarMesh")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0, 0.927602, 0, 0.373571, 0.4, 1, 0, -0.811691, 0, 0.584087, 0.5, 1, 0, 0, 0, 1, 0.6, 1, 0, 0.288054, 0, 0.957614, 0.7, 1, 0, 0.926272, 0, 0.376856, 0.8, 1, 0, 0.966762, 0, -0.255678, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8lgti"]
-_data = {
-"Damaged": SubResource("Animation_3w55f")
-}
-
 [node name="Fire car" type="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 25
 collision_mask = 23
 mass = 600.0
@@ -314,7 +298,6 @@ material_override = ExtResource("2_2m6ed")
 mesh = ExtResource("2_qfufb")
 
 [node name="CarMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("2_qfufb")
 skeleton = NodePath("../..")
 
@@ -423,12 +406,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.5
 shape = SubResource("CylinderShape3D_6lcvl")
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
 
-[node name="state" parent="." node_paths=PackedStringArray("fire", "root_node", "animation_player") instance=ExtResource("7_0xdua")]
+[node name="state" parent="." node_paths=PackedStringArray("fire", "root_node") instance=ExtResource("7_0xdua")]
 fire = NodePath("../Exhaust/FireNode")
 root_node = NodePath("..")
-animation_player = NodePath("../AnimationPlayer")
 
 [node name="centerOfMass" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.976106)
@@ -490,16 +471,7 @@ text = "Lap"
 [node name="car_rocketRay" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0348732, 1.92115, 4.53291)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_8lgti")
-}
-
-[node name="TimerDamage" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="area_entered" from="DamageArea" to="state" method="_on_damage_area_area_entered"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
 [connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]
 [connection signal="timeout" from="Timer" to="state" method="_on_timer_timeout"]
-[connection signal="timeout" from="TimerDamage" to="state" method="_on_timer_damage_timeout"]

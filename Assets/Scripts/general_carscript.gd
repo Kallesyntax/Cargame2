@@ -10,11 +10,11 @@ var DEADZONE = 0.1
 var powerUpNum = 0
 var player_index = 0
 
-var cannonball_scene = load("res://Scenes/Enemies/Canon_1/Canon ball.tscn")
 var rocket_Scene = load("res://Scenes/Powerups/Rocket_powerup.tscn")
 var instance
 
-func fire_cannonball(Car_cannon):
+
+func fire_Rocket(Car_cannon):
 	# Debugging: Print the state of the FirePoint node
 	instance = rocket_Scene.instantiate()
 	instance.position = Car_cannon.global_position

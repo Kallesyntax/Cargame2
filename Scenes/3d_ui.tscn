@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj2qykdmmdchp"]
+[gd_scene load_steps=8 format=3 uid="uid://cj2qykdmmdchp"]
 
 [ext_resource type="Script" path="res://Scenes/3d_ui.gd" id="1_n0lxe"]
+[ext_resource type="ArrayMesh" uid="uid://d2h4vc8ulu7by" path="res://Assets/Icons/Rocket/Rocketicon.res" id="2_id3oj"]
 [ext_resource type="ArrayMesh" uid="uid://b7wpo2s4h5d0e" path="res://Assets/Icons/Ghost/GhostIcon.res" id="3_ilsov"]
 [ext_resource type="ArrayMesh" uid="uid://dnjp65m2p668r" path="res://Scenes/UI/PowerFrame.res" id="3_srf6l"]
 [ext_resource type="ArrayMesh" uid="uid://qwewfca7ve7o" path="res://Assets/Icons/Turbo/Meshes/Turbo_icon.res" id="4_ygggr"]
@@ -47,6 +48,13 @@ snap_2d_transforms_to_pixel = true
 size = Vector2i(1600, 800)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+
+[node name="RocketIcon" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(0, -1, 4.37114e-08, 1, 0, 0, 0, 4.37114e-08, 1, -59.0814, -34.178, -44.583)
+visible = false
+layers = 524288
+mesh = ExtResource("2_id3oj")
+skeleton = NodePath("../../../..")
 
 [node name="GhostIcon" type="MeshInstance3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 transform = Transform3D(0, 8.74228e-06, 100, 100, 0, 0, 0, 100, -8.74228e-06, -59.0814, -34.178, -44.583)

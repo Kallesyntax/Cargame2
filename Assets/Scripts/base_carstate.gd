@@ -1,4 +1,4 @@
-class_name State
+class_name car_basestate
 
 extends Node
 
@@ -11,16 +11,20 @@ var state = States.IDLE
 
 @export var fire : Node
 @export var root_node : VehicleBody3D
-@export var animation_player : AnimationPlayer
 
-@onready var original_Power = root_node.engine_force
-@onready var ghost_mesh = $"../GhostMesh"
 @onready var icon = $"../3d_ui"
 @onready var powerUpID = $".."
-@onready var carmesh = $"../CarMesh"
 @onready var timer = $"../Timer"
-@onready var timer_damage = $"../TimerDamage"
+@onready var timer_damage = $TimerDamage
 @onready var car_rocketRay = $"../car_rocketRay"
+
+var carMesh = null
+var ghostMesh = null
+
+
+func ready():
+	carMesh = get_node("/root/CarMesh")
+	ghostMesh = get_node("/root/GhostMesh")
 
 func change_state(newState):
 	state= newState
@@ -62,23 +66,24 @@ func powerUp():
 			print("Ghost")	
 			root_node.set_collision_layer_value(4,0)
 			print(root_node.collision_mask)			
-			carmesh.visible = 0
-			ghost_mesh.visible = 1
+			carMesh.visible = 0
+			ghostMesh.visible = 1
 			change_state(States.IDLE)
 		if (powerUpID.powerUpNum == 3):
 			print("Rocket")	
 			change_state(States.IDLE)
-			root_node.fire_Rocket(car_rocketRay)
+			fire.fire_Rocket(car_rocketRay)
 		powerUpID.powerUpNum = 0
 
-func damage():	
-	print("Damage state")
-	change_state(States.IDLE)
+func damage():
+	root_node.engine_force =0
+	root_node.steering =0
+	timer_damage.start(3)
 	
 func _on_timer_timeout():
 	root_node.set_collision_layer_value(4,1)	
-	carmesh.visible = 1
-	ghost_mesh.visible = 0		
+	carMesh.visible = 1
+	ghostMesh.visible = 0		
 	timer.stop()
 	fire.stop_fire()
 	root_node.set_boost_speed(000) 
@@ -86,16 +91,6 @@ func _on_timer_timeout():
 # Called when the node enters the scene tree for the first time.
 
 func _on_timer_damage_timeout():
+	#car.engine_force = original_Power
+	#car.steering = original_Steering
 	timer_damage.stop()
-	root_node.engine_force = original_Power
-	damage()
-	
-
-
-func _on_damage_area_area_entered(area):
-	animation_player.play("Damaged")
-	root_node.engine_force = 0
-	root_node.steering = 0	
-	timer_damage.start(3)
-	
-	
