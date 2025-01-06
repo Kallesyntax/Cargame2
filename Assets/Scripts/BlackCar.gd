@@ -13,7 +13,7 @@ extends CarScript
 @onready var RBW = $RBW
 @onready var fire_car = $"."
 @onready var timer = $Timer
-@onready var icon = $"3d_ui"
+#@onready var icon = $"3d_ui"
 @onready var car_rocketRay = $car_rocketRay
 
 @export var Acceleration = 1500
@@ -83,8 +83,8 @@ func _physics_process(delta):
 		if engine_sound.pitch_scale < 2:
 			engine_sound.pitch_scale = engine_sound.pitch_scale +1*delta	
 	
-	if(Input.is_action_just_pressed("Fire_rocket")):
-		fire_Rocket(car_rocketRay)
+	#if(Input.is_action_just_pressed("Fire_rocket")):
+	#	fire_Rocket(car_rocketRay)
 		
 	if(Input.is_action_pressed("slide")):
 		slidepower = 3000
@@ -104,7 +104,7 @@ func on_checkpoint_enter(area):
 
 func on_powerup_pickup(area):
 	powerUpNum = powerUps.get_powerup()
-	icon.set_icon_visible(powerUpNum)
+	#icon.set_icon_visible(powerUpNum)
 	
 func set_boost_speed(speed):
 	boostSpeed = speed
