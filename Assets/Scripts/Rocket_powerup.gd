@@ -1,7 +1,7 @@
 extends Node3D
 @onready var timer = $RigidBody3D/Timer
 # Initial velocity and acceleration
-const SPEED = 35
+const SPEED = 80
 @onready var area = $Area3D
 @onready var ff_timer = $FFTimer
 

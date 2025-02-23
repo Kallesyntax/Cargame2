@@ -17,8 +17,8 @@ func _ready():
 		var car_instance = car_scene.instantiate()
 		# Find the VehicleBody3D node with CarScript
 		var vehicle_body = car_instance.get_node("VehicleBody3D")
-		if vehicle_body and vehicle_body is CarScript:
-			vehicle_body = vehicle_body as CarScript
+		if vehicle_body and vehicle_body is BaseCarScript:
+			vehicle_body = vehicle_body as BaseCarScript
 			# Set the spawn position of the car
 			var spawn_position = p_1_spawn.global_transform.origin  # Replace with desired position
 			# Set the rotation of the car (example: 90 degrees around the Y axis)
@@ -37,8 +37,8 @@ func _ready():
 					var car_instance2 = car_scene2.instantiate()
 					# Find the VehicleBody3D node with CarScript
 					var vehicle_body2 = car_instance2.get_node("VehicleBody3D")
-					if vehicle_body2 and vehicle_body2 is CarScript:
-						vehicle_body2 = vehicle_body2 as CarScript
+					if vehicle_body2 and vehicle_body2 is BaseCarScript:
+						vehicle_body2 = vehicle_body2 as BaseCarScript
 						# Set the spawn position of the car
 						var spawn_position2 = p_2_spawn.global_transform.origin  # Replace with desired position
 						# Set the rotation of the car (example: 90 degrees around the Y axis)

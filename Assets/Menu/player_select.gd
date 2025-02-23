@@ -1,10 +1,10 @@
 class_name PlayerCount 
 extends Control
 
-@onready var players_1 = $MarginContainer/HBoxContainer/VBoxContainer/Players1 as Button
-@onready var players_2 = $MarginContainer/HBoxContainer/VBoxContainer/Players2 as Button
-@onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button as Button
-@onready var start_level = preload("res://Assets/Menu/car_select.tscn") as PackedScene
+@onready var players_1 = %Players1 as Button
+@onready var players_2 = %Players2 as Button
+@onready var exit_button = %Exit_Button as Button
+@onready var start_level = preload("res://Scenes/Menu/car_select.tscn") as PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	players_1.button_down.connect(players_1_pressed)

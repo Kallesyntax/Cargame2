@@ -1,13 +1,21 @@
 extends Node3D
 
-@onready var black_car = $BlackCar1Mesh
-@onready var brown_pickup = $BrownPickup
+@onready var car_meshes = []  # Lista för att hålla alla bilmesher
 
-# Called when the node enters the scene tree for the first time.
-func black_car_visible():
-	black_car.visible = 1
-	brown_pickup.visible = 0
+func _ready():
+	# Lägg till alla bilmesher till listan
+	car_meshes.append($BlackCar)
+	car_meshes.append($BrownPickup)
+	car_meshes.append($GreenCar)
+	car_meshes.append($RedCar)
 
-func brown_pickup_visible():
-	black_car.visible = 0
-	brown_pickup.visible = 1
+	# Lägg till fler bilmesher här om du har fler bilar i din scen
+	_preview_car(0)  # Förhandsvisa första bilen när scenen laddas
+
+func _preview_car(selected_index):
+	for i in range(car_meshes.size()):
+		car_meshes[i].visible = (i == selected_index)
+
+# Använd denna funktion för att uppdatera bilens synlighet
+func update_preview_car(index):
+	_preview_car(index)
