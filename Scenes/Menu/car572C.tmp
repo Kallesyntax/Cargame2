@@ -1,0 +1,333 @@
+[gd_scene load_steps=20 format=3 uid="uid://b6r5p3w7mikqx"]
+
+[ext_resource type="Theme" uid="uid://4jqfwdx03krl" path="res://Assets/Resources/Menu_backgroundTheme.tres" id="1_p7k1d"]
+[ext_resource type="Script" path="res://Assets/Menu/car_selection.gd" id="2_xxki8"]
+[ext_resource type="PackedScene" uid="uid://8gifv3b13ict" path="res://Scenes/car_prieview.tscn" id="3_sc4bk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbsru"]
+bg_color = Color(0.321569, 0.321569, 0.321569, 1)
+border_blend = true
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_nlfx1"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nyhh"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_right = 15
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u8hv"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+border_width_right = 3
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_6wivp"]
+Label/styles/normal = SubResource("StyleBoxFlat_8u8hv")
+
+[sub_resource type="SystemFont" id="SystemFont_ncpyk"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtgk4"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color(0.137255, 0.556863, 0.580392, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xydab"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_right = 3
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="Theme" id="Theme_2eenf"]
+Button/styles/focus = SubResource("StyleBoxFlat_gtgk4")
+Button/styles/normal = SubResource("StyleBoxFlat_xydab")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d3aa"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 13
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 13
+shadow_size = 1
+
+[sub_resource type="Theme" id="Theme_qi7gw"]
+Label/styles/normal = SubResource("StyleBoxFlat_3d3aa")
+
+[sub_resource type="SystemFont" id="SystemFont_1lbcp"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5jka"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 3
+shadow_size = 1
+
+[sub_resource type="Theme" id="Theme_df58h"]
+Label/styles/normal = SubResource("StyleBoxFlat_f5jka")
+
+[sub_resource type="Theme" id="Theme_i4p46"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp5xm"]
+bg_color = Color(0.545098, 0.545098, 0.545098, 1)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 15
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_p7k1d")
+script = ExtResource("2_xxki8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background_box" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cbsru")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Background_box"]
+layout_mode = 2
+theme = SubResource("Theme_nlfx1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5nyhh")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -800.0
+offset_right = -800.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 48.0
+offset_right = 200.0
+offset_bottom = 127.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_6wivp")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_ncpyk")
+theme_override_font_sizes/font_size = 46
+text = "Who you gonna be?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -149.0
+offset_right = 100.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Seperator" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_2eenf")
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_qi7gw")
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Select_car" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+theme_override_fonts/font = SubResource("SystemFont_1lbcp")
+theme_override_font_sizes/font_size = 24
+text = "Select Car"
+
+[node name="Right" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_df58h")
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_qi7gw")
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Select_Wheels" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+theme_override_fonts/font = SubResource("SystemFont_1lbcp")
+theme_override_font_sizes/font_size = 24
+text = "Select Wheels"
+
+[node name="Right" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_df58h")
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator2" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="Level_select" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_fonts/font = SubResource("SystemFont_1lbcp")
+theme_override_font_sizes/font_size = 24
+text = "Level select"
+
+[node name="Seperator3" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 546.0
+offset_bottom = 536.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(514, 512)
+render_target_update_mode = 4
+
+[node name="CarPrieview" parent="CanvasLayer/PanelContainer/SubViewportContainer/SubViewport" instance=ExtResource("3_sc4bk")]
+unique_name_in_owner = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_i4p46")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kp5xm")
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Select_car" to="." method="_confirm_selection"]
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Select_Wheels" to="." method="SelectWheelsButton_pressed"]
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Level_select" to="." method="StartGameButton_pressed"]
