@@ -1,16 +1,16 @@
 [gd_scene load_steps=40 format=3 uid="uid://bwudica5cnvru"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/base_carscript.gd" id="1_urwr1"]
+[ext_resource type="Script" uid="uid://y4wib0gswut3" path="res://Assets/Scripts/base_carscript.gd" id="1_urwr1"]
 [ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="2_bfmco"]
 [ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="4_2ykyf"]
 [ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="5_lpfw3"]
 [ext_resource type="Texture2D" uid="uid://ccop6o7lvbjhp" path="res://Assets/Textures/BallGradient.png" id="6_kwdaq"]
-[ext_resource type="Script" path="res://Assets/Scripts/base_carstate.gd" id="7_3sdiq"]
+[ext_resource type="Script" uid="uid://mafm6censes4" path="res://Assets/Scripts/base_carstate.gd" id="7_3sdiq"]
 [ext_resource type="AudioStream" uid="uid://de2qogpkpgc0a" path="res://Assets/Textures/rally-car-idle-loop-17-84405.mp3" id="7_gpiql"]
 [ext_resource type="PackedScene" uid="uid://crj1e3j1dxcvl" path="res://Scenes/state.tscn" id="8_s5w1g"]
 [ext_resource type="PackedScene" uid="uid://btv16dky8ak5t" path="res://Scenes/UI/car_ui.tscn" id="9_ieg3u"]
-[ext_resource type="Script" path="res://Assets/Scripts/Car_cam,era.gd" id="10_snwvq"]
-[ext_resource type="Script" path="res://Assets/Scripts/on_road_cast.gd" id="11_17gj5"]
+[ext_resource type="Script" uid="uid://c4ybubb2k6w5m" path="res://Assets/Scripts/Car_cam,era.gd" id="10_snwvq"]
+[ext_resource type="Script" uid="uid://71s4l4dvheu3" path="res://Assets/Scripts/on_road_cast.gd" id="11_17gj5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mkct"]
 albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
@@ -97,7 +97,7 @@ uniform sampler2D MainTexture : source_color, hint_default_black;
 uniform vec2 Disolve_tile = vec2(1.000000, 1.000000);
 uniform vec2 DisolveSpeed;
 uniform sampler2D Disolve : source_color, hint_default_black;
-uniform float DisolveAmmount : hint_range(0, 1);
+uniform float DisolveAmmount : hint_range(0.0, 1.0);
 
 
 
@@ -239,11 +239,11 @@ nodes/fragment/connections = PackedInt32Array(7, 0, 8, 2, 8, 0, 9, 1, 3, 0, 10, 
 render_priority = -1
 shader = SubResource("VisualShader_8uj5g")
 shader_parameter/ColorRemove = Color(1, 1, 1, 1)
+shader_parameter/MainTexture = ExtResource("6_kwdaq")
 shader_parameter/Disolve_tile = Vector2(0.1, 0.1)
 shader_parameter/DisolveSpeed = Vector2(0.01, 0.03)
-shader_parameter/DisolveAmmount = 0.0
-shader_parameter/MainTexture = ExtResource("6_kwdaq")
 shader_parameter/Disolve = ExtResource("5_lpfw3")
+shader_parameter/DisolveAmmount = 0.0
 
 [sub_resource type="Curve" id="Curve_sgp8b"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.956608, 0.97147), 0.0, 0.0, 0, 0, Vector2(0.994083, 0.98098), 0.0, 0.0, 0, 0]
@@ -434,8 +434,8 @@ collide_with_areas = true
 script = ExtResource("11_17gj5")
 
 [connection signal="area_entered" from="DamageArea" to="state" method="_on_damage_area_area_entered"]
-[connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
+[connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
 [connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]
 [connection signal="timeout" from="Timer" to="state" method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerDamage" to="state" method="_on_timer_damage_timeout"]

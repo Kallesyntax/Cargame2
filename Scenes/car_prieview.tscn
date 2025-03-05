@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://8gifv3b13ict"]
 
-[ext_resource type="Script" path="res://Scenes/car_prieview.gd" id="1_bukb8"]
+[ext_resource type="Script" uid="uid://ceo3opqvx8tki" path="res://Scenes/car_prieview.gd" id="1_bukb8"]
 [ext_resource type="ArrayMesh" uid="uid://blvsfn20ulah0" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_gn3kb"]
 [ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="3_j5cex"]
 [ext_resource type="ArrayMesh" uid="uid://bw0qvwauwnwgs" path="res://Assets/Cars/Green_car.res" id="3_lpgdq"]

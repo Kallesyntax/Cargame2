@@ -68,7 +68,7 @@ uniform float ColorIntensity;
 uniform vec2 TextureScrolling;
 uniform sampler2D Texture2DParameter : source_color;
 uniform sampler2D tex_frg_13;
-uniform float GradiantPower = 10;
+uniform float GradiantPower = 10.0;
 
 
 

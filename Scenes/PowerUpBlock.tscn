@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://b1qgcxejio08u"]
 
-[ext_resource type="Script" path="res://Scenes/powerup_box.gd" id="1_74xw5"]
+[ext_resource type="Script" uid="uid://44its3d0i1la" path="res://Scenes/powerup_box.gd" id="1_74xw5"]
 [ext_resource type="Shader" uid="uid://becqskr2il052" path="res://Assets/Shaders/PowerUp1_shaderk.tres" id="2_ciiim"]
 [ext_resource type="Texture2D" uid="uid://dhy4o6oqeh0cl" path="res://Assets/Textures/Perlin_noise.png" id="3_05t65"]
 
@@ -38,7 +38,7 @@ proximity_fade_enabled = true
 distance_fade_mode = 1
 
 [sub_resource type="Curve" id="Curve_vkhxy"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -46,7 +46,7 @@ point_count = 2
 curve = SubResource("Curve_vkhxy")
 
 [sub_resource type="Curve" id="Curve_du3nx"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 

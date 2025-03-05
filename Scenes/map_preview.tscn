@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://drw8vlkxapl2c"]
 
 [ext_resource type="ArrayMesh" uid="uid://b257c6xxba77" path="res://Assets/World/SmokyRoads.res" id="1_b0n56"]
-[ext_resource type="Script" path="res://Scenes/map_preview.gd" id="1_uo152"]
+[ext_resource type="Script" uid="uid://d4gicmysvewb4" path="res://Scenes/map_preview.gd" id="1_uo152"]
 [ext_resource type="ArrayMesh" uid="uid://btohirqfikguf" path="res://Assets/World/BlockyRock.res" id="2_vliqv"]
-[ext_resource type="ArrayMesh" uid="uid://uhxla414frth" path="res://Assets/World/Maps/IslandHub/Main island.res" id="4_hdpa1"]
+[ext_resource type="ArrayMesh" uid="uid://capyqqq6ick7i" path="res://Assets/World/Maps/IslandHub/Main island.res" id="4_hdpa1"]
 
 [node name="MapPreview" type="Node3D"]
 script = ExtResource("1_uo152")

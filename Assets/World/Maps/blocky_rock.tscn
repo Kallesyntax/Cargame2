@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bqkh7onj4hhaq"]
 
 [ext_resource type="ArrayMesh" uid="uid://btohirqfikguf" path="res://Assets/World/BlockyRock.res" id="1_5cydt"]
-[ext_resource type="Script" path="res://Assets/World/LevelScripts/Level.gd" id="1_bvw73"]
+[ext_resource type="Script" uid="uid://cyj23jiump883" path="res://Assets/World/LevelScripts/Level.gd" id="1_bvw73"]
 [ext_resource type="PackedScene" uid="uid://b1qgcxejio08u" path="res://Scenes/PowerUpBlock.tscn" id="3_vorli"]
 [ext_resource type="ArrayMesh" uid="uid://cshiwj6nkmyju" path="res://Assets/World/Environment/Stones/MediumStone1.res" id="4_pftj6"]
 [ext_resource type="AudioStream" uid="uid://cvpnyla0s7r5t" path="res://Assets/Audo/Music/Smoky road/Arcade Racer Rhythm-1.mp3" id="5_4ux0m"]

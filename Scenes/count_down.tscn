@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcs3b0fgs7tm7"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/CountDown.gd" id="1_e81d7"]
+[ext_resource type="Script" uid="uid://c5a5sfeoes7ho" path="res://Assets/Scripts/CountDown.gd" id="1_e81d7"]
 
 [node name="CountDown" type="Control"]
 process_mode = 3

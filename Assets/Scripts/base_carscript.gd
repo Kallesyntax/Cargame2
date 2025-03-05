@@ -133,7 +133,7 @@ func checkpoint_check(area):
 	if ChkInt == checkchild - 1 and active_checkpoint == checkchild:
 		active_checkpoint = 1
 		active_lap += 1
-		if active_lap == 2:
+		if active_lap == 4:
 			print("Woho you finished the race!")			
 			freeze=1
 		else:

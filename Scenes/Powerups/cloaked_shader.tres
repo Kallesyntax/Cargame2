@@ -48,9 +48,9 @@ operator = 1
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_always, cull_disabled, diffuse_lambert, specular_schlick_ggx;
 
-uniform float sharpness : hint_range(0, 16, 0.10000000149012) = 3;
+uniform float sharpness : hint_range(0.0, 16.0, 0.10000000149012) = 3.0;
 uniform vec4 ColorParameter : source_color = vec4(0.000000, 0.124056, 0.999986, 1.000000);
-uniform float amount : hint_range(0, 16, 0.10000000149012) = 5;
+uniform float amount : hint_range(0.0, 16.0, 0.10000000149012) = 5.0;
 
 
 

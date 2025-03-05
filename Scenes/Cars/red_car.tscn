@@ -30,8 +30,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j7dhp"]
 _data = {
-"Damaged": SubResource("Animation_mug83"),
-"RESET": SubResource("Animation_7812b")
+&"Damaged": SubResource("Animation_mug83"),
+&"RESET": SubResource("Animation_7812b")
 }
 
 [node name="Red_car" type="Node3D"]

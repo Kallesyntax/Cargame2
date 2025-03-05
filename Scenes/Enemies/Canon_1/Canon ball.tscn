@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://hswyr4kii677"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Canon_1/Canon ball.gd" id="1_avd4h"]
-[ext_resource type="Script" path="res://Scenes/Enemies/Canon_1/CanonBall_RigidBody3D.gd" id="2_aqe15"]
+[ext_resource type="Script" uid="uid://dhyvwxb5lkvdj" path="res://Scenes/Enemies/Canon_1/Canon ball.gd" id="1_avd4h"]
+[ext_resource type="Script" uid="uid://dim5alcs2t51x" path="res://Scenes/Enemies/Canon_1/CanonBall_RigidBody3D.gd" id="2_aqe15"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vt0vg"]
 
