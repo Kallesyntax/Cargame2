@@ -22,4 +22,3 @@ func fire_cannonball():
 	instance.transform.basis = Canon_ray.global_transform.basis
 	get_parent().add_child(instance)
 	# Rest of the firing logic...
-

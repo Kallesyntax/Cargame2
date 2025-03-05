@@ -1,40 +1,60 @@
 extends Control
 
-@onready var Brown_pickup = $MarginContainer/HBoxContainer/VBoxContainer/Brown_pickup as Button
-@onready var Black_car = $MarginContainer/HBoxContainer/VBoxContainer/Black_car as Button
-@onready var Level_select = $MarginContainer/HBoxContainer/VBoxContainer/Level_select as Button
-@onready var start_level = preload("res://Assets/Menu/stage_select.tscn") as PackedScene
+@onready var select_car = %Select_car
+@onready var select_wheels = %Select_Wheels
+@onready var Level_select = %Level_select as Button
+@onready var start_level = preload("res://Scenes/Menu/stage_select.tscn") as PackedScene
 @onready var sub_viewport_container = $SubViewportContainer
-@onready var car_prieview = $SubViewportContainer/SubViewport/CarPrieview
+@onready var car_prieview = %CarPrieview
 @onready var playercount = Global.selected_player_count
 
-var viewport_scene = preload("res://Scenes/car_prieview.tscn")
-var black_car_scene = load("res://Scenes/Cars/fire_car.tscn")
-var brown_car_scene = load("res://Scenes/Cars/brown_car.tscn")
-var viewport_instance
+var red_car_scene = "res://Scenes/Cars/red_car.tscn"
+var brown_car_scene = "res://Scenes/Cars/brown_car.tscn"
+var green_car_scene = "res://Scenes/Cars/green_car.tscn"
+var black_car_scene = "res://Scenes/Cars/black_car.tscn"
+
+var car_scenes = [
+	black_car_scene,
+	brown_car_scene,
+	green_car_scene,
+	red_car_scene
+]
+
+var current_car_index = 0
 
 func _ready():
-	Black_car.button_down.connect(BlackCarButton_pressed)
-	Black_car.focus_entered.connect(BlackCarFocus)
-	Brown_pickup.focus_entered.connect(BrownPickupFocus)
-	Brown_pickup.button_down.connect(BrownPickupButton_pressed)
+	_preview_car()  # Förhandsvisa första bilen när scenen laddas
 	Level_select.button_down.connect(StartGameButton_pressed)
+	select_car.grab_focus()
+	
+func _input(event):
+	if select_car.is_hovered() or select_car.has_focus():
+		if event is InputEventKey and event.pressed:
+			if event.as_text() == "Right":
+				_navigate_right()
+			elif event.as_text() == "Left":
+				_navigate_left()
+			elif event.as_text() == "Enter":
+				_confirm_selection()
 
-# Button signals to change the selected car
-func BlackCarFocus():
-	car_prieview.black_car_visible()
+func _navigate_right():
+	current_car_index += 1
+	if current_car_index >= car_scenes.size():
+		current_car_index = 0
+	_preview_car()
 
-func BrownPickupFocus():
-	car_prieview.brown_pickup_visible()
+func _navigate_left():
+	current_car_index -= 1
+	if current_car_index < 0:
+		current_car_index = car_scenes.size() - 1
+	_preview_car()
 
-func BlackCarButton_pressed() -> void:
-	Global.selected_car1_scene = "res://Scenes/Cars/fire_car.tscn"
-	# You can add code here to update the UI or preview the selected car
+func _preview_car():
+	car_prieview.update_preview_car(current_car_index)
 
-func BrownPickupButton_pressed() -> void:
-	Global.selected_car1_scene = "res://Scenes/Cars/brown_car.tscn"
-	# You can add code here to update the UI or preview the selected car
+func _confirm_selection():
+	Global.selected_car1_scene = car_scenes[current_car_index]
+	print("Bil vald:", current_car_index)
 
-# Signal to start the game with the selected car
 func StartGameButton_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)

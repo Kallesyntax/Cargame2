@@ -1,0 +1,238 @@
+[gd_scene load_steps=12 format=3 uid="uid://buy36ewrovf7i"]
+
+[ext_resource type="Script" uid="uid://dwi6yncak13th" path="res://Assets/Menu/Stage_select.gd" id="1_aq1fh"]
+[ext_resource type="PackedScene" uid="uid://drw8vlkxapl2c" path="res://Scenes/map_preview.tscn" id="2_c30fp"]
+[ext_resource type="Theme" uid="uid://cktpwq61abvu2" path="res://Assets/Resources/Header.tres" id="2_wbe3i"]
+[ext_resource type="Theme" uid="uid://ck8r6t143fvma" path="res://Assets/Resources/Menu_buttons.tres" id="3_gw5sy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kdnb"]
+bg_color = Color(0.321569, 0.321569, 0.321569, 1)
+border_blend = true
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_qujyi"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l7q2"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_right = 15
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="SystemFont" id="SystemFont_4thwn"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_md1w6"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_aiux8"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vqe4"]
+bg_color = Color(0.545098, 0.545098, 0.545098, 1)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 15
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="Stage_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aq1fh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background_box" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_7kdnb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Background_box"]
+layout_mode = 2
+theme = SubResource("Theme_qujyi")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0l7q2")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -800.0
+offset_right = -800.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 48.0
+offset_right = 200.0
+offset_bottom = 127.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wbe3i")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_4thwn")
+theme_override_font_sizes/font_size = 46
+text = "Where you gonna play"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -149.0
+offset_right = 100.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Seperator" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_gw5sy")
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Seperator2" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Smoky_roads" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_md1w6")
+theme_override_font_sizes/font_size = 24
+text = "Smoky Roads"
+
+[node name="Seperator4" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Blocky _rock" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_md1w6")
+theme_override_font_sizes/font_size = 24
+text = "Blocky Rock"
+
+[node name="Seperator5" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="IslandHub" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_md1w6")
+theme_override_font_sizes/font_size = 24
+text = "IslandHub"
+
+[node name="Seperator6" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Map_select" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_md1w6")
+theme_override_font_sizes/font_size = 24
+text = "Select map"
+
+[node name="Seperator3" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit_Button" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_md1w6")
+theme_override_font_sizes/font_size = 24
+text = "Exit Game"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 546.0
+offset_bottom = 536.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(514, 512)
+render_target_update_mode = 4
+
+[node name="MapPreview" parent="CanvasLayer/PanelContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_c30fp")]
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_aiux8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6vqe4")
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Smoky_roads" to="." method="on_smoky_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Blocky _rock" to="." method="on_blocky_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/IslandHub" to="." method="on_islandHub_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Map_select" to="." method="mapSelected"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Exit_Button" to="." method="on_exit_pressed"]

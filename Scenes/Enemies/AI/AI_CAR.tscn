@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq7ysgpmp00sq"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/AI/AI_CAR.gd" id="1_0vx8h"]
-[ext_resource type="ArrayMesh" uid="uid://bovnbleak7old" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_jw5f5"]
+[ext_resource type="Script" uid="uid://5tp74jkp1gm8" path="res://Scenes/Enemies/AI/AI_CAR.gd" id="1_0vx8h"]
+[ext_resource type="ArrayMesh" uid="uid://blvsfn20ulah0" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_jw5f5"]
 [ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="3_oabwf"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ch6g4"]

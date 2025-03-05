@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs8bhexidg4tw"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/NavigationNPC.gd" id="1_d2uxe"]
+[ext_resource type="Script" uid="uid://d1ti2vavo276e" path="res://Assets/Scripts/NavigationNPC.gd" id="1_d2uxe"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_n34qd"]
 

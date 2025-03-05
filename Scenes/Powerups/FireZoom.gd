@@ -10,5 +10,3 @@ func used_fire():
 func stop_fire():
 	noise.stop()
 	visible = 0
-
-

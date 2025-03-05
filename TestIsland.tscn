@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c82vs68a1l0h6"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/CountDown.gd" id="1_d5oqc"]
-[ext_resource type="ArrayMesh" uid="uid://uhxla414frth" path="res://Assets/World/Maps/IslandHub/Main island.res" id="2_5ccgb"]
+[ext_resource type="Script" uid="uid://c5a5sfeoes7ho" path="res://Assets/Scripts/CountDown.gd" id="1_d5oqc"]
+[ext_resource type="ArrayMesh" uid="uid://capyqqq6ick7i" path="res://Assets/World/Maps/IslandHub/Main island.res" id="2_5ccgb"]
 [ext_resource type="ArrayMesh" uid="uid://dwqs22ehukihc" path="res://Assets/World/Maps/IslandHub/main island road.res" id="3_e0tpe"]
 [ext_resource type="PackedScene" uid="uid://crrnpxlyrkqhi" path="res://Assets/World/Environment/New Folder/check_points.tscn" id="4_quqg3"]
 [ext_resource type="PackedScene" uid="uid://db71nwsbrc21p" path="res://Scenes/Enemies/AI/NavigationCAR.tscn" id="4_vohm1"]

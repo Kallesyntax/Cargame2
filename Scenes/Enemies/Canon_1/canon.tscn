@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dg1ptv7df457p"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Canon_1/canon.gd" id="1_law86"]
+[ext_resource type="Script" uid="uid://dha528ks5pphq" path="res://Scenes/Enemies/Canon_1/canon.gd" id="1_law86"]
 [ext_resource type="ArrayMesh" uid="uid://bov2rxx7d8w1d" path="res://Assets/dump/Models/Enemies/Canon1/Canon_stand.res" id="1_tybtk"]
 [ext_resource type="ArrayMesh" uid="uid://bdggcrbpiq44e" path="res://Assets/dump/Models/Enemies/Canon1/Canon_canon.res" id="2_eaaky"]
 

@@ -1,86 +1,73 @@
-[gd_scene load_steps=7 format=3 uid="uid://chsprec5ajka0"]
+[gd_scene load_steps=8 format=3 uid="uid://chsprec5ajka0"]
 
-[ext_resource type="PackedScene" uid="uid://bwudica5cnvru" path="res://Assets/Cars/base_carscene.tscn" id="1_wl2bc"]
-[ext_resource type="Script" path="res://Assets/Scripts/base_carscrips.gd" id="1_xnmud"]
+[ext_resource type="PackedScene" uid="uid://bwudica5cnvru" path="res://Scenes/Cars/base_carscene.tscn" id="1_wl2bc"]
 [ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="2_i6uda"]
-[ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="3_etghf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ewdlg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5mefk"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0k7g4"]
+[sub_resource type="Animation" id="Animation_mug83"]
+resource_name = "Damaged"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, 0, 0, 1, 0.233333, 1, 0, 0.707107, 0, 0.707107, 0.533333, 1, 0, 1, 0, -4.37114e-08, 0.733333, 1, 0, -0.707107, 0, 0.707107, 1, 1, 0, 0, 0, 1)
 
-[node name="Brown_car" type="VehicleBody3D"]
-script = ExtResource("1_xnmud")
+[sub_resource type="Animation" id="Animation_7812b"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
-[node name="GhostMesh" type="MeshInstance3D" parent="."]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j7dhp"]
+_data = {
+&"Damaged": SubResource("Animation_mug83"),
+&"RESET": SubResource("Animation_7812b")
+}
+
+[node name="Brown_car" type="Node3D"]
+
+[node name="VehicleBody3D" parent="." node_paths=PackedStringArray("collisionMesh", "carMesh", "RealcarMesh", "ghostMesh", "exhausPosition", "car_rocketRay", "animation_player") instance=ExtResource("1_wl2bc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.338195, 0)
+traction = 3
+collisionMesh = NodePath("CollisionShape3D")
+carMesh = NodePath("CarMesh")
+RealcarMesh = NodePath("CarMesh")
+ghostMesh = NodePath("GhostMesh")
+exhausPosition = NodePath("Node3D")
+car_rocketRay = NodePath("Kanon")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325874, 0.372887)
+shape = SubResource("ConvexPolygonShape3D_ewdlg")
+
+[node name="GhostMesh" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877885, 0.372887)
 visible = false
 mesh = SubResource("BoxMesh_5mefk")
 skeleton = NodePath("../CarMesh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_0k7g4")
-
-[node name="VehicleBody3D" parent="." instance=ExtResource("1_wl2bc")]
-
-[node name="CarMesh" type="MeshInstance3D" parent="."]
+[node name="CarMesh" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325874, 0.372887)
 mesh = ExtResource("2_i6uda")
+skeleton = NodePath("../..")
 
-[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.549639, 3.29216)
-brake = 10.0
-use_as_traction = true
-use_as_steering = true
-wheel_roll_influence = 1.0
-wheel_radius = 0.7
-wheel_rest_length = 0.5
-wheel_friction_slip = 1.4
-suspension_stiffness = 30.0
-suspension_max_force = 8000.0
-damping_compression = 0.3
+[node name="Kanon" type="RayCast3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.43117, 5.08521)
 
-[node name="SmallWheel" parent="VehicleWheel3D" instance=ExtResource("3_etghf")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VehicleBody3D"]
+libraries = {
+"": SubResource("AnimationLibrary_j7dhp")
+}
 
-[node name="RFW" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.549268, 3.292)
-brake = 10.0
-use_as_traction = true
-use_as_steering = true
-wheel_roll_influence = 1.0
-wheel_radius = 0.7
-wheel_rest_length = 0.5
-wheel_friction_slip = 1.4
-suspension_stiffness = 30.0
-suspension_max_force = 8000.0
-damping_compression = 0.3
-
-[node name="SmallWheel" parent="RFW" instance=ExtResource("3_etghf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
-
-[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.549639, -2.0832)
-brake = 10.0
-use_as_traction = true
-wheel_roll_influence = 0.15
-wheel_radius = 0.7
-wheel_rest_length = 0.5
-wheel_friction_slip = 1.0
-suspension_stiffness = 30.0
-suspension_max_force = 8000.0
-
-[node name="SmallWheel" parent="VehicleWheel3D2" instance=ExtResource("3_etghf")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
-
-[node name="RBW" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.549268, -2.083)
-brake = 10.0
-use_as_traction = true
-wheel_roll_influence = 0.15
-wheel_radius = 0.7
-wheel_rest_length = 0.5
-wheel_friction_slip = 1.0
-suspension_stiffness = 30.0
-suspension_max_force = 8000.0
-
-[node name="SmallWheel" parent="RBW" instance=ExtResource("3_etghf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
+[node name="Node3D" type="Node3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17418, 0.561114, -3.5338)

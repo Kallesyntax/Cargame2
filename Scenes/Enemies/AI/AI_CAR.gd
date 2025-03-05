@@ -8,6 +8,7 @@ const STEERING_SPEED = deg_to_rad(120)
 
 # Nodes for interest and danger detection
 @onready var navigation_agent = $NavigationAgent3D
+@export var navigation_region: NavigationRegion3D
 
 # Variables for dynamic behavior
 var current_steering_angle = 0.0
@@ -23,9 +24,8 @@ func _ready():
 	steering = 0
 	
 	# Assuming the NavigationRegion3D is a direct child of the root node
-	var navigation_region = get_node(".../NavigationRegion3D")
-	# Get the navigation map RID directly from the NavigationRegion3D
-	var navigation_map_rid = navigation_region.navmesh_id
+		# Get the navigation map RID directly from the NavigationRegion3D
+	var navigation_map_rid = navigation_region
 	
 	var checkpoint_node = get_node("../Checkpoints")
 	for i in range(checkpoint_node.get_child_count()):
