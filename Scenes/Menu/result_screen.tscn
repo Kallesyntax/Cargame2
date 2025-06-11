@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuf0klyc8tmf6"]
+
+[ext_resource type="Theme" uid="uid://4jqfwdx03krl" path="res://Assets/Resources/Menu_backgroundTheme.tres" id="1_mm26h"]
+[ext_resource type="Script" uid="uid://c0tm82kquqgrl" path="res://Assets/Scripts/ResultScreen.gd" id="2_0jhur"]
+[ext_resource type="Theme" uid="uid://ck8r6t143fvma" path="res://Assets/Resources/Menu_buttons.tres" id="3_0jhur"]
+[ext_resource type="PackedScene" uid="uid://3c5w466u0xgx" path="res://Scenes/Menu/result_row.tscn" id="3_agse5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8yt1"]
+bg_color = Color(0.1, 0.1, 0.1, 0.704)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 3
+
+[sub_resource type="Theme" id="Theme_agse5"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_j8yt1")
+
+[node name="ResultScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mm26h")
+script = ExtResource("2_0jhur")
+result_row_scene = ExtResource("3_agse5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LapTimer" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -47.0
+offset_right = 150.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = SubResource("Theme_agse5")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LapTimer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LapTimer/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="GridContainer" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 4
+
+[node name="Plats" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Position"
+horizontal_alignment = 1
+
+[node name="Namn" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Total tid" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Total time"
+horizontal_alignment = 1
+
+[node name="Poäng" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Points"
+horizontal_alignment = 1
+
+[node name="ResultList" type="VBoxContainer" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="ButtonBar" type="HBoxContainer" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("3_0jhur")
+theme_override_constants/separation = 23
+
+[node name="Next Race" type="Button" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Next race"
+
+[node name="Back" type="Button" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Back to menu"
+
+[node name="Exit" type="Button" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
