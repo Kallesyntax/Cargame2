@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq5hv4o7175n4"]
+
+[ext_resource type="Script" uid="uid://c66jmb2b64f3x" path="res://Assets/Scripts/PlayerResultOverlay.gd" id="1_82thh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrooe"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.580392)
+
+[sub_resource type="Theme" id="Theme_tqrjs"]
+Panel/styles/panel = SubResource("StyleBoxFlat_wrooe")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fth2r"]
+font_size = 48
+
+[node name="PlayerResultOverlay" type="CanvasLayer"]
+script = ExtResource("1_82thh")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_tqrjs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.5
+offset_top = -60.5
+offset_right = 93.5
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "Mål!"
+label_settings = SubResource("LabelSettings_fth2r")
+
+[node name="TimeTable" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "tiden"
+
+[node name="PositionLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Väntar på andra spelare"

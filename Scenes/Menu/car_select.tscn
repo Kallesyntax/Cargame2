@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6r5p3w7mikqx"]
+[gd_scene load_steps=19 format=3 uid="uid://b6r5p3w7mikqx"]
 
 [ext_resource type="Theme" uid="uid://4jqfwdx03krl" path="res://Assets/Resources/Menu_backgroundTheme.tres" id="1_p7k1d"]
 [ext_resource type="Script" uid="uid://cqsj1ss6wcigt" path="res://Assets/Menu/car_selection.gd" id="2_xxki8"]
@@ -29,6 +29,20 @@ corner_radius_bottom_left = 15
 expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j233b"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+border_width_right = 4
+border_width_bottom = 6
+border_color = Color(0.203759, 0.1393, 0.142078, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_6oixd"]
+Label/styles/normal = SubResource("StyleBoxFlat_j233b")
 
 [sub_resource type="SystemFont" id="SystemFont_ncpyk"]
 font_names = PackedStringArray("Impact")
@@ -113,6 +127,30 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme = SubResource("Theme_nlfx1")
 theme_override_styles/panel = SubResource("StyleBoxFlat_5nyhh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Background_box/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = 48.0
+offset_right = -24.0
+offset_bottom = 128.0
+grow_horizontal = 0
+theme = SubResource("Theme_6oixd")
+
+[node name="player1" type="Label" parent="CanvasLayer/Background_box/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+
+[node name="player2" type="Label" parent="CanvasLayer/Background_box/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 1

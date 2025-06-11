@@ -72,15 +72,15 @@ func idle(delta):
 		engine_sound.pitch_scale -= 1 * delta
 		
 	if Input.is_action_pressed("player" + str(root_node.player_index + 1) + "_throttle"):
-		print("Driving")
+		#print("Driving")
 		change_state(States.DRIVING)
 	
 	if Input.is_action_pressed("player" + str(root_node.player_index + 1) + "_drift"):
-		print("Drifting!")
+		#print("Drifting!")
 		change_state(States.DRIFTING)
 		
 	if Input.is_action_just_pressed("player" + str(root_node.player_index + 1) + "_action"):
-		print("POWER!")
+		#print("POWER!")
 		change_state(States.POWERUP)
 		
 func driving(delta):

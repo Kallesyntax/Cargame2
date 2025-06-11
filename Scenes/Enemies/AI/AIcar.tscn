@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://db71nwsbrc21p"]
+
+[ext_resource type="Script" uid="uid://djwk0mkp83clt" path="res://Assets/Scripts/VehicleBody3DAI.gd" id="1_0qinp"]
+[ext_resource type="ArrayMesh" uid="uid://blvsfn20ulah0" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_gw043"]
+[ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="3_bdip4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1pn14"]
+points = PackedVector3Array(-1.32707, 0.12981, 4.43162, 2.33147, 1.67029, 2.20968, 1.79843, 1.53727, 4.07396, -1.57934, 2.40488, -1.63522, 1.81986, 0.0124084, -2.74518, -1.81971, 0.0120662, -2.7463, 1.7134, 1.90217, -2.78901, -1.79776, 1.53727, 4.07396, 1.6227, 0.0627955, 3.66873, 1.66517, 2.4696, 0.478915, -2.3308, 1.67029, 2.20968, -1.7134, 1.90244, -2.79055, 0.192227, 0.371651, 5.24631, -1.6645, 2.4696, 0.478915, -0.332359, 1.40401, 5.00778, -1.79467, 0.028468, 2.25782, 1.93169, 0.605196, 4.34017, -1.93102, 0.605196, 4.34017, 1.58001, 2.40488, -1.63522, 1.53191, 1.53727, 4.47453, 1.80328, 1.26634, -2.83438, 1.79534, 0.028468, 2.25782, -1.80314, 1.26636, -2.83555, 0.697999, 0.1262, 4.82419, -0.865399, 1.27075, 5.00778, -1.80314, 0.271793, -2.83555, -1.6645, 1.53727, 4.34017, -0.897276, 0.0675457, 4.25583, -0.191572, 0.371585, 5.24664, 0.466289, 1.40401, 5.00778, 2.33147, 1.67029, 1.94264, -2.3308, 1.67029, 1.94264)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qinp"]
+size = Vector3(25.311, 1.57373, 40.9244)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gw043"]
+
+[node name="AIcar" type="Node3D"]
+script = ExtResource("1_0qinp")
+
+[node name="VehicleBody3D" type="VehicleBody3D" parent="."]
+unique_name_in_owner = true
+collision_mask = 15
+mass = 100.0
+
+[node name="CarMesh" type="MeshInstance3D" parent="VehicleBody3D"]
+layers = 127
+mesh = ExtResource("2_gw043")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
+shape = SubResource("ConvexPolygonShape3D_1pn14")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.00565529, 3.29216)
+engine_force = 600.0
+brake = 10.0
+steering = 1.39626
+use_as_traction = true
+use_as_steering = true
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+damping_compression = 0.3
+
+[node name="SmallWheel" parent="VehicleBody3D/VehicleWheel3D" instance=ExtResource("3_bdip4")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
+
+[node name="RFW" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.00528431, 3.292)
+engine_force = 600.0
+brake = 10.0
+steering = 1.39626
+use_as_traction = true
+use_as_steering = true
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+damping_compression = 0.3
+
+[node name="SmallWheel" parent="VehicleBody3D/RFW" instance=ExtResource("3_bdip4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.00565529, -2.0832)
+engine_force = 600.0
+brake = 10.0
+use_as_traction = true
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+
+[node name="SmallWheel" parent="VehicleBody3D/VehicleWheel3D2" instance=ExtResource("3_bdip4")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
+
+[node name="RBW" type="VehicleWheel3D" parent="VehicleBody3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.00528431, -2.083)
+engine_force = 600.0
+brake = 10.0
+use_as_traction = true
+suspension_stiffness = 30.0
+suspension_max_force = 8000.0
+
+[node name="SmallWheel" parent="VehicleBody3D/RBW" instance=ExtResource("3_bdip4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
+
+[node name="Timer" type="Timer" parent="VehicleBody3D"]
+one_shot = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="VehicleBody3D"]
+unique_name_in_owner = true
+path_desired_distance = 30.0
+target_desired_distance = 30.0
+path_height_offset = 1.0
+path_max_distance = 30.01
+navigation_layers = 128
+avoidance_enabled = true
+radius = 15.0
+use_3d_avoidance = true
+avoidance_layers = 8
+avoidance_mask = 8
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.960784, 0, 0.960784, 1)
+debug_path_custom_point_size = 19.85
+
+[node name="DetectionArea" type="Area3D" parent="VehicleBody3D"]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D/DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0356495, 0.660747, 26.021)
+shape = SubResource("BoxShape3D_0qinp")
+
+[node name="DangerArea" type="StaticBody3D" parent="VehicleBody3D"]
+unique_name_in_owner = true
+top_level = true
+visible = false
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D/DangerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.92271, 0)
+shape = SubResource("BoxShape3D_gw043")
+debug_color = Color(0.925622, 0.00658147, 9.62615e-07, 0.419608)
+
+[connection signal="timeout" from="VehicleBody3D/Timer" to="VehicleBody3D" method="_on_timer_timeout"]
+[connection signal="navigation_finished" from="VehicleBody3D/NavigationAgent3D" to="VehicleBody3D" method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="target_reached" from="VehicleBody3D/NavigationAgent3D" to="VehicleBody3D" method="_on_navigation_agent_3d_target_reached"]
+[connection signal="waypoint_reached" from="VehicleBody3D/NavigationAgent3D" to="VehicleBody3D" method="_on_navigation_agent_3d_waypoint_reached"]
+[connection signal="body_entered" from="VehicleBody3D/DetectionArea" to="." method="_on_obstacle_detected"]
+[connection signal="body_exited" from="VehicleBody3D/DetectionArea" to="." method="_on_obstacle_cleared"]
