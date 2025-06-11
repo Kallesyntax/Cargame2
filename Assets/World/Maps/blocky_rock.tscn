@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqkh7onj4hhaq"]
+[gd_scene load_steps=13 format=3 uid="uid://bqkh7onj4hhaq"]
 
 [ext_resource type="ArrayMesh" uid="uid://btohirqfikguf" path="res://Assets/World/BlockyRock.res" id="1_5cydt"]
 [ext_resource type="Script" uid="uid://cyj23jiump883" path="res://Assets/World/LevelScripts/Level.gd" id="1_bvw73"]
@@ -6,7 +6,6 @@
 [ext_resource type="ArrayMesh" uid="uid://cshiwj6nkmyju" path="res://Assets/World/Environment/Stones/MediumStone1.res" id="4_pftj6"]
 [ext_resource type="AudioStream" uid="uid://cvpnyla0s7r5t" path="res://Assets/Audo/Music/Smoky road/Arcade Racer Rhythm-1.mp3" id="5_4ux0m"]
 [ext_resource type="PackedScene" uid="uid://dg1ptv7df457p" path="res://Scenes/Enemies/Canon_1/canon.tscn" id="6_g4sq0"]
-[ext_resource type="PackedScene" uid="uid://bs8bhexidg4tw" path="res://Scenes/Enemies/AI/navigation_npc.tscn" id="6_lqrft"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xl8c0"]
 points = PackedVector3Array(0.797753, -0.965707, 1.01174, -1.22835, -0.521363, -2.66125, -0.843668, -0.519699, -2.64671, -1.21367, 1.16669, -0.200797, 0.768183, 0.192864, -1.88154, -0.838183, -1.57758, -0.700346, 0.21792, -1.75308, -1.56506, 1.84277, -0.642912, -0.263551, -2.08001, -0.0205884, -2.44057, -0.40494, -0.773375, 1.06755, -0.649936, 1.16038, -1.694, -0.0304284, 0.341928, 0.951329, -2.167, -0.39448, -2.27307, 1.10472, -1.33778, 0.809331, -1.34399, -1.02146, -2.51839, -0.454502, 1.11847, -1.36462, 0.0321143, -1.50363, 0.410385, -0.0909896, -0.578762, -2.43397, -0.463632, -0.0828696, -2.50359, 1.21478, -1.45022, 0.10814, 1.00458, -0.634935, -1.43095, -0.464987, -1.76847, -1.44894, 1.64802, -0.390379, -0.460984, 0.595053, -0.331327, 1.04516, -1.80185, -0.775771, -2.53876, -2.09153, -0.390954, -2.03331, -0.585378, -1.01129, -2.49318, -0.0272707, -0.770693, 1.18327, -0.335868, -1.12411, 0.825635, 1.83, -0.579147, -0.452267, -0.881769, -0.148532, 0.332415, -0.0913871, 0.284009, 1.02265)
@@ -950,6 +949,3 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/BlockyRock/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_o5hxq")
-
-[node name="NavigationNPC" parent="NavigationRegion3D" instance=ExtResource("6_lqrft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6103, -9.54091, 4.48973)

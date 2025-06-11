@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8ye34a4igbow" path="res://Assets/Textures/Icons/Three_powerups.png" id="2_ytpb1"]
 [ext_resource type="Texture2D" uid="uid://cuwrtt38amtar" path="res://Assets/Textures/JustgraySqare.png" id="4_7vquc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8yt1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr1wi"]
 bg_color = Color(0.1, 0.1, 0.1, 0.704)
 border_width_left = 3
 border_width_top = 3
@@ -23,7 +23,7 @@ expand_margin_bottom = 5.0
 shadow_size = 3
 
 [sub_resource type="Theme" id="Theme_whtft"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_j8yt1")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_yr1wi")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tnolm"]
 atlas = ExtResource("4_7vquc")
@@ -142,3 +142,42 @@ visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_brkjp")
 expand_mode = 5
+
+[node name="LapTimer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224.0
+offset_top = 40.0
+offset_right = -16.0
+offset_bottom = 139.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_whtft")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LapTimer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LapTimer/MarginContainer"]
+layout_mode = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Current lap:"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Best" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Best time:"
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Total" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total time:"

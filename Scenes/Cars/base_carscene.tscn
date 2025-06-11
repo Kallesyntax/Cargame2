@@ -395,7 +395,7 @@ LBW = NodePath("../VehicleWheel3D2")
 RBW = NodePath("../RBW")
 
 [node name="centerOfMass" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.976106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.625559)
 visible = false
 
 [node name="TimerDamage" type="Timer" parent="."]
@@ -426,6 +426,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RespawnPoint"]
+visible = false
 mesh = SubResource("BoxMesh_rrify")
 
 [node name="OnRoadCast" type="RayCast3D" parent="."]
@@ -433,9 +434,21 @@ transform = Transform3D(1, 0, 0, 0, 3.24013, 0, 0, 0, 1, 0, 1.74991, 1.19054)
 collide_with_areas = true
 script = ExtResource("11_17gj5")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 3.57975e-14, 8.74229e-08, 2.71022e-08, 0.950733, 0.310013, -8.31157e-08, 0.310013, -0.950733, 0, 0.543441, 4.58614)
+light_color = Color(1, 0.956683, 0.789324, 1)
+light_energy = 16.0
+light_indirect_energy = 14.333
+light_volumetric_fog_energy = 6.495
+light_size = 0.536
+light_specular = 3.571
+spot_range = 46.335
+spot_attenuation = 0.7
+spot_angle = 18.63
+
 [connection signal="area_entered" from="DamageArea" to="state" method="_on_damage_area_area_entered"]
-[connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
+[connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
 [connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]
 [connection signal="timeout" from="Timer" to="state" method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerDamage" to="state" method="_on_timer_damage_timeout"]
