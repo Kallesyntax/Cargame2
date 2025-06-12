@@ -14,10 +14,13 @@ extends Control
 @onready var map_preview = $CanvasLayer/PanelContainer/SubViewportContainer/SubViewport/MapPreview
 @onready var map_selection = ""
 
+@onready var animation_player = $CanvasLayer/AnimationPlayer
+
 var buttons = []
 var current_index = 0
 
 func _ready():
+	animation_player.play("Fade_in")
 	# Samla alla knappar i en lista och anslut signaler
 	buttons = [smoky_roads, blocky_rock, island_hub, map_select, exit_button]
 	smoky_roads.button_down.connect(on_smoky_pressed)

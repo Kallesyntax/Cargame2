@@ -9,6 +9,7 @@ extends Control
 @onready var playercount = Global.selected_player_count
 @onready var player1label =%player1
 @onready var player2label =%player2
+@onready var animation_player = $CanvasLayer/AnimationPlayer
 
 var red_car_scene = "res://Scenes/Cars/red_car.tscn"
 var brown_car_scene = "res://Scenes/Cars/brown_car.tscn"
@@ -27,6 +28,7 @@ var current_car_index = 0  # Bilindex för aktuell förhandsvisning
 var player2_car_index = 0  # Separat bilindex för spelare 2
 
 func _ready():
+	animation_player.play("Fade_in")
 	_update_preview()  # Förhandsvisa första bilen när scenen laddas
 	Level_select.button_down.connect(StartGameButton_pressed)
 	select_car.grab_focus()

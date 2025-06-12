@@ -28,6 +28,10 @@ func _ready():
 
 func reset_race_results():
 	race_results.clear()
+	
+func total_reset_race_result():
+	race_results.clear()
+	total_scores.clear()
 
 func add_race_result(name: String, time: float):
 	# Undvik dubbletter

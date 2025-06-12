@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuf0klyc8tmf6"]
+[gd_scene load_steps=11 format=3 uid="uid://cuf0klyc8tmf6"]
 
 [ext_resource type="Theme" uid="uid://4jqfwdx03krl" path="res://Assets/Resources/Menu_backgroundTheme.tres" id="1_mm26h"]
 [ext_resource type="Script" uid="uid://c0tm82kquqgrl" path="res://Assets/Scripts/ResultScreen.gd" id="2_0jhur"]
@@ -25,6 +25,58 @@ shadow_size = 3
 
 [sub_resource type="Theme" id="Theme_agse5"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_j8yt1")
+
+[sub_resource type="Animation" id="Animation_ca73i"]
+resource_name = "Fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_agse5"]
+resource_name = "Fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0jhur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aw1nd"]
+_data = {
+&"Fade_in": SubResource("Animation_ca73i"),
+&"Fade_out": SubResource("Animation_agse5"),
+&"RESET": SubResource("Animation_0jhur")
+}
 
 [node name="ResultScreen" type="Control"]
 layout_mode = 3
@@ -105,22 +157,44 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
 
-[node name="ButtonBar" type="HBoxContainer" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+[node name="ButtonBar" type="VBoxContainer" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 6
 theme = ExtResource("3_0jhur")
 theme_override_constants/separation = 23
 
 [node name="Next Race" type="Button" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Next race"
 
 [node name="Back" type="Button" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Back to menu"
 
 [node name="Exit" type="Button" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Exit"
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aw1nd")
+}
+
+[connection signal="pressed" from="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar/Next Race" to="." method="_on_next_race_pressed"]
+[connection signal="pressed" from="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/LapTimer/MarginContainer/VBoxContainer/ButtonBar/Exit" to="." method="_on_exit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="stage_select"]

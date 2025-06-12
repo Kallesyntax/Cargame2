@@ -1,10 +1,46 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6r5p3w7mikqx"]
+[gd_scene load_steps=22 format=3 uid="uid://b6r5p3w7mikqx"]
 
 [ext_resource type="Theme" uid="uid://4jqfwdx03krl" path="res://Assets/Resources/Menu_backgroundTheme.tres" id="1_p7k1d"]
 [ext_resource type="Script" uid="uid://cqsj1ss6wcigt" path="res://Assets/Menu/car_selection.gd" id="2_xxki8"]
 [ext_resource type="Theme" uid="uid://cktpwq61abvu2" path="res://Assets/Resources/Header.tres" id="3_ajt2l"]
 [ext_resource type="PackedScene" uid="uid://8gifv3b13ict" path="res://Scenes/car_prieview.tscn" id="3_sc4bk"]
 [ext_resource type="Theme" uid="uid://ck8r6t143fvma" path="res://Assets/Resources/Menu_buttons.tres" id="4_bh3xf"]
+
+[sub_resource type="Animation" id="Animation_unljk"]
+resource_name = "Fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j233b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e47s2"]
+_data = {
+&"Fade_in": SubResource("Animation_unljk"),
+&"RESET": SubResource("Animation_j233b")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbsru"]
 bg_color = Color(0.321569, 0.321569, 0.321569, 1)
@@ -111,6 +147,23 @@ script = ExtResource("2_xxki8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_e47s2")
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/AnimationPlayer"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
 
 [node name="Background_box" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15

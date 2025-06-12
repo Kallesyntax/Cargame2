@@ -447,8 +447,8 @@ spot_attenuation = 0.7
 spot_angle = 18.63
 
 [connection signal="area_entered" from="DamageArea" to="state" method="_on_damage_area_area_entered"]
-[connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
+[connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
 [connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]
 [connection signal="timeout" from="Timer" to="state" method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerDamage" to="state" method="_on_timer_damage_timeout"]

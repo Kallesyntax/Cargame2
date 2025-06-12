@@ -4,11 +4,14 @@ extends Control
 @onready var players_2 = %Players2 as Button
 @onready var exit_button = %Exit_Button as Button
 @onready var start_level = preload("res://Scenes/Menu/car_select.tscn") as PackedScene
+@onready var animation_player = $CanvasLayer/AnimationPlayer
+
 
 var menu_buttons = []
 var current_index = 0
 
 func _ready():
+	animation_player.play("Fade_in")
 	# Skapa en lista med knappar för navigering
 	menu_buttons = [players_1, players_2, exit_button]
 	
