@@ -290,27 +290,6 @@ Acceleration = 1000
 Top_Speed = 600
 traction = 4
 
-[node name="CarStateMachine" type="Node" parent="."]
-script = ExtResource("12_5ex5x")
-
-[node name="IdleState" type="Node" parent="CarStateMachine"]
-script = ExtResource("13_7o5ea")
-
-[node name="DrivingState" type="Node" parent="CarStateMachine"]
-script = ExtResource("14_uoh37")
-
-[node name="DriftignState" type="Node" parent="CarStateMachine"]
-script = ExtResource("15_uoh37")
-
-[node name="PowerupState" type="Node" parent="CarStateMachine"]
-script = ExtResource("16_p8gwd")
-
-[node name="DamageState" type="Node" parent="CarStateMachine"]
-script = ExtResource("17_k48s7")
-
-[node name="FinishedState" type="Node" parent="CarStateMachine"]
-script = ExtResource("18_6oarg")
-
 [node name="DamageArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.826773, 0)
 collision_layer = 0
@@ -473,6 +452,27 @@ light_specular = 3.571
 spot_range = 46.335
 spot_attenuation = 0.7
 spot_angle = 18.63
+
+[node name="CarStateMachine" type="Node" parent="."]
+script = ExtResource("12_5ex5x")
+
+[node name="IdleState" type="Node" parent="CarStateMachine"]
+script = ExtResource("13_7o5ea")
+
+[node name="DrivingState" type="Node" parent="CarStateMachine"]
+script = ExtResource("14_uoh37")
+
+[node name="DriftignState" type="Node" parent="CarStateMachine"]
+script = ExtResource("15_uoh37")
+
+[node name="PowerupState" type="Node" parent="CarStateMachine"]
+script = ExtResource("16_p8gwd")
+
+[node name="DamageState" type="Node" parent="CarStateMachine"]
+script = ExtResource("17_k48s7")
+
+[node name="FinishedState" type="Node" parent="CarStateMachine"]
+script = ExtResource("18_6oarg")
 
 [connection signal="area_entered" from="DamageArea" to="state" method="_on_damage_area_area_entered"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
