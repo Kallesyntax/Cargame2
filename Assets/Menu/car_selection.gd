@@ -30,7 +30,7 @@ var player2_car_index = 0  # Separat bilindex för spelare 2
 func _ready():
 	animation_player.play("Fade_in")
 	_update_preview()  # Förhandsvisa första bilen när scenen laddas
-	Level_select.button_down.connect(StartGameButton_pressed)
+	#Level_select.button_down.connect(StartGameButton_pressed)
 	select_car.grab_focus()
 
 func _unhandled_input(event):

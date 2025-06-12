@@ -345,7 +345,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="GridContainer_2player/SubViewportContainer"]
 handle_input_locally = false
 msaa_3d = 1
-size = Vector2i(2, 2)
+size = Vector2i(1600, 398)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer_2player"]
@@ -357,7 +357,7 @@ stretch = true
 [node name="SubViewport2" type="SubViewport" parent="GridContainer_2player/SubViewportContainer2"]
 handle_input_locally = false
 msaa_3d = 1
-size = Vector2i(2, 2)
+size = Vector2i(1600, 398)
 render_target_update_mode = 4
 
 [node name="P1_spawn" type="Node3D" parent="."]
@@ -372,6 +372,20 @@ transform = Transform3D(0.961579, 0, -0.27453, 0, 1, 0, 0.27453, 0, 0.961579, 5.
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P2_spawn"]
+mesh = SubResource("BoxMesh_ymfox")
+
+[node name="P3_spawn" type="Node3D" parent="."]
+transform = Transform3D(0.994493, 0, -0.104806, 0, 1, 0, 0.104806, 0, 0.994493, 26.5743, 0.9684, -0.921715)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="P3_spawn"]
+mesh = SubResource("BoxMesh_ymfox")
+
+[node name="P4_spawn" type="Node3D" parent="."]
+transform = Transform3D(0.961579, 0, -0.27453, 0, 1, 0, 0.27453, 0, 0.961579, 19.138, 0.9684, 28.1175)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="P4_spawn"]
 mesh = SubResource("BoxMesh_ymfox")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." groups=["Navigation_group"]]

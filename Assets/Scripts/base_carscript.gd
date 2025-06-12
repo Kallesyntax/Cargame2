@@ -4,9 +4,9 @@ class_name BaseCarScript
 signal race_finished(car_name: String, total_time: float)
 
 @onready var start_level = preload("res://Scenes/Menu/player_select.tscn") as PackedScene
-@onready var checkerpointer = $Checkerpointer
-@onready var camera_pivot = $camera_pivot
-@onready var camera_3d = $camera_pivot/Camera3D
+#@onready var checkerpointer = $Checkerpointer
+#@onready var camera_pivot = $camera_pivot
+#@onready var camera_3d = $camera_pivot/Camera3D
 @onready var engine_sound = $EngineSFX
 @onready var LFW = $VehicleWheel3D
 @onready var RFW = $RFW
