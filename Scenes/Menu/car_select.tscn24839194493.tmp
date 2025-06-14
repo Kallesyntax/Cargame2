@@ -155,7 +155,6 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/AnimationPlayer"]
-visible = false
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -365,30 +364,6 @@ text = ">"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Seperator2" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
-
-[node name="Confirm_selection" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 6.0
-theme_override_fonts/font = SubResource("SystemFont_1lbcp")
-theme_override_font_sizes/font_size = 24
-text = "Comfirm"
-
-[node name="Seperator3" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -436,5 +411,6 @@ layout_mode = 2
 theme = SubResource("Theme_i4p46")
 theme_override_styles/panel = SubResource("StyleBoxFlat_kp5xm")
 
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4/Confirm_selection" to="." method="_confirm_selection"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Select_car" to="." method="_confirm_selection"]
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Select_Wheels" to="." method="SelectWheelsButton_pressed"]
 [connection signal="button_down" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Level_select" to="." method="StartGameButton_pressed"]

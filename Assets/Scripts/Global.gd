@@ -3,12 +3,12 @@ extends Node
 
 signal all_players_finished
 
-# Bilval
-var selected_car1_scene = ""
-var selected_car2_scene = ""
-var selected_car3_scene = ""
-var selected_car4_scene = ""
-var selected_player_count = 1
+# Antal spelare som ska spela
+var selected_player_count: int = 1
+
+# Valda bilar och hjul per spelare
+var selected_car_scenes: Array = []
+var selected_wheel_data: Array = []
 
 # Resultat från senaste racet
 var race_results: Array = []
@@ -17,18 +17,11 @@ var race_results: Array = []
 var total_scores := {}
 
 func _ready():
-	# Initiera standardval
-	selected_car1_scene = "res://Scenes/Cars/brown_car.tscn"
-	selected_car2_scene = "res://Scenes/Cars/brown_car.tscn"
-	selected_car3_scene = "res://Scenes/Cars/brown_car.tscn"
-	selected_car4_scene = "res://Scenes/Cars/brown_car.tscn"
-
-	# Rensa gamla data
 	reset_race_results()
 
 func reset_race_results():
 	race_results.clear()
-	
+
 func total_reset_race_result():
 	race_results.clear()
 	total_scores.clear()
@@ -37,28 +30,23 @@ func add_race_result(name: String, time: float):
 	# Undvik dubbletter
 	for r in race_results:
 		if r.name == name:
-			return #Här är det problem
-
+			return
 	race_results.append({
 		"name": name,
 		"time": time,
-		"points": 0  # sätts i finalize_race_results
+		"points": 0
 	})
 	if race_results.size() >= selected_player_count:
 		finalize_race_results()
 		emit_signal("all_players_finished")
 
 func finalize_race_results():
-	# Sortera resultat baserat på tid (lägst först)
 	race_results.sort_custom(func(a, b): return a["time"] < b["time"])
-
-	# Tilldela positioner och poäng
 	for i in range(race_results.size()):
 		race_results[i]["position"] = i + 1
 		var points = get_points_for_position(i + 1)
 		race_results[i]["points"] = points
 
-		# Lägg till till total score
 		var player_name = race_results[i]["name"]
 		if not total_scores.has(player_name):
 			total_scores[player_name] = 0

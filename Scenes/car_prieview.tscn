@@ -76,3 +76,10 @@ mesh = ExtResource("3_lpgdq")
 
 [node name="BlackCar" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_gn3kb")
+
+[node name="FrontWheel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90774, 0, 3.30471)
+
+[node name="BackWheel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19643, 0, -1.98019)
+skeleton = NodePath("../FrontWheel")

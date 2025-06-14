@@ -7,7 +7,7 @@ func enter_state():
 	car.engine_sound.pitch_scale = 0.5
 
 func physics_update(delta: float):
-	pass  # Du kan låta bilen stå still eller glida ut på mållinjen
+	pass  # Låt bilen stå still eller glida ut på mållinjen
 
 func exit_state():
 	pass

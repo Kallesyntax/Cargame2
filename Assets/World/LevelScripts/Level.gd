@@ -21,12 +21,14 @@ func _ready():
 	var player_count = Global.selected_player_count
 	grid_container_2_player.visible = player_count > 1
 
-	for i in range(player_count):
-		var car_scene = load(Global.get("selected_car%d_scene" % (i + 1)))
+	for i in range(Global.selected_car_scenes.size()):
+		var car_scene_path = Global.selected_car_scenes[i]
+		var car_scene = load(car_scene_path)
 		if car_scene and car_scene is PackedScene:
 			spawn_player(car_scene, i)
 		else:
 			push_error("Failed to load car scene for player %d" % (i + 1))
+
 
 
 func spawn_player(car_scene: PackedScene, player_index: int):

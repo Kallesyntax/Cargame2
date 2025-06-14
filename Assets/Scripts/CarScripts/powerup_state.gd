@@ -24,4 +24,4 @@ func enter_state():
 		car.powerUpID.powerUpNum = 0
 
 	# Gå tillbaka till Idle när klart
-	state_machine.switch_to_state("IdleState")
+	#state_machine.switch_to_state("IdleState")

@@ -7,9 +7,9 @@ extends Control
 @onready var map_select    = %Map_select as Button
 @onready var exit_button   = %Exit_Button as Button
 
-@onready var smokyroads = preload("res://Assets/World/Maps/Smokyroad/smoky_roads.tscn") as PackedScene
-@onready var blockyrock = preload("res://Assets/World/Maps/blocky_rock.tscn") as PackedScene
-@onready var ISLAND_HUB = preload("res://Assets/World/Maps/IslandHub/island_hub.tscn") as PackedScene
+@onready var smokyroads = load("res://Assets/World/Maps/Smokyroad/smoky_roads.tscn") as PackedScene
+@onready var blockyrock = load("res://Assets/World/Maps/blocky_rock.tscn") as PackedScene
+@onready var ISLAND_HUB = load("res://Assets/World/Maps/IslandHub/island_hub.tscn") as PackedScene
 
 @onready var map_preview = $CanvasLayer/PanelContainer/SubViewportContainer/SubViewport/MapPreview
 @onready var map_selection = ""

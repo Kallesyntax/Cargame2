@@ -1,21 +1,24 @@
 extends Node3D
 
-@onready var car_meshes = []  # Lista för att hålla alla bilmesher
+@onready var car_meshes = []
 
 func _ready():
-	# Lägg till alla bilmesher till listan
 	car_meshes.append($BlackCar)
 	car_meshes.append($BrownPickup)
 	car_meshes.append($GreenCar)
 	car_meshes.append($RedCar)
+	_preview_car(0)
 
-	# Lägg till fler bilmesher här om du har fler bilar i din scen
-	_preview_car(0)  # Förhandsvisa första bilen när scenen laddas
+func update_preview_car(index: int, wheel_data: WheelData = null):
+	_preview_car(index)
+	if wheel_data:	
+		_apply_wheel_mesh(car_meshes[index], wheel_data.wheel_mesh)
 
-func _preview_car(selected_index):
+func _preview_car(selected_index: int):
 	for i in range(car_meshes.size()):
 		car_meshes[i].visible = (i == selected_index)
 
-# Använd denna funktion för att uppdatera bilens synlighet
-func update_preview_car(index):
-	_preview_car(index)
+func _apply_wheel_mesh(car_node: Node3D, wheel_mesh: Mesh):
+	for child in car_node.get_children():
+		if child is MeshInstance3D and "Wheel" in child.name:
+			child.mesh = wheel_mesh

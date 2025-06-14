@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://bwudica5cnvru"]
+[gd_scene load_steps=45 format=3 uid="uid://bwudica5cnvru"]
 
 [ext_resource type="Script" uid="uid://y4wib0gswut3" path="res://Assets/Scripts/base_carscript.gd" id="1_urwr1"]
+[ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="2_bfmco"]
 [ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="4_2ykyf"]
 [ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="5_lpfw3"]
 [ext_resource type="Texture2D" uid="uid://ccop6o7lvbjhp" path="res://Assets/Textures/BallGradient.png" id="6_kwdaq"]
@@ -276,6 +277,7 @@ lightmap_size_hint = Vector2i(9, 28)
 size = Vector3(0.5, 2, 0.5)
 
 [node name="VehicleBody3D" type="VehicleBody3D" node_paths=PackedStringArray("LFW", "RFW", "LBW", "RBW")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 collision_layer = 25
 collision_mask = 31
 mass = 300.0
@@ -285,8 +287,10 @@ script = ExtResource("1_urwr1")
 LFW = NodePath("LFW")
 RFW = NodePath("RFW")
 LBW = NodePath("LBW")
-RBW = NodePath("RBW")
+RBW = NodePath("LBW")
 Acceleration = 1000
+Top_Speed = 600
+traction = 4
 
 [node name="CarStateMachine" type="Node" parent="."]
 script = ExtResource("12_5ex5x")
@@ -298,7 +302,7 @@ script = ExtResource("13_7o5ea")
 [node name="DrivingState" type="Node" parent="CarStateMachine"]
 script = ExtResource("14_uoh37")
 
-[node name="DriftingState" type="Node" parent="CarStateMachine"]
+[node name="DriftignState" type="Node" parent="CarStateMachine"]
 script = ExtResource("15_uoh37")
 
 [node name="PowerupState" type="Node" parent="CarStateMachine"]
@@ -323,10 +327,12 @@ use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.7
 wheel_rest_length = 0.5
-wheel_friction_slip = 1.0
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
+
+[node name="SmallWheel" parent="LFW" instance=ExtResource("2_bfmco")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RFW" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.417428, 3.292)
@@ -336,10 +342,12 @@ use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.7
 wheel_rest_length = 0.5
-wheel_friction_slip = 1.0
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
+
+[node name="SmallWheel" parent="RFW" instance=ExtResource("2_bfmco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
 
 [node name="LBW" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.417799, -2.0832)
@@ -348,9 +356,11 @@ use_as_traction = true
 wheel_roll_influence = 0.15
 wheel_radius = 0.7
 wheel_rest_length = 0.5
-wheel_friction_slip = 0.8
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
+
+[node name="SmallWheel" parent="LBW" instance=ExtResource("2_bfmco")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RBW" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.417428, -2.083)
@@ -359,9 +369,11 @@ use_as_traction = true
 wheel_roll_influence = 0.15
 wheel_radius = 0.7
 wheel_rest_length = 0.5
-wheel_friction_slip = 0.8
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
+
+[node name="SmallWheel" parent="RBW" instance=ExtResource("2_bfmco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
 
 [node name="Exhaust" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.214935, 0, 0, 0, -1.12984e-08, 0.214935, 0, -0.258477, -9.39513e-09, 0.952532, 0.199183, -3.22395)
@@ -401,7 +413,7 @@ collision_mask = 16
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 0.63127)
 shape = SubResource("CylinderShape3D_yhcn8")
 
-[node name="Ghost_Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="centerOfMass" type="Node3D" parent="."]
@@ -459,5 +471,4 @@ spot_angle = 18.63
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
 [connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]
-[connection signal="timeout" from="Ghost_Timer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="RespawnPoint/Timer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="RespawnPoint/Timer" to="." method="_on_timer_timeout"]
