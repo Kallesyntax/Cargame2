@@ -3,7 +3,7 @@ class_name DrivingState
 
 func enter_state():
 	print("🚗 Entered DrivingState")
-	print("Grip: ", car.traction)
+
 	
 
 func physics_update(delta):
