@@ -37,7 +37,6 @@ func handle_throttle(delta: float) -> void:
 
 	var engine_power = 0.0
 	if throttle > car.DEADZONE and brake < car.DEADZONE:
-		print("Velocity: ",velocity," MaxSpeed: ", maxspeed, "Car multiplier ", car.MAX_TOPSPEED  )
 		if velocity < maxspeed:
 			engine_power = throttle * car.Acceleration + car.boostSpeed
 		else:

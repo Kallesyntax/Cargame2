@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8gifv3b13ict"]
+[gd_scene load_steps=6 format=3 uid="uid://8gifv3b13ict"]
 
 [ext_resource type="Script" uid="uid://ceo3opqvx8tki" path="res://Scenes/car_prieview.gd" id="1_bukb8"]
 [ext_resource type="ArrayMesh" uid="uid://blvsfn20ulah0" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_gn3kb"]
@@ -6,80 +6,37 @@
 [ext_resource type="ArrayMesh" uid="uid://bw0qvwauwnwgs" path="res://Assets/Cars/Green_car.res" id="3_lpgdq"]
 [ext_resource type="ArrayMesh" uid="uid://cj7lbp4isd468" path="res://Assets/Cars/Red_car.res" id="4_cnwvt"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b33qh"]
-albedo_color = Color(1, 0.788235, 0.419608, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_yiif8"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wusra"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
-
 [node name="CarPrieview" type="Node3D"]
 script = ExtResource("1_bukb8")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.934069, -0.216205, 0.284202, 0.0464276, 0.86265, 0.503666, -0.354062, -0.457264, 0.815812, 3.63937, 6.27621, 10.1285)
+cull_mask = 1
+current = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-render_target_update_mode = 4
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.948301, 0.317371, 0, -0.317371, 0.948301, 0, 1.06408, 3.12709)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.934069, -0.216205, 0.284202, 0.0464276, 0.86265, 0.503666, -0.354062, -0.457264, 0.815813, 3.63937, 6.27621, 10.1285)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer"]
-transform = Transform3D(13.6126, 0, 0, 0, 1, 0, 0, 0, 13.535, 0, -1.19416, 0)
-material_override = SubResource("StandardMaterial3D_b33qh")
-mesh = SubResource("PlaneMesh_yiif8")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -7.63244, 0, 1, -3.33625e-07, 0, 7.13221, -1.02423)
-material_override = SubResource("StandardMaterial3D_b33qh")
-mesh = SubResource("PlaneMesh_yiif8")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewportContainer/MeshInstance3D"]
-transform = Transform3D(-4.37114e-08, 1.15458, 0, 4.37114e-08, 4.10191e-14, -7.63244, -1, -5.04685e-08, -3.33625e-07, -0.985908, 7.13221, -0.109309)
-material_override = SubResource("StandardMaterial3D_b33qh")
-mesh = SubResource("PlaneMesh_yiif8")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="SubViewportContainer/MeshInstance3D"]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 3.55271e-14, -7.63244, 1, -4.37114e-08, -3.33625e-07, 1.00947, 7.00006, -0.109309)
-material_override = SubResource("StandardMaterial3D_b33qh")
-mesh = SubResource("PlaneMesh_yiif8")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_wusra")
+[node name="BlackCar" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("2_gn3kb")
 
 [node name="BrownPickup" type="MeshInstance3D" parent="."]
 visible = false
 mesh = ExtResource("3_j5cex")
-
-[node name="RedCar" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29553, 0)
-visible = false
-mesh = ExtResource("4_cnwvt")
 
 [node name="GreenCar" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34735, 0)
 visible = false
 mesh = ExtResource("3_lpgdq")
 
-[node name="BlackCar" type="MeshInstance3D" parent="."]
-mesh = ExtResource("2_gn3kb")
+[node name="RedCar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29553, 0)
+visible = false
+layers = 2
+mesh = ExtResource("4_cnwvt")
 
-[node name="FrontWheel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90774, 0, 3.30471)
-
-[node name="BackWheel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19643, 0, -1.98019)
-skeleton = NodePath("../FrontWheel")
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87591, 8.9621)
+light_energy = 1.727
+light_indirect_energy = 5.606
+light_volumetric_fog_energy = 2.1
+light_size = 0.465
+light_specular = 5.995

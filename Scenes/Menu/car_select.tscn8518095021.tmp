@@ -84,7 +84,7 @@ Label/styles/normal = SubResource("StyleBoxFlat_j233b")
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oixd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ieg4s"]
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
 border_width_right = 2
 border_width_bottom = 4
@@ -97,13 +97,13 @@ corner_radius_bottom_left = 13
 shadow_size = 1
 
 [sub_resource type="Theme" id="Theme_qi7gw"]
-Label/styles/normal = SubResource("StyleBoxFlat_6oixd")
+Label/styles/normal = SubResource("StyleBoxFlat_ieg4s")
 
 [sub_resource type="SystemFont" id="SystemFont_1lbcp"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c25qj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybeq5"]
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
 border_width_right = 2
 border_width_bottom = 4
@@ -116,7 +116,7 @@ corner_radius_bottom_left = 3
 shadow_size = 1
 
 [sub_resource type="Theme" id="Theme_df58h"]
-Label/styles/normal = SubResource("StyleBoxFlat_c25qj")
+Label/styles/normal = SubResource("StyleBoxFlat_ybeq5")
 
 [sub_resource type="Theme" id="Theme_i4p46"]
 Panel/styles/panel = null

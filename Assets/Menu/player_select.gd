@@ -3,7 +3,9 @@ extends Control
 @onready var players_1 = %Players1 as Button
 @onready var players_2 = %Players2 as Button
 @onready var exit_button = %Exit_Button as Button
-@onready var start_level = preload("res://Scenes/Menu/car_select.tscn") as PackedScene
+@onready var start_level_ = preload("res://Scenes/Menu/car_select.tscn") as PackedScene
+@onready var start_level = preload("res://Scenes/Menu/TestMeny_deviceID.tscn") as PackedScene
+
 @onready var animation_player = $CanvasLayer/AnimationPlayer
 
 

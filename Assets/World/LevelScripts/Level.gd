@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var track_laps = 1
+@export var track_laps = 2
 @onready var grid_container_2_player = $GridContainer_2player
 @onready var sub_viewports := [
 	$GridContainer_2player/SubViewportContainer/SubViewport,
@@ -14,7 +14,7 @@ extends Node3D
 ]
 
 func _ready():
-	
+	Global.max_laps = track_laps
 	if not Global.is_connected("all_players_finished", Callable(self, "_on_race_finished")):
 		Global.connect("all_players_finished", Callable(self, "_on_race_finished"))
 		
@@ -22,14 +22,11 @@ func _ready():
 	grid_container_2_player.visible = player_count > 1
 
 	for i in range(Global.selected_car_scenes.size()):
-		var car_scene_path = Global.selected_car_scenes[i]
-		var car_scene = load(car_scene_path)
+		var car_scene = Global.selected_car_scenes[i]
 		if car_scene and car_scene is PackedScene:
 			spawn_player(car_scene, i)
 		else:
-			push_error("Failed to load car scene for player %d" % (i + 1))
-
-
+			push_error("Failed to get car scene for player %d" % (i + 1))
 
 func spawn_player(car_scene: PackedScene, player_index: int):
 	var car_instance = car_scene.instantiate()

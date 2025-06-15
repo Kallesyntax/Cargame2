@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_fixpi")
 wheel_mesh = ExtResource("2_be0md")
-grip = 0.1
-top_speed_multiplier = 1.5
-acceleration_multiplier = 1.0
+grip = 1.2
+top_speed_multiplier = 1.1
+acceleration_multiplier = 1.5
 radius = 1
 metadata/_custom_type_script = "uid://c42a5axfwvn3w"

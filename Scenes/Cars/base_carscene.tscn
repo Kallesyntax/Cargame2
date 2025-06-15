@@ -290,7 +290,7 @@ Acceleration = 1000
 
 [node name="CarStateMachine" type="Node" parent="."]
 script = ExtResource("12_5ex5x")
-start_state_path = NodePath("IdleState")
+start_state_path = NodePath("DrivingState")
 
 [node name="IdleState" type="Node" parent="CarStateMachine"]
 script = ExtResource("13_7o5ea")

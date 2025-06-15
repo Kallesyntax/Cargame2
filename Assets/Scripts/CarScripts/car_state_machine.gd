@@ -1,14 +1,10 @@
 extends Node
 class_name CarStateMachine
 
-var current_state: CarState = null
-
 @onready var car: BaseCarScript = get_parent() as BaseCarScript
-
 @export var start_state_path: NodePath  # Exempel: "IdleState"
 
-
-
+var current_state: CarState = null
 
 func _ready():
 	if has_node(start_state_path):

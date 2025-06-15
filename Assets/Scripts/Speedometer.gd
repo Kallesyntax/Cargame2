@@ -23,7 +23,7 @@ var total_lap=""
 
 func _process(delta):
 	speedOutput = "Speed: " + str("%3.0f" % speedWheel.get_rpm())
-	this_lap = "Lap: " + str(vehicle_body_3d.active_lap)
+	this_lap = "Lap: " + str(vehicle_body_3d.active_lap +1)
 	current_lap = "Current lap: " + str(format_time(vehicle_body_3d.lap_timer.get_current_lap_time()))
 	
 	var best_time = vehicle_body_3d.lap_timer.get_best_lap_time()
@@ -39,7 +39,7 @@ func _process(delta):
 	lap.text = this_lap
 	current_Laptime.text = current_lap
 	best_Laptime.text = best_lap
-	total_Laptime.text = total_lap
+	total_Laptime.text = current_lap + total_lap
 
 func format_time(seconds: float) -> String:
 	var mins = int(seconds) / 60

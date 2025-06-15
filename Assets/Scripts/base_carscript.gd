@@ -50,6 +50,7 @@ var player_index := 0
 var MAX_STEER := 0.3
 var MAX_TOPSPEED = 1
 var ENGINE_POWER := 1500
+
 var WHEEL_POWER =1
 var WHEEL_STEER = 1
 var WHEEL_TRACTION = 1.0
@@ -59,7 +60,7 @@ var DEADZONE := 0.1
 var current_wheel_data: WheelData = null
 
 var active_checkpoint := 11
-var active_lap := 1
+var active_lap = 1
 
 # Ny variabel som styrningen uppdaterar
 var steering_input := 0.0
@@ -106,13 +107,16 @@ func apply_wheel_data(data: WheelData):
 		wheel.add_child(mesh_instance)
 		
 		WHEEL_POWER = data.acceleration_multiplier
-		WHEEL_TRACTION = data.grip
+		traction = data.grip
+		engine_force *= data.acceleration_multiplier
 		WHEEL_RADIUS = data.radius
 		MAX_TOPSPEED = Top_Speed* data.top_speed_multiplier
-		traction = WHEEL_TRACTION
+		
+		Acceleration *= data.acceleration_multiplier
 		var a =2
 		
 func _physics_process(delta):
+	active_lap = checkpoint_manager.lap_count
 	# Låt state maskinen göra sina saker (t.ex. uppdatera engine_force, brake och steering)
 	car_state_machine._physics_process(delta)#
 	## Applicera styrvinkel till framhjulen

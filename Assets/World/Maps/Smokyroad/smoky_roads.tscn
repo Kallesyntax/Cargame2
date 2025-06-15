@@ -348,7 +348,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="GridContainer_2player/SubViewportContainer"]
 handle_input_locally = false
 msaa_3d = 1
-size = Vector2i(2, 2)
+size = Vector2i(1600, 398)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer_2player"]
@@ -360,7 +360,7 @@ stretch = true
 [node name="SubViewport2" type="SubViewport" parent="GridContainer_2player/SubViewportContainer2"]
 handle_input_locally = false
 msaa_3d = 1
-size = Vector2i(2, 2)
+size = Vector2i(1600, 398)
 render_target_update_mode = 4
 
 [node name="P1_spawn" type="Node3D" parent="."]

@@ -15,6 +15,7 @@ var race_results: Array = []
 
 # Totalställning över flera race
 var total_scores := {}
+var max_laps = 0
 
 func _ready():
 	reset_race_results()

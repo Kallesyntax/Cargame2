@@ -30,6 +30,7 @@ var selected_wheel_indices = []
 var current_car_index = 0
 var current_wheel_index = 0
 
+
 func _ready():
 	animation_player.play("Fade_in")
 	print("Initierar car_select för", player_count, "spelare")
@@ -40,6 +41,7 @@ func _ready():
 	select_car.grab_focus()
 
 func _unhandled_input(event):
+	var but = event.is_pressed()
 	if event.is_action_pressed("menu_right"):
 		if select_car.has_focus():
 			_change_car(1)
@@ -52,7 +54,7 @@ func _unhandled_input(event):
 			_change_wheel(-1)
 	elif event.is_action_pressed("menu_select"):
 		if confirm_selection.has_focus():
-			_confirm_selection()
+			_confirm_selection(selection_player+1)
 
 
 func _on_select_wheels_mouse_entered():
@@ -68,18 +70,17 @@ func _change_wheel(delta: int):
 	_update_preview()
 
 
-func _confirm_selection():
+func _confirm_selection(ID):
 	current_car_index = current_car_index
 	current_wheel_index = current_wheel_index
 	player_labels[selection_player].text = "Spelare %d valt bil %s och hjul %s" % [
-		selection_player + 1,
+		ID,
 		car_scenes[current_car_index].get_file().get_basename(),
 		wheel_names[current_wheel_index]
 	]
-
-	selection_player += 1
-
-	if selection_player >= player_count:
+	selection_player +=1
+	
+	if selection_player +1 >= player_count:
 		_store_selections()
 		Level_select.visible = true
 	else:

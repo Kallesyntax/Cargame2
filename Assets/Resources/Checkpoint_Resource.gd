@@ -1,7 +1,7 @@
 extends Resource
 class_name CheckpointManager
 
-@export var track_laps :=1
+var track_laps = Global.max_laps 
 #--- Data
 var checkpoints := []            # Array<Vector3>
 var total_checkpoints := 0       # räknas vid setup
