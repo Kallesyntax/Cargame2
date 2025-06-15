@@ -1,8 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl3g4ajtkrcx4"]
+[gd_scene load_steps=12 format=3 uid="uid://bl3g4ajtkrcx4"]
 
 [ext_resource type="Script" uid="uid://dvgv5nfx5s2cd" path="res://Assets/Menu/player_select.gd" id="1_2uahl"]
 [ext_resource type="Theme" uid="uid://cktpwq61abvu2" path="res://Assets/Resources/Header.tres" id="2_62ocf"]
 [ext_resource type="Theme" uid="uid://ck8r6t143fvma" path="res://Assets/Resources/Menu_buttons.tres" id="3_a1erw"]
+
+[sub_resource type="Animation" id="Animation_unljk"]
+resource_name = "Fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oss8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e47s2"]
+_data = {
+&"Fade_in": SubResource("Animation_unljk"),
+&"RESET": SubResource("Animation_oss8q")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yrja"]
 bg_color = Color(0.321569, 0.321569, 0.321569, 1)
@@ -45,10 +81,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2uahl")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Background_box" type="PanelContainer" parent="CanvasLayer2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_e47s2")
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/AnimationPlayer"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Background_box" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -59,12 +112,12 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2yrja")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="CanvasLayer2/Background_box"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Background_box"]
 layout_mode = 2
 theme = SubResource("Theme_heui8")
 theme_override_styles/panel = SubResource("StyleBoxFlat_aklue")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -73,7 +126,7 @@ offset_right = -800.0
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer2"]
+[node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -93,7 +146,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -107,46 +160,46 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Seperator" type="Control" parent="CanvasLayer2/HBoxContainer/MarginContainer"]
+[node name="Seperator" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 60
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_a1erw")
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Seperator" type="Control" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Seperator" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(400, 40)
 layout_direction = 1
 layout_mode = 2
@@ -156,10 +209,10 @@ theme = ExtResource("3_a1erw")
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Seperator2" type="Control" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Seperator2" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Players1" type="Button" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Players1" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
@@ -167,10 +220,10 @@ theme_override_fonts/font = SubResource("SystemFont_5i1ob")
 theme_override_font_sizes/font_size = 24
 text = "1 PLayer"
 
-[node name="Seperator4" type="Control" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Seperator4" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Players2" type="Button" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Players2" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
@@ -178,10 +231,10 @@ theme_override_fonts/font = SubResource("SystemFont_5i1ob")
 theme_override_font_sizes/font_size = 24
 text = "2 Players"
 
-[node name="Seperator3" type="Control" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Seperator3" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Exit_Button" type="Button" parent="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Exit_Button" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
@@ -189,6 +242,6 @@ theme_override_fonts/font = SubResource("SystemFont_5i1ob")
 theme_override_font_sizes/font_size = 24
 text = "Exit Game"
 
-[connection signal="pressed" from="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Players1" to="." method="players_1_pressed"]
-[connection signal="pressed" from="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Players2" to="." method="players_2_pressed"]
-[connection signal="pressed" from="CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Exit_Button" to="." method="on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Players1" to="." method="players_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Players2" to="." method="players_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Exit_Button" to="." method="on_exit_pressed"]

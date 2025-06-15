@@ -124,8 +124,8 @@ func drifting(delta):
 	# Justera hjulfriktionen för att simulera sladdning
 	RFW.wheel_friction_slip = vehicle_body_3d.traction * 0.7
 	LFW.wheel_friction_slip = vehicle_body_3d.traction * 0.7
-	RBW.wheel_friction_slip = vehicle_body_3d.traction * 0.5
-	LBW.wheel_friction_slip = vehicle_body_3d.traction * 0.5
+	RBW.wheel_friction_slip = vehicle_body_3d.traction * 0.1
+	LBW.wheel_friction_slip = vehicle_body_3d.traction * 0.1
 	steer = 2
 	smoke_emitt.lifetime = 1
 

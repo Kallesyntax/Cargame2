@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WheelData" load_steps=3 format=3 uid="uid://un7hmny6y7sa"]
+
+[ext_resource type="Script" uid="uid://c42a5axfwvn3w" path="res://Assets/Resources/WheelData.gd" id="1_6yllh"]
+[ext_resource type="ArrayMesh" uid="uid://rto506pdt8ki" path="res://Assets/Wheels/Offroad.res" id="2_sx1ii"]
+
+[resource]
+script = ExtResource("1_6yllh")
+wheel_mesh = ExtResource("2_sx1ii")
+grip = 3.0
+top_speed_multiplier = 1.0
+acceleration_multiplier = 0.9
+radius = 1
+metadata/_custom_type_script = "uid://c42a5axfwvn3w"

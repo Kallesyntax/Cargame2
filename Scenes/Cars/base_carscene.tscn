@@ -1,16 +1,20 @@
-[gd_scene load_steps=40 format=3 uid="uid://bwudica5cnvru"]
+[gd_scene load_steps=44 format=3 uid="uid://bwudica5cnvru"]
 
 [ext_resource type="Script" uid="uid://y4wib0gswut3" path="res://Assets/Scripts/base_carscript.gd" id="1_urwr1"]
-[ext_resource type="PackedScene" uid="uid://daal783qf177v" path="res://Assets/Wheels/SmallWheel.glb" id="2_bfmco"]
 [ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="4_2ykyf"]
 [ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="5_lpfw3"]
 [ext_resource type="Texture2D" uid="uid://ccop6o7lvbjhp" path="res://Assets/Textures/BallGradient.png" id="6_kwdaq"]
-[ext_resource type="Script" uid="uid://mafm6censes4" path="res://Assets/Scripts/base_carstate.gd" id="7_3sdiq"]
 [ext_resource type="AudioStream" uid="uid://de2qogpkpgc0a" path="res://Assets/Textures/rally-car-idle-loop-17-84405.mp3" id="7_gpiql"]
-[ext_resource type="PackedScene" uid="uid://crj1e3j1dxcvl" path="res://Scenes/state.tscn" id="8_s5w1g"]
 [ext_resource type="PackedScene" uid="uid://btv16dky8ak5t" path="res://Scenes/UI/car_ui.tscn" id="9_ieg3u"]
 [ext_resource type="Script" uid="uid://c4ybubb2k6w5m" path="res://Assets/Scripts/Car_cam,era.gd" id="10_snwvq"]
 [ext_resource type="Script" uid="uid://71s4l4dvheu3" path="res://Assets/Scripts/on_road_cast.gd" id="11_17gj5"]
+[ext_resource type="Script" uid="uid://c76mwx0ythij4" path="res://Assets/Scripts/CarScripts/car_state_machine.gd" id="12_5ex5x"]
+[ext_resource type="Script" uid="uid://dk1jq7owplvhg" path="res://Assets/Scripts/CarScripts/Idle_state.gd" id="13_7o5ea"]
+[ext_resource type="Script" uid="uid://c153c3qadh666" path="res://Assets/Scripts/CarScripts/driving_state.gd" id="14_uoh37"]
+[ext_resource type="Script" uid="uid://c603t46wh86dj" path="res://Assets/Scripts/CarScripts/driftign_state.gd" id="15_uoh37"]
+[ext_resource type="Script" uid="uid://cl4slgvr4a40v" path="res://Assets/Scripts/CarScripts/powerup_state.gd" id="16_p8gwd"]
+[ext_resource type="Script" uid="uid://dpovl2r08hrr2" path="res://Assets/Scripts/CarScripts/damage_state.gd" id="17_k48s7"]
+[ext_resource type="Script" uid="uid://g1snf348ejj" path="res://Assets/Scripts/CarScripts/finished_state.gd" id="18_6oarg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mkct"]
 albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
@@ -271,24 +275,47 @@ radius = 2.31735
 lightmap_size_hint = Vector2i(9, 28)
 size = Vector3(0.5, 2, 0.5)
 
-[node name="VehicleBody3D" type="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+[node name="VehicleBody3D" type="VehicleBody3D" node_paths=PackedStringArray("LFW", "RFW", "LBW", "RBW")]
 collision_layer = 25
 collision_mask = 31
 mass = 300.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.52, 0.98)
 script = ExtResource("1_urwr1")
+LFW = NodePath("LFW")
+RFW = NodePath("RFW")
+LBW = NodePath("LBW")
+RBW = NodePath("RBW")
 Acceleration = 1000
-Top_Speed = 600
-traction = 4
+
+[node name="CarStateMachine" type="Node" parent="."]
+script = ExtResource("12_5ex5x")
+start_state_path = NodePath("DrivingState")
+
+[node name="IdleState" type="Node" parent="CarStateMachine"]
+script = ExtResource("13_7o5ea")
+
+[node name="DrivingState" type="Node" parent="CarStateMachine"]
+script = ExtResource("14_uoh37")
+
+[node name="DriftingState" type="Node" parent="CarStateMachine"]
+script = ExtResource("15_uoh37")
+
+[node name="PowerupState" type="Node" parent="CarStateMachine"]
+script = ExtResource("16_p8gwd")
+
+[node name="DamageState" type="Node" parent="CarStateMachine"]
+script = ExtResource("17_k48s7")
+
+[node name="FinishedState" type="Node" parent="CarStateMachine"]
+script = ExtResource("18_6oarg")
 
 [node name="DamageArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.826773, 0)
 collision_layer = 0
 collision_mask = 128
 
-[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+[node name="LFW" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.417799, 3.29216)
 brake = 10.0
 use_as_traction = true
@@ -296,12 +323,10 @@ use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.7
 wheel_rest_length = 0.5
+wheel_friction_slip = 1.0
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
-
-[node name="SmallWheel" parent="VehicleWheel3D" instance=ExtResource("2_bfmco")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RFW" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.417428, 3.292)
@@ -311,25 +336,21 @@ use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.7
 wheel_rest_length = 0.5
+wheel_friction_slip = 1.0
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
 damping_compression = 0.3
 
-[node name="SmallWheel" parent="RFW" instance=ExtResource("2_bfmco")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
-
-[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+[node name="LBW" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.417799, -2.0832)
 brake = 10.0
 use_as_traction = true
 wheel_roll_influence = 0.15
 wheel_radius = 0.7
 wheel_rest_length = 0.5
+wheel_friction_slip = 0.8
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
-
-[node name="SmallWheel" parent="VehicleWheel3D2" instance=ExtResource("2_bfmco")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.548, 0, 0)
 
 [node name="RBW" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.417428, -2.083)
@@ -338,11 +359,9 @@ use_as_traction = true
 wheel_roll_influence = 0.15
 wheel_radius = 0.7
 wheel_rest_length = 0.5
+wheel_friction_slip = 0.8
 suspension_stiffness = 30.0
 suspension_max_force = 8000.0
-
-[node name="SmallWheel" parent="RBW" instance=ExtResource("2_bfmco")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548452, 0, 0)
 
 [node name="Exhaust" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.214935, 0, 0, 0, -1.12984e-08, 0.214935, 0, -0.258477, -9.39513e-09, 0.952532, 0.199183, -3.22395)
@@ -382,17 +401,8 @@ collision_mask = 16
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.57628e-07, 0.63127)
 shape = SubResource("CylinderShape3D_yhcn8")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Ghost_Timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="state" parent="." node_paths=PackedStringArray("fire", "root_node", "LFW", "RFW", "LBW", "RBW") instance=ExtResource("8_s5w1g")]
-script = ExtResource("7_3sdiq")
-fire = NodePath("../Exhaust/FireNode")
-root_node = NodePath("..")
-LFW = NodePath("../VehicleWheel3D")
-RFW = NodePath("../RFW")
-LBW = NodePath("../VehicleWheel3D2")
-RBW = NodePath("../RBW")
 
 [node name="centerOfMass" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51786, 0.625559)
@@ -406,7 +416,7 @@ offset_left = -216.0
 offset_top = 112.0
 offset_right = -216.0
 offset_bottom = 112.0
-speedWheel = NodePath("../VehicleWheel3D2")
+speedWheel = NodePath("../LBW")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -4.17569e-10, 9.32701e-10, -2.44543e-10, 0.98397, 0.178334, -9.92217e-10, 0.178334, -0.98397, 9.32701e-11, 5.56049, -9.6719)
@@ -446,10 +456,8 @@ spot_range = 46.335
 spot_attenuation = 0.7
 spot_angle = 18.63
 
-[connection signal="area_entered" from="DamageArea" to="state" method="_on_damage_area_area_entered"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_picked"]
 [connection signal="area_entered" from="Area3Du" to="." method="on_powerup_pickup"]
 [connection signal="area_entered" from="CheckpointChecker" to="." method="on_checkpoint_enter"]
-[connection signal="timeout" from="Timer" to="state" method="_on_timer_timeout"]
-[connection signal="timeout" from="TimerDamage" to="state" method="_on_timer_damage_timeout"]
-[connection signal="timeout" from="RespawnPoint/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Ghost_Timer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="RespawnPoint/Timer" to="." method="_on_respawn_timer_timeout"]

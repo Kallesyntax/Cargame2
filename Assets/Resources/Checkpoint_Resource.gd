@@ -1,7 +1,7 @@
 extends Resource
 class_name CheckpointManager
 
-@export var track_laps :=1
+var track_laps = Global.max_laps 
 #--- Data
 var checkpoints := []            # Array<Vector3>
 var total_checkpoints := 0       # räknas vid setup
@@ -25,7 +25,7 @@ func setup_from_node(cp_node: Node3D) -> void:
 		checkpoints.append((c as Node3D).global_transform.origin)
 
 	total_checkpoints = checkpoints.size()
-	current_index = 10 #Återställ till 0
+	current_index = 0 #Återställ till 0
 	lap_count = 0
 
 	print("✅ CheckpointManager: hittade ", total_checkpoints, " checkpoints.")
