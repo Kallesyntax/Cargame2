@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg1ptv7df457p"]
+
+[ext_resource type="Script" uid="uid://dha528ks5pphq" path="res://Scenes/Enemies/Canon_1/canon.gd" id="1_law86"]
+[ext_resource type="ArrayMesh" uid="uid://bov2rxx7d8w1d" path="res://Assets/dump/Models/Enemies/Canon1/Canon_stand.res" id="1_tybtk"]
+[ext_resource type="ArrayMesh" uid="uid://bdggcrbpiq44e" path="res://Assets/dump/Models/Enemies/Canon1/Canon_canon.res" id="2_eaaky"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_54dea"]
+points = PackedVector3Array(-0.0266056, 0.462756, -0.824327, -0.121048, 0.517265, -0.811264, 0.317696, 1.02254, -0.836629, 0.258333, 0.669117, 0.687541, -0.320248, 1.02106, -0.831472, -0.211105, 0.643152, 0.687541, 0.315869, 0.62971, -0.832695, -0.0284942, 1.1646, 0.63509, 0.258333, 0.982077, 0.687541, -0.0267405, 1.19047, -0.48753, -0.318482, 0.631218, -0.827667, 0.0235475, 0.434359, -0.251348, -0.211105, 1.00804, 0.687541, 0.0467985, 1.02281, -0.936311, -0.0284942, 0.538832, 0.687541, 0.0235475, 1.1646, 0.63509, -0.29648, 1.00644, -0.237494, -0.0272743, 0.924953, -0.942611, -0.294795, 0.645788, -0.236976, 0.0447392, 1.18008, -0.477838, 0.0223703, 0.526796, -0.869254, 0.075722, 0.564797, 0.687541, 0.0218417, 0.460006, -0.829459, -0.273695, 1.02281, -0.862322, 0.0473743, 0.975289, -0.945534, 0.075722, 1.0864, 0.687541, -0.0516852, 1.02257, -0.93535, 0.0460783, 1.1658, -0.560145, -0.276877, 0.975299, -0.870712, 0.270912, 0.94982, -0.86786, -0.0272661, 0.527408, -0.867773, -0.0806687, 0.564797, 0.687541)
+
+[node name="Canon" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_law86")
+
+[node name="CanonCanon" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0775976, 0.532615)
+layers = 16
+mesh = ExtResource("2_eaaky")
+
+[node name="CanonStand" type="MeshInstance3D" parent="CanonCanon"]
+layers = 16
+mesh = ExtResource("1_tybtk")
+skeleton = NodePath("../..")
+
+[node name="RayCast3D" type="RayCast3D" parent="CanonCanon"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.82751, 0.330755)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="CanonCanon"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanonCanon/RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_54dea")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="fire_cannonball"]

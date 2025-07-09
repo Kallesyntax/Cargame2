@@ -93,3 +93,18 @@ func activate_powerup(num: int):
 
 	car.icon.set_icon_invisible()
 	car.powerUpNum = -1
+
+func handle_damage(delta: float) -> void:
+	
+	#var damage_entity =""
+	#match damage_entity:
+		#"rocket": var a =0
+		#"rock": var a =0
+		#"Oil?": var a =0
+		#"Superstar?": var a =0		
+			
+			
+	car.animation_player.play("Damaged")
+	car.engine_force = 0
+	car.steering = 0
+	car.timer_damage.start()

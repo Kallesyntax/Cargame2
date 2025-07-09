@@ -25,6 +25,7 @@ func _physics_process(delta):
 
 func _on_area_3d_area_entered(body):
 	print(body.name)
+	
 func _on_ff_timer_timeout():
 	area.set_collision_layer_value(8,1)
 	area.set_collision_mask_value(8,1)

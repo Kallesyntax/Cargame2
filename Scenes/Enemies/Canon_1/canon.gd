@@ -1,7 +1,7 @@
 extends Node3D
 
 # Preload the cannonball scene
-var cannonball_scene = load("res://Scenes/Enemies/Canon_1/Canon ball.tscn")
+var cannonball_scene = load("res://Scenes/Powerups/Rocket_powerup.tscn")
 var fire_interval = 8.0
 var instance
 

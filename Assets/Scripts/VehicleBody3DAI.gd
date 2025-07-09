@@ -20,7 +20,7 @@ var active_checkpoint_index = 0
 
 
 const REACH_TOLERANCE: float = 3.0
-var MAX_STEER = 0.3
+var MAX_STEER = 0.6
 var DEADZONE = 0.1
 var ENGINE_POWER = 0
 

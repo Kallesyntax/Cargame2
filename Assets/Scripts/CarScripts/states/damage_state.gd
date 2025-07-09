@@ -1,13 +1,17 @@
 extends CarState
 
 func enter_state():
-	car.animation_player.play("Damaged")
-	car.engine_force = 0
-	car.steering = 0
-	car.timer_damage.start()
+	var damaged = car.is_damaged
+	pass
+
 
 func physics_update(delta: float):
-	pass  # Skada påverkar bara direkt vid enter
+	if car.is_damaged == true:
+		super.handle_damage(delta)
+		car.is_damaged = false
+		state_machine.switch_to_state("IdleState")	
+		
+	
 
 func exit_state():
 	# Här kan du återställa vad som behövs efter skada, t.ex:

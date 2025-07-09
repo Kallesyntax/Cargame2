@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bejbshalx4wu8"]
+[gd_scene load_steps=6 format=3 uid="uid://bejbshalx4wu8"]
 
 [ext_resource type="Script" uid="uid://dfcwgqvaeaxuh" path="res://Assets/Scripts/klot_ai.gd" id="1_x6gmj"]
 [ext_resource type="ArrayMesh" uid="uid://blvsfn20ulah0" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_pqlb2"]
@@ -8,12 +8,13 @@ points = PackedVector3Array(-0.499434, -0.0238842, 0, -0.497087, -0.0238842, 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_pqlb2"]
 
-[node name="Klot-AI" type="Node"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqlb2"]
+size = Vector3(6.00024, 4.05914, 12.1721)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.19835, 0)
+[node name="Klot-AI" type="Node3D"]
 
-[node name="Klot" type="RigidBody3D" parent="Node3D"]
+[node name="Klot" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19835, 0)
 collision_mask = 15
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -21,26 +22,46 @@ axis_lock_angular_z = true
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_x6gmj")
-speed = 60.0
+speed = 80.0
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D/Klot"]
-path_desired_distance = 8.0
-target_desired_distance = 5.0
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Klot"]
+path_desired_distance = 20.0
+target_desired_distance = 50.0
+path_height_offset = 0.25
 navigation_layers = 128
+simplify_path = true
 avoidance_enabled = true
+radius = 10.0
+time_horizon_agents = 10.0
+time_horizon_obstacles = 10.0
+keep_y_velocity = false
+avoidance_layers = 129
+avoidance_mask = 133
 debug_enabled = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Klot"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Klot"]
 shape = SubResource("ConvexPolygonShape3D_kx30p")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Klot"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Klot"]
 transform = Transform3D(-4.37114e-08, -0.174381, 0, 1, -7.62242e-09, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_pqlb2")
 
-[node name="SportBlack2" type="MeshInstance3D" parent="Node3D/Klot"]
+[node name="SportBlack2" type="MeshInstance3D" parent="Klot"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("2_pqlb2")
 skeleton = NodePath("")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D/Klot/SportBlack2"]
+[node name="Camera3D" type="Camera3D" parent="Klot/SportBlack2"]
 transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, -5.99268e-07, 3.8834, -13.1256)
+current = true
+
+[node name="Area3D" type="Area3D" parent="Klot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23135, 0, 0)
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Klot/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06677, 2.04313, 0.457642)
+shape = SubResource("BoxShape3D_pqlb2")
+
+[connection signal="navigation_finished" from="Klot/NavigationAgent3D" to="Klot" method="checkpoint_check"]
+[connection signal="area_entered" from="Klot/Area3D" to="Klot" method="on_checkpoint_enter"]

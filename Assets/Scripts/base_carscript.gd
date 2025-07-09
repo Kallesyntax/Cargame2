@@ -2,6 +2,7 @@ extends VehicleBody3D
 class_name BaseCarScript
 
 signal race_finished(car_name: String, total_time: float)
+var PAUS_MENU = preload("res://Scenes/Menu/paus_menu.tscn")
 
 @onready var car_state_machine = $CarStateMachine
 @onready var start_level = preload("res://Scenes/Menu/player_select.tscn")
@@ -20,6 +21,7 @@ signal race_finished(car_name: String, total_time: float)
 @onready var respawn_point = $RespawnPoint
 @onready var respawn_timer = $RespawnPoint/Timer
 @onready var on_road_cast = $OnRoadCast
+@onready var timer_damage = $TimerDamage
 
 @export var checkpoint_manager: CheckpointManager = CheckpointManager.new()
 @export var lap_timer: LapTimer = LapTimer.new()
@@ -58,6 +60,9 @@ var WHEEL_RADIUS = 0.7
 var DEADZONE := 0.1
 
 var current_wheel_data: WheelData = null
+
+var is_damaged : bool
+var damaged_by: String
 
 var active_checkpoint := 11
 var active_lap = 1
@@ -114,6 +119,7 @@ func apply_wheel_data(data: WheelData):
 		
 		Acceleration *= data.acceleration_multiplier
 		var a =2
+		
 		
 func _physics_process(delta):
 	active_lap = checkpoint_manager.lap_count
@@ -189,3 +195,10 @@ func _on_ghost_timer_timeout():
 	set_collision_layer_value(4, 1)
 	set_collision_mask_value(4, 1)
 	boostSpeed =0
+
+func _on_damage_area_area_entered(area):
+	print("DAMAGED!")
+	is_damaged = true 
+
+func _on_timer_damage_timeout():
+	is_damaged = false

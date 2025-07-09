@@ -32,14 +32,14 @@ func _process(delta):
 	else:
 		best_lap = "Best lap: --.--"
 
-	total_lap = "Total time: " + str(format_time(vehicle_body_3d.lap_timer.total_time))
+	total_lap = "Total time: " + str(format_time(vehicle_body_3d.lap_timer.total_time +vehicle_body_3d.lap_timer.get_current_lap_time()))
 
 	# Sätt texter
 	speed.text = speedOutput
 	lap.text = this_lap
 	current_Laptime.text = current_lap
 	best_Laptime.text = best_lap
-	total_Laptime.text = current_lap + total_lap
+	total_Laptime.text = total_lap
 
 func format_time(seconds: float) -> String:
 	var mins = int(seconds) / 60

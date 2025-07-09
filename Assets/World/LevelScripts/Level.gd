@@ -1,16 +1,24 @@
 extends Node3D
 
 @export var track_laps = 2
-@onready var grid_container_2_player = $GridContainer_2player
+@export var grid_container_2_player := GridContainer
+@export var CheckpointNodes := Node3D
+
+@export_group("PlayerSpawnNodes")
+@export var P1_spawn := Node3D
+@export var P2_spawn := Node3D
+@export var P3_spawn := Node3D
+@export var P4_spawn := Node3D
+
 @onready var sub_viewports := [
 	$GridContainer_2player/SubViewportContainer/SubViewport,
 	$GridContainer_2player/SubViewportContainer2/SubViewport2
 ]
 @onready var spawn_points := [
-	$P1_spawn,
-	$P2_spawn,
-	$P3_spawn,
-	$P4_spawn
+	P1_spawn,
+	P2_spawn,
+	P3_spawn,
+	P4_spawn
 ]
 
 func _ready():

@@ -5,10 +5,15 @@ extends RigidBody3D
 @export var speed: float = 30.0
 @export var rotation_speed: float = 3.0
 const REACH_TOLERANCE: float = 3.0
+var active_checkpoint = 0
+var max_checkpoints : int
+var active_lap =1
+var max_lap : int
 
 var checkpoint_manager: CheckpointManager
 
-func _ready():
+func _ready():	
+
 	print("🟢 AI READY: Startar bil med NavigationAgent3D...")
 	
 	if navigation_agent == null:
@@ -20,6 +25,7 @@ func _ready():
 		print("✅ Hittade Checkpoints-nod:", cp_node.name)
 		checkpoint_manager = CheckpointManager.new()
 		checkpoint_manager.setup_from_node(cp_node)
+		max_checkpoints = checkpoint_manager.checkpoints.size()
 		print("✅ Checkpoints laddade:", checkpoint_manager.checkpoints.size())
 
 		var start_target = checkpoint_manager.get_current_checkpoint()
@@ -29,6 +35,10 @@ func _ready():
 		print("❌ Kunde inte hitta en Checkpoints-nod.")
 
 func _physics_process(delta: float):
+	
+	if navigation_agent.avoidance_enabled and navigation_agent.is_target_reached() == false:
+		navigation_agent.set_target_position(navigation_agent.get_target_position())
+	
 	if checkpoint_manager == null or navigation_agent == null:
 		return
 
@@ -40,14 +50,34 @@ func _physics_process(delta: float):
 
 	var dist = global_transform.origin.distance_to(next_point)
 	#print("📍 Nästa punkt:", next_point, " | Avstånd:", dist)
-
-	if dist < REACH_TOLERANCE:
-		checkpoint_manager.go_to_next()
-		var new_target = checkpoint_manager.get_current_checkpoint()
-		print("➡️ Nästa checkpoint satt:", new_target)
-		navigation_agent.set_target_position(new_target)
+	move_towards_target(next_point, delta)
+		
+func on_checkpoint_enter(area):
+	checkpoint_check(area)
+	
+func checkpoint_check(area):
+	if  active_checkpoint == max_checkpoints:
+		active_checkpoint = 0
+		active_lap +=1
+		print("Done with lap, checkpoint 1 active")
+		
 	else:
-		move_towards_target(next_point, delta)
+		active_checkpoint +=1
+		print("Setting next checkpoint")
+	navigation_agent.set_target_position(checkpoint_manager.checkpoints[active_checkpoint])
+	
+	var chk_int = int(area.name)
+	var result = checkpoint_manager.pass_checkpoint(chk_int)
+
+	#if not result.ok:
+		#print("⚠️ Fel checkpoint. Förväntade:", checkpoint_manager.current_index, "men fick:", chk_int)
+		#return
+	#if result.ok:
+		#print("✅ Checkpoint ok:", chk_int, "/", checkpoint_manager.total_checkpoints)
+		#checkpoint_manager.go_to_next()
+		#var new_target = checkpoint_manager.get_current_checkpoint()
+		#print("➡️ Nästa checkpoint satt:", new_target)
+		#navigation_agent.set_target_position(new_target)
 
 func move_towards_target(next_point: Vector3, delta: float):
 	var direction = (next_point - global_transform.origin).normalized()

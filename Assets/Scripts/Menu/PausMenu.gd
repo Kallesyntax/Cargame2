@@ -4,6 +4,9 @@ extends Control
 @onready var restart_button = %Restart
 @onready var volume_slider = %Master_volume  # Referens till HSlider
 @onready var quit_button = %Quit
+@onready var debounce_timer = $Timer
+
+var can_toggle = true
 
 func pause():
 	print("Pausing game and showing menu")
@@ -17,8 +20,15 @@ func resume():
 	visible = false
 
 func _unhandled_input(event):
-	# Hantera menyval
-	if event.is_action_pressed("menu_select"):
+	if event.is_action_pressed("Escape") and can_toggle:
+		can_toggle = false
+		debounce_timer.start()
+		if visible:
+			resume()
+		else:
+			pause()
+		
+	if event.is_action_pressed("menu_select")and can_toggle:
 		if resume_button.has_focus():
 			print("Resume selected")
 			resume()
@@ -42,14 +52,14 @@ func handle_slider_input(event):
 			volume_slider.value = min(volume_slider.value + 0.1, volume_slider.max_value)
 			print("Volume increased to:", volume_slider.value)
 
-func testEsc():
-	# Hantera Escape oavsett fokus för att återuppta spelet
-	if Input.is_action_just_pressed("Escape") and get_tree().paused:
-		print("Escape pressed: Resuming game")
-		resume()
-	elif Input.is_action_just_pressed("Escape") and not get_tree().paused:
-		print("Escape pressed: Pausing game")
-		pause()
+#func testEsc():
+	## Hantera Escape oavsett fokus för att återuppta spelet
+	#if Input.is_action_just_released("Escape") and get_tree().paused:
+		#print("Escape pressed: Resuming game")
+		#resume()
+	#elif Input.is_action_just_released("Escape") and not get_tree().paused:
+		#print("Escape pressed: Pausing game")
+		#pause()
 
 func _on_button_pressed():
 	resume()
@@ -61,4 +71,8 @@ func _on_button_3_pressed():
 	get_tree().quit()
 
 func _process(_delta):
-	testEsc()
+	pass
+	#testEsc()
+	
+func _on_timer_timeout():
+	can_toggle = true

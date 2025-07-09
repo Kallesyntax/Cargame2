@@ -84,13 +84,14 @@ one_shot = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="VehicleBody3D"]
 unique_name_in_owner = true
-path_desired_distance = 30.0
-target_desired_distance = 30.0
-path_height_offset = 1.0
+path_desired_distance = 10.0
+target_desired_distance = 10.37
+path_height_offset = 2.0
 path_max_distance = 30.01
-navigation_layers = 128
+navigation_layers = 256
+path_postprocessing = 1
 avoidance_enabled = true
-radius = 15.0
+radius = 3.0
 use_3d_avoidance = true
 avoidance_layers = 8
 avoidance_mask = 8
@@ -120,6 +121,9 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.92271, 0)
 shape = SubResource("BoxShape3D_gw043")
 debug_color = Color(0.925622, 0.00658147, 9.62615e-07, 0.419608)
+
+[node name="Camera3D" type="Camera3D" parent="VehicleBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, -3.63244e-08, 0.909592, 0.415503, 7.9519e-08, 0.415503, -0.909592, 0, 7.38697, -10)
 
 [connection signal="timeout" from="VehicleBody3D/Timer" to="VehicleBody3D" method="_on_timer_timeout"]
 [connection signal="navigation_finished" from="VehicleBody3D/NavigationAgent3D" to="VehicleBody3D" method="_on_navigation_agent_3d_navigation_finished"]

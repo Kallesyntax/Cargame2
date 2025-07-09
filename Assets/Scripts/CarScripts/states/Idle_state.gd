@@ -8,9 +8,11 @@ func enter_state():
 	car.LBW.wheel_friction_slip = car.traction * 0.8
 
 func physics_update(delta: float) -> void:
+	if car.is_damaged == true:
+		state_machine.switch_to_state("DamageState")	
+		
 	var throttle = Input.get_joy_axis(car.player_index, 5)  # Antag gaspedal axis
-	var brake = Input.get_joy_axis(car.player_index, 2)     # Antag broms axis
-
+	var brake = Input.get_joy_axis(car.player_index, 2)     # Antag broms axi
 	if abs(throttle) > car.DEADZONE or abs(brake) > car.DEADZONE:
 		state_machine.switch_to_state("DrivingState")	
 

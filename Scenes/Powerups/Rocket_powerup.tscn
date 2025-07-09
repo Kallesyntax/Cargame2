@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dbnxa3n8ul2l7"]
+[gd_scene load_steps=43 format=3 uid="uid://dbnxa3n8ul2l7"]
 
 [ext_resource type="ArrayMesh" uid="uid://c2pyu6gvh4goc" path="res://Assets/Models/Powerups/Rocket_body.res" id="1_c56js"]
 [ext_resource type="Script" uid="uid://ejcg3d3x41ig" path="res://Assets/Scripts/Rocket_powerup.gd" id="1_gn34v"]
@@ -304,11 +304,13 @@ scale_max = 1.5
 scale_curve = SubResource("CurveTexture_qupth")
 color = Color(0, 0, 0, 0.643137)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ud303"]
+
 [node name="RocketPowerup" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_gn34v")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.953071, 0)
 collision_layer = 128
 collision_mask = 128
 
@@ -317,14 +319,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262939, 0)
 shape = SubResource("BoxShape3D_p4vgr")
 
 [node name="RocketExhaust" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, -7.54979e-08, -7.54979e-08, -7.54979e-08, -0.5, -5.3642e-08, -7.54979e-08, 5.3642e-08, -0.5, -0.865536, 1.17224, -0.0309885)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.874952, 0, 0)
 layers = 128
 material_override = SubResource("ShaderMaterial_glim4")
 cast_shadow = 0
 mesh = ExtResource("3_epn3h")
 
 [node name="RocketBody" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, -1.2469e-15, -7.10543e-15, -3.30011e-15, -0.5, 7.54979e-08, -1.44252e-22, -7.54979e-08, -0.5, 0, -0.262939, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.45829, 0)
 layers = 128
 mesh = ExtResource("1_c56js")
 
@@ -336,7 +338,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.47779e-08, -0.566853)
 
 [node name="FIreEffekt" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.5, -7.54979e-08, -7.54979e-08, -7.54979e-08, -0.5, -5.3642e-08, -7.54979e-08, 5.3642e-08, -0.5, 0, 0.742234, 3.24441e-08)
+transform = Transform3D(0.5, -7.54979e-08, -7.54979e-08, -7.54979e-08, -0.5, -5.3642e-08, -7.54979e-08, 5.3642e-08, -0.5, 7.54936e-08, 0.499971, -1.3803)
 layers = 128
 material_override = SubResource("ShaderMaterial_drgyc")
 amount = 50
@@ -363,6 +365,14 @@ draw_pass_1 = SubResource("QuadMesh_k4ccb")
 
 [node name="FFTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ud303")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="FFTimer" to="." method="_on_ff_timer_timeout"]

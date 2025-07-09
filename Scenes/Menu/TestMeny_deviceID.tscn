@@ -263,7 +263,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(300, 300)
+size = Vector2i(2, 2)
 render_target_update_mode = 0
 
 [node name="Black_car" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer/SubViewport"]
@@ -324,7 +324,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport2/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(300, 300)
+size = Vector2i(2, 2)
 render_target_update_mode = 0
 
 [node name="Camera3D1" type="Camera3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport2/SubViewportContainer/SubViewport"]
@@ -359,7 +359,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport3/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(300, 300)
+size = Vector2i(2, 2)
 render_target_update_mode = 0
 
 [node name="Camera3D2" type="Camera3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport3/SubViewportContainer/SubViewport"]
@@ -394,7 +394,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport4/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(300, 300)
+size = Vector2i(2, 2)
 render_target_update_mode = 0
 
 [node name="Camera3D3" type="Camera3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport4/SubViewportContainer/SubViewport"]

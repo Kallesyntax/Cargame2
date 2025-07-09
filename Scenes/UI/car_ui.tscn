@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://btv16dky8ak5t"]
 
-[ext_resource type="Script" uid="uid://85807uiety7c" path="res://Assets/Scripts/Speedometer.gd" id="1_dknjy"]
+[ext_resource type="Script" uid="uid://85807uiety7c" path="res://Assets/Scripts/Ui/Speedometer.gd" id="1_dknjy"]
 [ext_resource type="Texture2D" uid="uid://c8ye34a4igbow" path="res://Assets/Textures/Icons/Three_powerups.png" id="2_ytpb1"]
 [ext_resource type="Texture2D" uid="uid://cuwrtt38amtar" path="res://Assets/Textures/JustgraySqare.png" id="4_7vquc"]
 
