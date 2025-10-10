@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpwv86illi0m2"
+path="res://.godot/imported/Ambient, Heavy & Ponderous, Gaming.mp3-03d841812ba25c1b837d60fe798cf456.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audo/Music/Smoky road/Ambient, Heavy & Ponderous, Gaming.mp3"
+dest_files=["res://.godot/imported/Ambient, Heavy & Ponderous, Gaming.mp3-03d841812ba25c1b837d60fe798cf456.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

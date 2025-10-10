@@ -1,0 +1,73 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://cq4fh562s1kv3"]
+
+[ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="1_6ebef"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_nx8ds"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+texture = ExtResource("1_6ebef")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_k182v"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_3uplm"]
+default_input_values = [0, Vector2(5, 10)]
+op_type = 0
+function = 26
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_jiarj"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0.1, 0.2)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_22byy"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// VectorOp:6
+	vec2 n_in6p1 = vec2(0.10000, 0.20000);
+	vec2 n_out6p0 = vec2(n_out4p0) * n_in6p1;
+
+
+// VectorFunc:5
+	vec2 n_out5p0 = sin(n_out6p0);
+
+
+// UVFunc:7
+	vec2 n_in7p1 = vec2(1.00000, 1.00000);
+	vec2 n_out7p0 = n_out5p0 * n_in7p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out7p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(660, 40)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_nx8ds")
+nodes/fragment/2/position = Vector2(-80, 20)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_k182v")
+nodes/fragment/4/position = Vector2(-2060, 140)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorFunc_3uplm")
+nodes/fragment/5/position = Vector2(-980, 60)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_jiarj")
+nodes/fragment/6/position = Vector2(-1460, 40)
+nodes/fragment/7/node = SubResource("VisualShaderNodeUVFunc_22byy")
+nodes/fragment/7/position = Vector2(-540, 40)
+nodes/fragment/connections = PackedInt32Array(4, 0, 6, 0, 6, 0, 5, 0, 7, 0, 2, 0, 5, 0, 7, 2, 2, 0, 0, 0)

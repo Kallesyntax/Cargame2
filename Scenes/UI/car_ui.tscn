@@ -1,0 +1,183 @@
+[gd_scene load_steps=14 format=3 uid="uid://btv16dky8ak5t"]
+
+[ext_resource type="Script" uid="uid://85807uiety7c" path="res://Assets/Scripts/Speedometer.gd" id="1_dknjy"]
+[ext_resource type="Texture2D" uid="uid://c8ye34a4igbow" path="res://Assets/Textures/Icons/Three_powerups.png" id="2_ytpb1"]
+[ext_resource type="Texture2D" uid="uid://cuwrtt38amtar" path="res://Assets/Textures/JustgraySqare.png" id="4_7vquc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr1wi"]
+bg_color = Color(0.1, 0.1, 0.1, 0.704)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 3
+
+[sub_resource type="Theme" id="Theme_whtft"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_yr1wi")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnolm"]
+atlas = ExtResource("4_7vquc")
+region = Rect2(7.63739, 9.04292, 753.839, 618.698)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_linpc"]
+texture = SubResource("AtlasTexture_tnolm")
+expand_margin_left = 1.0
+expand_margin_right = 28.0
+
+[sub_resource type="Theme" id="Theme_siwlk"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_linpc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ko5x7"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.337255)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_ljns5"]
+Panel/styles/panel = SubResource("StyleBoxFlat_ko5x7")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqhbx"]
+atlas = ExtResource("2_ytpb1")
+region = Rect2(129.739, 229.789, 532.34, 628.581)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcbtt"]
+atlas = ExtResource("2_ytpb1")
+region = Rect2(698.837, 230.833, 531.375, 628.055)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brkjp"]
+atlas = ExtResource("2_ytpb1")
+region = Rect2(1264.97, 227.053, 533.161, 629.918)
+
+[node name="Car_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_dknjy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SpeedPanel" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 40.0
+offset_right = 58.0
+offset_bottom = 64.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_whtft")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SpeedPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SpeedPanel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Speed" type="Label" parent="CanvasLayer/SpeedPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Speed: 550"
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/SpeedPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Lap" type="Label" parent="CanvasLayer/SpeedPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Lap: 1"
+
+[node name="PowerupPanel" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1504.0
+offset_top = 8.0
+offset_right = -1374.26
+offset_bottom = 176.0
+grow_horizontal = 0
+theme = SubResource("Theme_siwlk")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PowerupPanel/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ljns5")
+
+[node name="Turbo" type="TextureRect" parent="CanvasLayer/PowerupPanel/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_bqhbx")
+expand_mode = 5
+
+[node name="Ghost" type="TextureRect" parent="CanvasLayer/PowerupPanel/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_bcbtt")
+expand_mode = 5
+
+[node name="Rocket" type="TextureRect" parent="CanvasLayer/PowerupPanel/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_brkjp")
+expand_mode = 5
+
+[node name="LapTimer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224.0
+offset_top = 40.0
+offset_right = -16.0
+offset_bottom = 139.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_whtft")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LapTimer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LapTimer/MarginContainer"]
+layout_mode = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Current lap:"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Best" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Best time:"
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Total" type="Label" parent="CanvasLayer/LapTimer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total time:"

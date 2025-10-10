@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://8gifv3b13ict"]
+
+[ext_resource type="Script" uid="uid://ceo3opqvx8tki" path="res://Scenes/car_prieview.gd" id="1_bukb8"]
+[ext_resource type="ArrayMesh" uid="uid://blvsfn20ulah0" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_gn3kb"]
+[ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="3_j5cex"]
+[ext_resource type="ArrayMesh" uid="uid://bw0qvwauwnwgs" path="res://Assets/Cars/Green_car.res" id="3_lpgdq"]
+[ext_resource type="ArrayMesh" uid="uid://cj7lbp4isd468" path="res://Assets/Cars/Red_car.res" id="4_cnwvt"]
+
+[node name="CarPrieview" type="Node3D"]
+script = ExtResource("1_bukb8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.934069, -0.216205, 0.284202, 0.0464276, 0.86265, 0.503666, -0.354062, -0.457264, 0.815812, 3.63937, 6.27621, 10.1285)
+cull_mask = 1
+current = true
+
+[node name="BlackCar" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("2_gn3kb")
+
+[node name="BrownPickup" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("3_j5cex")
+
+[node name="GreenCar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34735, 0)
+visible = false
+mesh = ExtResource("3_lpgdq")
+
+[node name="RedCar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29553, 0)
+visible = false
+layers = 2
+mesh = ExtResource("4_cnwvt")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87591, 8.9621)
+light_energy = 1.727
+light_indirect_energy = 5.606
+light_volumetric_fog_energy = 2.1
+light_size = 0.465
+light_specular = 5.995

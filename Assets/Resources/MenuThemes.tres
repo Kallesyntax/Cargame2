@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://de1e1g57wt3pr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2l6o"]
+bg_color = Color(0.82057, 0.406099, 0.863059, 1)
+
+[resource]
+BlueLabel/base_type = &"Label"
+RedLabel/base_type = &"Label"
+RedLabel/font_sizes/font_size = 21
+RedLabel/styles/normal = SubResource("StyleBoxFlat_m2l6o")

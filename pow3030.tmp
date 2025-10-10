@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb1mdjne3aq1o"]
+
+[ext_resource type="Script" path="res://PowerUps.gd" id="1_y7rsv"]
+[ext_resource type="Texture2D" uid="uid://b8avildfvyy06" path="res://Assets/dump/Textures/faf.jpg" id="2_xqxqf"]
+
+[node name="PowerUps" type="Node"]
+script = ExtResource("1_y7rsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(816, 148)
+scale = Vector2(0.196289, 0.196289)
+texture = ExtResource("2_xqxqf")
+centered = false

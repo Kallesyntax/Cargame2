@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmulosltrncsb"]
+
+[ext_resource type="PackedScene" uid="uid://bwudica5cnvru" path="res://Scenes/Cars/base_carscene.tscn" id="1_jsy2p"]
+[ext_resource type="ArrayMesh" uid="uid://cj7lbp4isd468" path="res://Assets/Cars/Red_car.res" id="2_mbp5o"]
+[ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="2_rseem"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kaq7m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dx6sl"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_edort"]
+points = PackedVector3Array(2.26424, 0.234671, 1.85535, 2.26424, 0.115257, 1.85535, 2.26424, 0.234671, 1.73642, 1.6605, 1.42468, 1.01599, 1.63612, 0.140846, 3.90968, 1.72034, -0.112564, 3.96787, 1.81919, -0.733844, 3.87118, 1.87815, -1.29514, 1.88358, 2.26424, 0.115257, 1.73642, 1.81919, -1.02495, 3.87118, 1.87859, -0.733844, -4.36157, 1.96059, -0.0831231, -2.54852, 1.80855, -0.112564, -4.49932, 1.78018, 0.140846, -4.40606, 1.6605, 1.42468, -2.48434, 1.58692, 1.51575, 0.82775, -0.000443459, 0.140846, 4.16808, 1.17201, -0.112564, 4.06541, 1.72566, -0.733844, 3.96958, 1.63612, -1.29514, 3.90968, 1.87815, -1.29514, -2.84199, 1.87859, -1.02495, -4.36157, 1.72566, -1.02495, 3.96958, 1.80855, -0.296637, -4.49932, -1.809, -0.112564, -4.49932, -1.78063, 0.140846, -4.40606, -1.66094, 1.42468, -2.48434, 1.58692, 1.51575, -2.28499, -1.58736, 1.51575, 0.82775, -1.63656, 0.140846, 3.90968, -1.17246, -0.112564, 4.06541, -0.000443459, -0.733844, 4.24081, 1.17201, -0.296637, 4.06541, -0.000443459, -1.29514, 4.16808, 1.78018, -1.29514, -4.40606, 1.78506, -1.02495, -4.45996, -0.000443459, -1.02495, 4.24081, 1.69552, -1.02495, -4.4728, -0.000443459, -1.02495, -4.48136, -1.809, -0.296637, -4.49932, -1.87903, -0.733844, -4.36157, -1.96104, -0.0831231, -2.54852, -2.26424, 0.234671, 1.73642, -1.58736, 1.51575, -2.28499, -1.66094, 1.42468, 1.01599, -1.72078, -0.112564, 3.96787, -2.26424, 0.234671, 1.85535, -1.17246, -0.296637, 4.06541, -1.7261, -0.733844, 3.96958, -1.7261, -1.02495, 3.96958, -1.63656, -1.29514, 3.90968, -1.78063, -1.29514, -4.40606, -1.6964, -1.02495, -4.4728, -1.7855, -1.02495, -4.45996, -1.87903, -1.02495, -4.36157, -2.26424, 0.115257, 1.73642, -1.81963, -0.733844, 3.87118, -2.26424, 0.115257, 1.85535, -1.81963, -1.02495, 3.87118, -1.87859, -1.29514, 1.88358, -1.87859, -1.29514, -2.84199)
+
+[sub_resource type="Animation" id="Animation_mug83"]
+resource_name = "Damaged"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, 0, 0, 1, 0.233333, 1, 0, 0.707107, 0, 0.707107, 0.533333, 1, 0, 1, 0, -4.37114e-08, 0.733333, 1, 0, -0.707107, 0, 0.707107, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_7812b"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j7dhp"]
+_data = {
+&"Damaged": SubResource("Animation_mug83"),
+&"RESET": SubResource("Animation_7812b")
+}
+
+[node name="Red_car" type="Node3D"]
+
+[node name="VehicleBody3D" parent="." node_paths=PackedStringArray("collisionMesh", "carMesh", "ghostMesh", "car_rocketRay", "animation_player") instance=ExtResource("1_jsy2p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.338195, 0)
+traction = 2
+collisionMesh = NodePath("CollisionShape3D")
+carMesh = NodePath("RedCar")
+ghostMesh = NodePath("GhostMesh")
+car_rocketRay = NodePath("Kanon")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325874, 0.372887)
+shape = SubResource("ConvexPolygonShape3D_kaq7m")
+
+[node name="GhostMesh" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877885, 0.372887)
+visible = false
+mesh = SubResource("BoxMesh_dx6sl")
+skeleton = NodePath("../CarMesh")
+
+[node name="CarMesh" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325874, 0.372887)
+visible = false
+mesh = ExtResource("2_rseem")
+skeleton = NodePath("../..")
+
+[node name="Kanon" type="RayCast3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.43117, 5.08521)
+
+[node name="RedCar" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46853, 0.809522)
+mesh = ExtResource("2_mbp5o")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46853, 0.809522)
+shape = SubResource("ConvexPolygonShape3D_edort")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VehicleBody3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_j7dhp")
+}

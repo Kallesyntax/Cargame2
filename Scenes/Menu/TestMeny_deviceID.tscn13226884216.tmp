@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddlrlmaffqt2g"]
+
+[ext_resource type="Script" uid="uid://imrvhcpmncux" path="res://Assets/Scripts/MenuTest_for_deviceID.gd" id="1_4dvx6"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_4dvx6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_Title1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_Mode1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_Value1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 144.0
+offset_right = 184.0
+offset_bottom = 77.0
+
+[node name="Label_Title2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label_Mode2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label_Value2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2

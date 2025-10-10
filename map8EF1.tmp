@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://borfpa2xismfu"]
+
+[ext_resource type="PackedScene" uid="uid://drg7tk0kcop3r" path="res://Assets/dump/Models/Maps/map1.glb" id="1_8sb5n"]
+[ext_resource type="PackedScene" uid="uid://c5xj5tqpbk2t8" path="res://fire_car.tscn" id="2_5icpp"]
+[ext_resource type="Texture2D" uid="uid://cuoiw06a84y4g" path="res://Assets/Textures/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg" id="3_0i8gj"]
+[ext_resource type="PackedScene" uid="uid://cg57o0b1c110a" path="res://map1.tscn" id="3_q2ipx"]
+[ext_resource type="PackedScene" uid="uid://b1qgcxejio08u" path="res://PowerUpBlock.tscn" id="5_fx1jg"]
+[ext_resource type="PackedScene" uid="uid://cb1mdjne3aq1o" path="res://power_ups.tscn" id="6_f8pvi"]
+[ext_resource type="PackedScene" uid="uid://crj1e3j1dxcvl" path="res://state.tscn" id="7_37b7e"]
+[ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="8_l46q7"]
+[ext_resource type="Script" path="res://Scenes/Powerups/FireZoomFollow.gd" id="9_bidl8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypqxs"]
+albedo_color = Color(0, 0.380392, 0, 1)
+albedo_texture = ExtResource("3_0i8gj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_akxrr"]
+
+[node name="Main" instance=ExtResource("1_8sb5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.71216, 0)
+
+[node name="Plane_002" parent="." index="0"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 624.54, -11.1745, 631.745)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Plane_002" index="0"]
+transform = Transform3D(0.990278, -0.0560324, -0.127319, 0.139104, 0.398894, 0.906385, 0, -0.915284, 0.40281, -24.056, 6.63609, 0)
+
+[node name="map1" parent="Plane_002" index="1" instance=ExtResource("3_q2ipx")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -12.4908, 0.284799, -12.6349)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane_002" index="2"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -14.0334, 0.22349, -12.6349)
+material_override = SubResource("StandardMaterial3D_ypqxs")
+mesh = SubResource("PlaneMesh_akxrr")
+skeleton = NodePath("../..")
+
+[node name="Fire_car" parent="." index="1" instance=ExtResource("2_5icpp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 220.226, 10.9529, -19.0243)
+mass = 120.0
+
+[node name="Node3D" parent="." index="2" instance=ExtResource("5_fx1jg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.108, 5.8146, -13.3258)
+
+[node name="PowerUps" parent="." index="3" instance=ExtResource("6_f8pvi")]
+
+[node name="state" parent="." index="4" instance=ExtResource("7_37b7e")]
+
+[node name="Node3D2" type="Node3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6316, -33.0686, -29.8271)
+script = ExtResource("9_bidl8")
+
+[node name="FireNode" parent="Node3D2" index="0" instance=ExtResource("8_l46q7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 155.359, 41.3574, 5.95279)

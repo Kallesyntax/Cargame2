@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://b1qgcxejio08u"]
+
+[ext_resource type="Script" uid="uid://44its3d0i1la" path="res://Scenes/powerup_box.gd" id="1_74xw5"]
+[ext_resource type="Shader" uid="uid://becqskr2il052" path="res://Assets/Shaders/PowerUp1_shaderk.tres" id="2_ciiim"]
+[ext_resource type="Texture2D" uid="uid://dhy4o6oqeh0cl" path="res://Assets/Textures/Perlin_noise.png" id="3_05t65"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cfmoc"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_30rq1"]
+render_priority = 0
+shader = ExtResource("2_ciiim")
+shader_parameter/ColorIntensity = 3.0
+shader_parameter/PowerUpColor = Color(0.0431373, 0.290196, 0.639216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w73h0"]
+shading_mode = 0
+albedo_color = Color(0, 0, 1, 1)
+albedo_texture = ExtResource("3_05t65")
+
+[sub_resource type="SphereMesh" id="SphereMesh_r6n5t"]
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("StandardMaterial3D_w73h0")
+radial_segments = 7
+rings = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n2y4"]
+shading_mode = 0
+albedo_color = Color(0.5, 0.5, 4, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = -16.0
+point_size = 5.0
+proximity_fade_enabled = true
+distance_fade_mode = 1
+
+[sub_resource type="Curve" id="Curve_vkhxy"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5h23n"]
+curve = SubResource("Curve_vkhxy")
+
+[sub_resource type="Curve" id="Curve_du3nx"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yvboj"]
+width = 100
+curve = SubResource("Curve_du3nx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n6wlj"]
+emission_shape = 2
+emission_sphere_radius = 1.2
+inherit_velocity_ratio = 0.064
+direction = Vector3(0, 1, 1)
+initial_velocity_min = 0.1
+initial_velocity_max = 2.0
+gravity = Vector3(0, 1, 0)
+linear_accel_min = 0.5
+linear_accel_max = 1.5
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+damping_min = 1.0
+damping_max = 5.0
+scale_min = 0.1
+scale_max = 0.2
+scale_over_velocity_curve = SubResource("CurveTexture_yvboj")
+color = Color(0.0980392, 1, 1, 1)
+hue_variation_min = -0.43
+hue_variation_max = 0.52
+hue_variation_curve = SubResource("CurveTexture_5h23n")
+turbulence_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ewk47"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqymc"]
+
+[node name="Node3D" type="Area3D"]
+collision_layer = 2
+script = ExtResource("1_74xw5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.652156, 0)
+shape = SubResource("ConcavePolygonShape3D_cfmoc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.11598, 0)
+layers = 2
+material_override = SubResource("ShaderMaterial_30rq1")
+mesh = SubResource("SphereMesh_r6n5t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.650963, 0, 1.08237, 0)
+material_override = SubResource("StandardMaterial3D_7n2y4")
+lifetime = 2.0
+randomness = 0.26
+process_material = SubResource("ParticleProcessMaterial_n6wlj")
+draw_pass_1 = SubResource("QuadMesh_ewk47")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GPUParticles3D"]
+mesh = SubResource("BoxMesh_pqymc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

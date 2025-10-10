@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://drw8vlkxapl2c"]
+
+[ext_resource type="ArrayMesh" uid="uid://b257c6xxba77" path="res://Assets/World/Maps/Smokyroad/SmokyRoads.res" id="1_b0n56"]
+[ext_resource type="Script" uid="uid://d4gicmysvewb4" path="res://Scenes/map_preview.gd" id="1_uo152"]
+[ext_resource type="ArrayMesh" uid="uid://btohirqfikguf" path="res://Assets/World/BlockyRock.res" id="2_vliqv"]
+[ext_resource type="ArrayMesh" uid="uid://capyqqq6ick7i" path="res://Assets/World/Maps/IslandHub/Main island.res" id="4_hdpa1"]
+
+[node name="MapPreview" type="Node3D"]
+script = ExtResource("1_uo152")
+
+[node name="SmokyRoads" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.369028, 0, -1.14985)
+visible = false
+mesh = ExtResource("1_b0n56")
+
+[node name="BlockyRock" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, -2.18627, 0)
+visible = false
+mesh = ExtResource("2_vliqv")
+
+[node name="IslandHub" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.691259, -3.43293, -7.30642)
+visible = false
+mesh = ExtResource("4_hdpa1")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 532.0
+offset_bottom = 546.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.667885, 0.744265, 0, -0.744265, 0.667885, 0, 15.1126, 17.7566)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.872314, 0.564113)

@@ -1,0 +1,420 @@
+[gd_scene load_steps=18 format=3 uid="uid://ddlrlmaffqt2g"]
+
+[ext_resource type="Script" uid="uid://imrvhcpmncux" path="res://Assets/Scripts/select_car.gd" id="1_c25qj"]
+[ext_resource type="Theme" uid="uid://cktpwq61abvu2" path="res://Assets/Resources/Header.tres" id="3_ajt2l"]
+[ext_resource type="ArrayMesh" uid="uid://cpkvthohe6y4f" path="res://Assets/Cars/Black_car.res" id="4_7yklf"]
+[ext_resource type="Theme" uid="uid://ck8r6t143fvma" path="res://Assets/Resources/Menu_buttons.tres" id="4_bh3xf"]
+[ext_resource type="ArrayMesh" uid="uid://n4n71q5qie3r" path="res://Assets/Cars/BrownPickup.res" id="5_sp1lf"]
+[ext_resource type="ArrayMesh" uid="uid://bw0qvwauwnwgs" path="res://Assets/Cars/Green_car.res" id="6_mvxd6"]
+[ext_resource type="ArrayMesh" uid="uid://cj7lbp4isd468" path="res://Assets/Cars/Red_car.res" id="7_s4pgo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxsal"]
+bg_color = Color(0.321569, 0.321569, 0.321569, 1)
+border_blend = true
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 10
+
+[sub_resource type="SystemFont" id="SystemFont_4fkil"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_t2sys"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5jmx"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_right = 15
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="Animation" id="Animation_unljk"]
+resource_name = "Fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j233b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e47s2"]
+_data = {
+&"Fade_in": SubResource("Animation_unljk"),
+&"RESET": SubResource("Animation_j233b")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_46f82"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_6vmxe"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gww8"]
+bg_color = Color(0.545098, 0.545098, 0.545098, 1)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 15
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="Node" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_c25qj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background_box" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yxsal")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Background_box"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Background_box/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 32.0
+offset_right = 187.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_ajt2l")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_4fkil")
+theme_override_font_sizes/font_size = 46
+text = "Who you gonna be?"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Background_box"]
+layout_mode = 2
+theme = SubResource("Theme_t2sys")
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5jmx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_e47s2")
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 336.0
+offset_right = 115.0
+offset_bottom = 404.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Seperator" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_bh3xf")
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Seperator2" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="Level_select" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_fonts/font = SubResource("SystemFont_46f82")
+theme_override_font_sizes/font_size = 24
+text = "Level select"
+
+[node name="Seperator3" type="Control" parent="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -138.5
+offset_bottom = 138.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ViewportBox" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/VBoxContainer/ViewportBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Viewport" type="PanelContainer" parent="CanvasLayer/VBoxContainer/ViewportBox"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 3.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(300, 300)
+render_target_update_mode = 4
+
+[node name="Black_car" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer/SubViewport"]
+mesh = ExtResource("4_7yklf")
+skeleton = NodePath("../../../../Viewport2/SubViewportContainer/SubViewport")
+
+[node name="Brown_car" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 2
+mesh = ExtResource("5_sp1lf")
+skeleton = NodePath("../../../../Viewport2/SubViewportContainer/SubViewport")
+
+[node name="Green_car" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer/SubViewport"]
+layers = 4
+mesh = ExtResource("6_mvxd6")
+skeleton = NodePath("../../../../Viewport2/SubViewportContainer/SubViewport")
+
+[node name="Red_car" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer/SubViewport"]
+layers = 8
+mesh = ExtResource("7_s4pgo")
+skeleton = NodePath("../../../../Viewport2/SubViewportContainer/SubViewport")
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.767713, 0.353892, -0.534207, -1.63136e-08, 0.833664, 0.552272, 0.640793, -0.423986, 0.640015, -5.20803, 5.44012, 7.91972)
+cull_mask = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.803805, 0.594893, 0, -0.594893, 0.803805, 0, 5.28624, 16.1257)
+layers = 15
+spot_range = 16.6
+spot_attenuation = -0.82
+spot_angle = 43.18
+
+[node name="Panel" type="Panel" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport"]
+layout_mode = 2
+theme = SubResource("Theme_6vmxe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gww8")
+
+[node name="player1" type="Label" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "PLAYER READY"
+horizontal_alignment = 1
+
+[node name="Viewport2" type="PanelContainer" parent="CanvasLayer/VBoxContainer/ViewportBox"]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 3.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport2"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport2/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="Camera3D1" type="Camera3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport2/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.767713, 0.353892, -0.534207, -1.63136e-08, 0.833664, 0.552272, 0.640793, -0.423986, 0.640015, -5.20803, 5.44012, 7.91972)
+visible = false
+cull_mask = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport2"]
+layout_mode = 2
+theme = SubResource("Theme_6vmxe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gww8")
+
+[node name="player2" type="Label" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "PLAYER READY"
+horizontal_alignment = 1
+
+[node name="Viewport3" type="PanelContainer" parent="CanvasLayer/VBoxContainer/ViewportBox"]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 3.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport3"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport3/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="Camera3D2" type="Camera3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport3/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.767713, 0.353892, -0.534207, -1.63136e-08, 0.833664, 0.552272, 0.640793, -0.423986, 0.640015, -5.20803, 5.44012, 7.91972)
+visible = false
+cull_mask = 1
+
+[node name="player3" type="Label" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "PLAYER READY"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport3"]
+layout_mode = 2
+theme = SubResource("Theme_6vmxe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gww8")
+
+[node name="Viewport4" type="PanelContainer" parent="CanvasLayer/VBoxContainer/ViewportBox"]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 3.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport4"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport4/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="Camera3D3" type="Camera3D" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport4/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.767713, 0.353892, -0.534207, -1.63136e-08, 0.833664, 0.552272, 0.640793, -0.423986, 0.640015, -5.20803, 5.44012, 7.91972)
+visible = false
+cull_mask = 1
+
+[node name="player4" type="Label" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "PLAYER READY"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/VBoxContainer/ViewportBox/Viewport4"]
+layout_mode = 2
+theme = SubResource("Theme_6vmxe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gww8")
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/VBoxContainer/ViewportBox"]
+layout_mode = 2
+size_flags_horizontal = 3

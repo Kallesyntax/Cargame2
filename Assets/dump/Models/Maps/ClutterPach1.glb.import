@@ -1,0 +1,85 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bwwv0fttm7ld2"
+path="res://.godot/imported/ClutterPach1.glb-8ce6cd444b354d967ec28a181c49567f.scn"
+
+[deps]
+
+source_file="res://Assets/dump/Models/Maps/ClutterPach1.glb"
+dest_files=["res://.godot/imported/ClutterPach1.glb-8ce6cd444b354d967ec28a181c49567f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "",
+"use_external/path": ""
+}
+},
+"meshes": {
+"ClutterPach1_Cube_023": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/World/Environment/New Folder/StreetLight.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://dluojdc52irin"
+},
+"ClutterPach1_Cylinder_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/World/Environment/New Folder/Cone1.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://qjq2ov7ifg0c"
+},
+"ClutterPach1_Cylinder_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/World/Environment/New Folder/Fountain.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://dwr8m3n7ebvau"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
