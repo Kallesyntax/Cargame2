@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cxioftdp84qfn"
+uid="uid://bdcd1c7h7ho52"
 path="res://.godot/imported/Wheels.glb-11042139d77c804914cbd154222835ed.scn"
 
 [deps]
@@ -37,54 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"Wheels_Cube_031": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Wheels/Offroad.res",
-"save_to_file/path": "uid://rto506pdt8ki"
-},
-"Wheels_Cube_032": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Wheels/Speed.res",
-"save_to_file/path": "uid://d1hvjsuhtoxiy"
-},
-"Wheels_Cube_033": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Wheels/SpeedSprocket.res",
-"save_to_file/path": "uid://cdyxe7qpbya3m"
-},
-"Wheels_Cube_034": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Wheels/WheelSprocket.res",
-"save_to_file/path": "uid://d18m57qyfmvf"
-},
-"Wheels_Cube_036": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Wheels/OffroadSprocket.res",
-"save_to_file/path": "uid://5ro7g86e0rcr"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

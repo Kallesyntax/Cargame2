@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=11 format=3 uid="uid://becqskr2il052"]
 
-[ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="1_l2uui"]
+[ext_resource type="Texture2D" uid="uid://ci60wus17kpah" path="res://Assets/Textures/example-4-1-2681458205.png" id="1_l2uui"]
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_t5o18"]
 parameter_name = "ColorIntensity"
@@ -39,7 +39,7 @@ op_type = 2
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
 
 uniform sampler2D tex_frg_3 : source_color;
 uniform float ColorIntensity;

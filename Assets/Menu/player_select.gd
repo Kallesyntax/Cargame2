@@ -4,7 +4,7 @@ extends Control
 @onready var players2_button: Button          = %Players2
 @onready var exit_button: Button              = %Exit_Button
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var car_select_scene: PackedScene    = preload("res://Scenes/Menu/car_select.tscn")
+@onready var car_select_scene: PackedScene    = load("res://Scenes/Menu/car_select.tscn")
 
 var menu_buttons: Array[Button] = []
 var current_index: int          = 0

@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhhv5l6k8esy2"
+uid="uid://cl7snv7aornwo"
 path.s3tc="res://.godot/imported/Rocket_exhaust_aap-64-32x.png-7a50f192282395f8c2702acfea162f72.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

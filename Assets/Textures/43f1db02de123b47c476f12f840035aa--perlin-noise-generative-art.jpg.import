@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuoiw06a84y4g"
+uid="uid://dfsapplic3mwc"
 path="res://.godot/imported/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg-85eefe43ddaad615e4ce3b52b362e1e4.ctex"
 metadata={
 "vram_texture": false
@@ -15,18 +15,18 @@ dest_files=["res://.godot/imported/43f1db02de123b47c476f12f840035aa--perlin-nois
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Assets/Textures/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=100
-detect_3d/compress_to=0
+process/size_limit=0
+detect_3d/compress_to=1

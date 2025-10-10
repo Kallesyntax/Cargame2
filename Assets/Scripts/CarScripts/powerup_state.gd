@@ -3,6 +3,7 @@ extends CarState
 var rocket_scene = preload("res://Scenes/Powerups/Rocket_powerup.tscn")
 
 func enter_state():
+
 	print("powerups")
 	if car.powerUpID.powerUpNum != 0:
 		car.icon.set_icon_invisible()
@@ -25,4 +26,5 @@ func enter_state():
 		car.powerUpID.powerUpNum = 0
 
 	# Gå tillbaka till Idle när klart
+
 	state_machine.switch_to_state("IdleState")

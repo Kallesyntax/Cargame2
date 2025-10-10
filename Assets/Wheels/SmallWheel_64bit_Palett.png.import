@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boc4wrg8fdbvn"
+uid="uid://bp7q6b006efby"
 path.s3tc="res://.godot/imported/SmallWheel_64bit_Palett.png-93ae1c6d4c058233e1cfa309c1f3ed76.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

@@ -1,6 +1,7 @@
 extends CarState
 class_name DrivingState
 
+
 # kort grace-period (sekunder) efter state-enter innan auto-switch-to-idle tillåts
 const GRACE_SECONDS: float = 0.12
 

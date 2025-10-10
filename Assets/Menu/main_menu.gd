@@ -2,8 +2,8 @@ extends Control
 
 @onready var play_button: Button          = $CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Start_Button
 @onready var exit_button: Button          = $CanvasLayer2/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Exit_Button
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var player_select_scene: PackedScene   = preload("res://Scenes/Menu/player_select.tscn")
+#@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player_select_scene: PackedScene  = load("res://Scenes/Menu/player_select.tscn")
 
 var menu_buttons: Array[Button] = []
 var current_index: int          = 0
@@ -42,4 +42,5 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(player_select_scene)
 
 func _on_exit_pressed() -> void:
+
 	get_tree().quit()

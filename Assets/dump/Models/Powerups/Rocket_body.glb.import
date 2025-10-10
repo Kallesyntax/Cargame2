@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1c4hfl0v5px1"
+uid="uid://brbngjgfguoim"
 path="res://.godot/imported/Rocket_body.glb-5c6c9cda8c46ac3c00d63a68cb47e529.scn"
 
 [deps]
@@ -37,20 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"Rocket_body_Cylinder_006": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Models/Powerups/Rocket_body.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://c2pyu6gvh4goc"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

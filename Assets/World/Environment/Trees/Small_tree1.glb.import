@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b18v3kq3q4b5q"
+uid="uid://dlscraslosgcj"
 path="res://.godot/imported/Small_tree1.glb-540a7839cfa8edcd8720589fe58fc578.scn"
 
 [deps]
@@ -37,20 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"Small_tree1_Cylinder": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/World/Environment/Trees/Tree1.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://ccv1xv155nk0a"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

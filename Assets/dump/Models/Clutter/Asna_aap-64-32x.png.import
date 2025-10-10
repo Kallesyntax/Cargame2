@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct6qhbasms6cc"
+uid="uid://d2ljddt8qlka5"
 path.s3tc="res://.godot/imported/Asna_aap-64-32x.png-3bc9860a068465389919ae5160ca2622.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "3c25d398f21655e80d06a10b52f5d439"
 }
 
 [deps]

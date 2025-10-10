@@ -11,7 +11,6 @@ signal race_finished(car_name: String, total_time: float)
 @export var LBW: VehicleWheel3D
 @export var RBW: VehicleWheel3D
 @export var rocket_Scene = load("res://Scenes/Powerups/Rocket_powerup.tscn")
-
 @export var device_id: int = -1      # -1 = tangentbord/fallback
 @export var player_index: int = 0
 @onready var firenode =$Exhaust/FireNode
@@ -47,7 +46,6 @@ var look_at: Vector3
 @export var powerUps = null
 var checkpoint = ""
 var powerUpNum := 0
-
 var MAX_STEER := 0.3
 var MAX_TOPSPEED = 1
 var ENGINE_POWER := 1500
@@ -114,10 +112,7 @@ func apply_wheel_data(data: WheelData):
 		MAX_TOPSPEED = Top_Speed* data.top_speed_multiplier
 		
 		Acceleration *= data.acceleration_multiplier
-
-		
 func _physics_process(delta):	
-	
 	active_lap = checkpoint_manager.lap_count
 	# Låt state maskinen göra sina saker (t.ex. uppdatera engine_force, brake och steering)
 	car_state_machine._physics_process(delta)#

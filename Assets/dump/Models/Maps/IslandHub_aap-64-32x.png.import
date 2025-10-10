@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgvfkmi3m48ki"
+uid="uid://uuf18b5stod0"
 path.s3tc="res://.godot/imported/IslandHub_aap-64-32x.png-ff1565849d893d1946015df09606db97.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

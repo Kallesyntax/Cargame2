@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chnlnk0ey48hj"
+uid="uid://ui1xnndsnt4y"
 path.s3tc="res://.godot/imported/Checkpoint_aap-64-32x.png-ad72df30fb5e74b71775fdfc1b7752ed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

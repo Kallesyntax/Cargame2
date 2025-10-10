@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ftu573r8city"
-path="res://.godot/imported/Åsna_64bit_Palett.png-56fc91ed8bdb3e4d09f3eb0394c93d8b.ctex"
+uid="uid://b4agek507052p"
+path.s3tc="res://.godot/imported/Åsna_64bit_Palett.png-56fc91ed8bdb3e4d09f3eb0394c93d8b.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
 source_file="res://Assets/World/Environment/New Folder/Åsna_64bit_Palett.png"
-dest_files=["res://.godot/imported/Åsna_64bit_Palett.png-56fc91ed8bdb3e4d09f3eb0394c93d8b.ctex"]
+dest_files=["res://.godot/imported/Åsna_64bit_Palett.png-56fc91ed8bdb3e4d09f3eb0394c93d8b.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

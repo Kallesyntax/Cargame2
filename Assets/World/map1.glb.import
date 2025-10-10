@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://vw608667eyed"
+uid="uid://dg4jon10o0j0j"
 path="res://.godot/imported/map1.glb-32877ad262ef9df405ca6a42d5b555e1.scn"
 
 [deps]
@@ -37,31 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"map1_Plane_001": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/World/SmokyRoads.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://bgawvl20br7yx"
-},
-"map1_Plane_005": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/World/SmokyRoads_ground.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://bmgo5nbm715mv"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
