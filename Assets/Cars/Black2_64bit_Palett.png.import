@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5630axoonr6c"
-path="res://.godot/imported/Black2_64bit_Palett.png-f9d0a19f5ee8e7f343f1f7b2a900ebad.ctex"
+uid="uid://qhnyxs8db54m"
+path.s3tc="res://.godot/imported/Black2_64bit_Palett.png-f9d0a19f5ee8e7f343f1f7b2a900ebad.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
 source_file="res://Assets/Cars/Black2_64bit_Palett.png"
-dest_files=["res://.godot/imported/Black2_64bit_Palett.png-f9d0a19f5ee8e7f343f1f7b2a900ebad.ctex"]
+dest_files=["res://.godot/imported/Black2_64bit_Palett.png-f9d0a19f5ee8e7f343f1f7b2a900ebad.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

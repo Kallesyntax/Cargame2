@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5q0s1keq4ib3"
+uid="uid://bdjct5n4ivkhc"
 path.s3tc="res://.godot/imported/BlackCar_aap-64-32x.png-9f69cf892906fe3474469b71c990c8c0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

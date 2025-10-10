@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d12mvk72h1dxm"
+uid="uid://2yiuwdfpl0da"
 path="res://.godot/imported/Rocket_exhaust.glb-3e8ecde75dd7e78783ccbd361efcd7cc.scn"
 
 [deps]
@@ -37,20 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"Rocket_exhaust_Cone": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Models/Powerups/Rocket_exhaust.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://dolkqibml271h"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

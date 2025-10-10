@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://cq4fh562s1kv3"]
 
-[ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="1_6ebef"]
+[ext_resource type="Texture2D" uid="uid://ci60wus17kpah" path="res://Assets/Textures/example-4-1-2681458205.png" id="1_6ebef"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_nx8ds"]
 output_port_for_preview = 0
@@ -24,7 +24,7 @@ operator = 2
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform sampler2D tex_frg_2;
 

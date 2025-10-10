@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b12knmslfe3m4"
+uid="uid://bl5i51jh4i5tq"
 path="res://.godot/imported/Brown_truck.glb-bb1a81267be51fe8ba06ce90f6acae28.scn"
 
 [deps]
@@ -37,20 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"Brown_truck_Cube_005": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Cars/BrownPickup.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://n4n71q5qie3r"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

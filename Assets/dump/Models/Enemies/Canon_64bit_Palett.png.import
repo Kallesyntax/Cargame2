@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkfmnf70xwj5h"
+uid="uid://b1aa65cuoqdnj"
 path.s3tc="res://.godot/imported/Canon_64bit_Palett.png-f07d51033c1da86c23fc23ee638694f9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

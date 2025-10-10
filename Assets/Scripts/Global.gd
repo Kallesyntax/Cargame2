@@ -36,6 +36,7 @@ func add_race_result(name: String, time: float) -> void:
 		finalize_race_results()
 		emit_signal("all_players_finished")
 
+
 func finalize_race_results() -> void:
 	race_results.sort_custom(func(a, b):
 		return a["time"] < b["time"]
@@ -49,6 +50,7 @@ func finalize_race_results() -> void:
 		if not total_scores.has(pname):
 			total_scores[pname] = 0
 		total_scores[pname] += pts
+
 
 func get_points_for_position(pos: int) -> int:
 	match pos:

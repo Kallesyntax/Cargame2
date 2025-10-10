@@ -243,6 +243,7 @@ theme_override_fonts/font = SubResource("SystemFont_5i1ob")
 theme_override_font_sizes/font_size = 24
 text = "Exit Game"
 
+
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Players1" to="." method="_on_players1_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Players2" to="." method="_on_players2_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_pressed"]

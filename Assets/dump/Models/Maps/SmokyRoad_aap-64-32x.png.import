@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b38ppi4dmun7d"
+uid="uid://btrxu5taq822q"
 path.s3tc="res://.godot/imported/SmokyRoad_aap-64-32x.png-648af68034e92747f9851ca2100b365e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

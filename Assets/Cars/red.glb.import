@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dr7706m0s0pn4"
+uid="uid://be6m1yd3ekwxk"
 path="res://.godot/imported/red.glb-37edf95ddf409d8f1cd0d4e738ef6092.scn"
 
 [deps]
@@ -37,18 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"red_Cube": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Cars/Red_car.res",
-"save_to_file/path": "uid://cj7lbp4isd468"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

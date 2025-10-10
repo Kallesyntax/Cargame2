@@ -1,4 +1,5 @@
 extends Control
+
 class_name CarSelection
 
 @onready var animation_player  = $CanvasLayer/AnimationPlayer

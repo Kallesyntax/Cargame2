@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpkp8a406sx5y"
+uid="uid://dmk1oqpglswdh"
 path.s3tc="res://.godot/imported/StoneCollection1_64bit_Palett.png-1c265c4db65b5895abf679db790ed2a7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xn01oxhnidwb"
+uid="uid://bdg8j7e20yh30"
 path.s3tc="res://.godot/imported/asna_64bit_Palett.png-e22015974b8320c8481a2cc42988aca1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

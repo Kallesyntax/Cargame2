@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvn5ugf28smaq"
+uid="uid://bd5ws8xvn1ncc"
 path="res://.godot/imported/SmokyRoad.glb-8912bb4ac87e7841b0796521701fc1ae.scn"
 
 [deps]
@@ -37,36 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"SmokyRoad_Cube_038": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/World/Maps/Smokyroad/BigRock.res",
-"save_to_file/path": "uid://2wvrrxlgxfgj"
-},
-"SmokyRoad_Plane_012": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/World/Maps/Smokyroad/Outline.res",
-"save_to_file/path": "uid://dw2q7nv7qpmm0"
-},
-"SmokyRoad_SmokyRoad": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/World/Maps/Smokyroad/SmokyRoads.res",
-"save_to_file/path": "uid://b257c6xxba77"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

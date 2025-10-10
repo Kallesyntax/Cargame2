@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsa2658j7avff"
+uid="uid://cki3r4uah4y61"
 path.s3tc="res://.godot/imported/ClutterPach1_aap-64-32x.png-2367aafc1ca6677a32ce95b938985a60.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

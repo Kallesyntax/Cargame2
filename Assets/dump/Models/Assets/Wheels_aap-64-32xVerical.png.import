@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xjlkc4xromq"
+uid="uid://cxslj2t7agtl"
 path.s3tc="res://.godot/imported/Wheels_aap-64-32xVerical.png-c71ae28008d9efad67cacd60d7d3d50d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "3c25d398f21655e80d06a10b52f5d439"
 }
 
 [deps]

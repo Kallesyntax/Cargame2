@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://crkuiclh0kgm2"
+uid="uid://hic4j6smjvnb"
 path="res://.godot/imported/canon.glb-d57b2d39fccaa3e3c9b116967b0659f3.scn"
 
 [deps]
@@ -37,36 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"canon_Cube_012": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/dump/Models/Enemies/Canon1/Canon_stand.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://bov2rxx7d8w1d"
-},
-"canon_Cylinder_005": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/dump/Models/Enemies/Canon1/Canon_canon.res",
-"save_to_file/make_streamable": "",
-"save_to_file/path": "uid://bdggcrbpiq44e"
-}
-},
-"nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": false
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
