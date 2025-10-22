@@ -1,5 +1,6 @@
 extends Node
 class_name CarState
+@onready var car_ui: Control = $Car_ui
 
 var car: VehicleBody3D          # sätts av CarStateMachine innan enter_state()
 var state_machine: CarStateMachine
@@ -95,13 +96,13 @@ func handle_throttle(delta: float) -> void:
 	var engine_power: float = 0.0
 	if brake > car.DEADZONE and throttle <= car.DEADZONE:
 		car.brake = 1000
-	elif throttle > car.DEADZONE:
+	elif throttle > car.DEADZONE and int("%3.0f" % car.LBW.get_rpm())< 500:   # Sätter maxhastigheten till 500 varv på vänster bakhjul
 		car.brake = 0
-		engine_power = throttle * car.Acceleration + car.boostSpeed
+		engine_power = throttle * car.Acceleration
 	else:
 		car.brake = 0
 
-	car.engine_force = engine_power
+	car.engine_force = engine_power + car.boostSpeed
 
 # -------- Powerups --------
 func handle_powerup_input() -> void:
@@ -109,6 +110,9 @@ func handle_powerup_input() -> void:
 		return
 	var act = "player%d_action" % (car.player_index + 1)
 	if Input.is_action_just_pressed(act) and car.powerUpNum > 0:
+		print(car.powerUpNum)
+		print("Tjoffs!")
+		state_machine.switch_to_state("PowerupState")
 		activate_powerup(car.powerUpNum)
 
 func activate_powerup(num: int) -> void:
