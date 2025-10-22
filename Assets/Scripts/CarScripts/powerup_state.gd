@@ -15,12 +15,16 @@ func enter_state():
 				await get_tree().create_timer(2.0).timeout
 				car.boostSpeed = 0
 				fire_node.stop_fire()
-			#2:
-				#car.timer.start(5)
-				#car.set_collision_layer_value(4, false)
-				#car.set_collision_mask_value(4, false)
-				#car.RealcarMesh.visible = false
-				#car.ghostMesh.visible = true
+			2:
+				car.set_collision_layer_value(4, false)
+				car.set_collision_mask_value(4, false)
+				car.carMesh.visible = false
+				car.ghostMesh.visible = true
+				await get_tree().create_timer(3.0).timeout
+				car.carMesh.visible = true
+				car.ghostMesh.visible = false
+				car.set_collision_layer_value(4, true)
+				car.set_collision_mask_value(4, true)
 			3:
 				if car.car_rocketRay:
 					var instance = rocket_scene.instantiate()
@@ -30,4 +34,3 @@ func enter_state():
 
 
 	state_machine.switch_to_state("DrivingState")
-

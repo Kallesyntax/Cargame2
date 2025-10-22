@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://y4wib0gswut3" path="res://Assets/Scripts/base_carscript.gd" id="1_urwr1"]
 [ext_resource type="PackedScene" uid="uid://dd8xegxwmg0nv" path="res://Scenes/Powerups/FireZoom.tscn" id="4_2ykyf"]
-[ext_resource type="Texture2D" uid="uid://seuq8ofjb68r" path="res://Assets/Textures/example-4-1-2681458205.png" id="5_lpfw3"]
-[ext_resource type="Texture2D" uid="uid://ccop6o7lvbjhp" path="res://Assets/Textures/BallGradient.png" id="6_kwdaq"]
+[ext_resource type="Texture2D" uid="uid://ci60wus17kpah" path="res://Assets/Textures/example-4-1-2681458205.png" id="5_lpfw3"]
+[ext_resource type="Texture2D" uid="uid://572fcfjag558" path="res://Assets/Textures/BallGradient.png" id="6_kwdaq"]
 [ext_resource type="AudioStream" uid="uid://de2qogpkpgc0a" path="res://Assets/Textures/rally-car-idle-loop-17-84405.mp3" id="7_gpiql"]
 [ext_resource type="PackedScene" uid="uid://btv16dky8ak5t" path="res://Scenes/UI/car_ui.tscn" id="9_ieg3u"]
 [ext_resource type="Script" uid="uid://c4ybubb2k6w5m" path="res://Assets/Scripts/Car_cam,era.gd" id="10_snwvq"]
@@ -94,7 +94,6 @@ keep_scale = true
 
 [sub_resource type="VisualShader" id="VisualShader_8uj5g"]
 code = "shader_type spatial;
-
 render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
 
 uniform vec4 ColorRemove : source_color;
@@ -455,7 +454,6 @@ light_specular = 3.571
 spot_range = 46.335
 spot_attenuation = 0.7
 spot_angle = 18.63
-
 
 [node name="testkamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.8038464, 0, 0.5948369, 0, 1, 0, -0.5948369, 0, -0.8038464, 5.372177, 1.1567922, -4.0974197)

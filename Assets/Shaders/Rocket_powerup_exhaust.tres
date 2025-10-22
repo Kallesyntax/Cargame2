@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://usct1seifyjb"]
 
-[ext_resource type="Texture2D" uid="uid://cdap5c2gx8jux" path="res://Assets/dump/Shaders/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg" id="1_odlki"]
+[ext_resource type="Texture2D" uid="uid://c7lcbyl2xe6b2" path="res://Assets/dump/Shaders/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg" id="1_odlki"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_fqod7"]
 operator = 1
@@ -46,9 +46,7 @@ texture_type = 1
 
 [resource]
 code = "shader_type spatial;
-
 render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled, ambient_light_disabled;
-
 
 uniform vec4 Rocket_ExhaustColor : source_color;
 uniform vec2 Speed;
