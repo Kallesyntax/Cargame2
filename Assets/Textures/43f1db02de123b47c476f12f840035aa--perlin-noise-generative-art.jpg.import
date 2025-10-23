@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfsapplic3mwc"
-path.s3tc="res://.godot/imported/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg-85eefe43ddaad615e4ce3b52b362e1e4.s3tc.ctex"
+path="res://.godot/imported/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg-85eefe43ddaad615e4ce3b52b362e1e4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Textures/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg"
-dest_files=["res://.godot/imported/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg-85eefe43ddaad615e4ce3b52b362e1e4.s3tc.ctex"]
+dest_files=["res://.godot/imported/43f1db02de123b47c476f12f840035aa--perlin-noise-generative-art.jpg-85eefe43ddaad615e4ce3b52b362e1e4.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=0
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

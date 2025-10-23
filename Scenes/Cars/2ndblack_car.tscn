@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://blcmfs3kh3nke"]
+
+[ext_resource type="Shader" uid="uid://c02sfj8l32ieq" path="res://Assets/Shaders/2ndblack_car.tres" id="1_nvnn6"]
+[ext_resource type="ArrayMesh" uid="uid://blvsfn20ulah0" path="res://Assets/Cars/BlackCar1Mesh.res" id="2_nvnn6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2yxw"]
+render_priority = 2
+shader = ExtResource("1_nvnn6")
+shader_parameter/GHostlySpeed = Vector2(0.1, 0)
+
+[node name="black_car" type="Node3D"]
+
+[node name="CarMesh2" type="MeshInstance3D" parent="."]
+material_overlay = SubResource("ShaderMaterial_b2yxw")
+mesh = ExtResource("2_nvnn6")
